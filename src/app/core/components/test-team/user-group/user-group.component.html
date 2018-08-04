@@ -1,0 +1,9 @@
+
+<div class="form-group">
+  <select name="userGroupTeam" class="form-control"
+          [(ngModel)]="defaultGroup"
+          (change)="onChangeGroup(defaultGroup)">
+  <option *ngIf="hasAllOption" value="ALL">ALL</option>
+  <option *ngFor="let userGroup of userGroups$ | async " [value]="userGroup.groupId">{{userGroup.groupName }}</option>
+</select>
+</div>

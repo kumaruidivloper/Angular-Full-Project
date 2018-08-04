@@ -1,0 +1,192 @@
+<div class="form-group">
+    <button type="button" class="btn btn-primary mr-1" [disabled]="isDisableSequence" (click)="open(addSequenceTemplate)">Add Sequence</button>
+    <button type="button" class="btn btn-primary mr-2" [disabled]="isDisableSequence" (click)="open(addSequenceGrpTemplate)">Add Sequence Group</button>
+</div>
+<div class="check">
+<ng-template #addSequenceTemplate let-dismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Sequence</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body ">
+    <tm-table *ngIf="sequence$ | async as sequence; else loading"
+              [data]="sequence"
+              [paginationParameters]="paginationParameters$ | async"
+              [filters]="filters$ | async"
+              (filterChange)="onFilterChange($event, 'sequence')"
+              (paginationChange)="onPaginationChange($event)"
+              [itemsPerPage]="itemsPerPage">
+      <tm-table-column>
+        <ng-template tmTableCellTemplate let-sequence>
+          <input type="checkbox"
+                 name="sequence"
+                 [value]="sequence"
+                 (change)="onSequenceSelectChange(sequence, $event)">
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Name" field="name" [searchable]="true"></tm-table-column>
+      <tm-table-column name="Category" field="category" [searchable]="false">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  (change)="onFilterSelect($event.target.value, 'category')"
+                  [(ngModel)]="defaultSelectionCategory">
+            <option *ngFor="let category of categorySelection" [value]="category">{{category}}</option>
+          </select>
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Track Direction" field="trackDirection" [searchable]="false">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  (change)="onFilterSelect($event.target.value, 'trackDirectionOptions')"
+                  [(ngModel)]="defaultSelectionDirection">
+            <option value="ALL">ALL</option>
+            <option *ngFor="let track of trackDirection" [value]="track">{{track}}</option>
+          </select>
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="No Of Test Cases" field="noOfTestCases" [searchable]="false"></tm-table-column>
+      <tm-table-column name="Private" field="privateSequence" [searchable]="false">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                (change)="onFilterSelect($event.target.value, 'private')"
+                  [(ngModel)]="defaultSelectionPrivate">
+            <option *ngFor="let data of isPrivateSelector" [value]="data.value">{{data.id}}</option>
+         </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{data.privateSequence | booleanToYesNo}}
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-end ">
+        <button class="btn btn-primary mr-2"
+                (click)="addSelectedSequence('singles');dismiss()"
+                [disabled]="(selectedSequence$ | async).length === 0">Add</button>
+        <button class="btn btn-primary mr-2" (click)="dismiss()">Cancel</button>
+        <button class="btn btn-primary mr-2" (click)=" onClearFilterDropDown($event, '')">Clear Filters</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #addSequenceGrpTemplate let-dismiss="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title">Add Sequence</h6>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body ">
+    <div class="clockwise pull-left">
+      <h6>Clockwise Sequence</h6>
+      <form name="clockwiseForm" #clockwiseForm="ngForm">
+    <tm-table *ngIf="clockwiseSequence$ | async as sequence; else loading"
+              [data]="sequence"
+              [paginationParameters]="clockwisePaginationParameters$ | async"
+              [filters]="clockwiseFilters$ | async"
+              (filterChange)="onFilterChange($event, 'clockwise')"
+              (paginationChange)="onClockWisePaginationChange($event)"
+              [itemsPerPage]="itemsPerPage">
+      <tm-table-column>
+        <ng-template tmTableCellTemplate let-sequence>
+          <input type="radio" name="clockwiseGroup"
+                 [value]="sequence"
+                 (change)="addToGroup(sequence, $event, 'clockwise')">
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Name" field="name" [searchable]="true"></tm-table-column>
+      <tm-table-column name="Category" field="category" [searchable]="false">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control" name="category"
+                  (change)="onFilterSelect($event.target.value, 'category', 'clockwise')"
+                  [(ngModel)]="defaultClockwiseCategory">
+            <option *ngFor="let category of categorySelection" [value]="category">{{category}}</option>
+          </select>
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="No Of Test Cases" field="noOfTestCases" [searchable]="false"></tm-table-column>
+      <tm-table-column name="Private" field="privateSequence" [searchable]="false">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control" name="private"
+                  (change)="onFilterSelect($event.target.value, 'private', 'clockwise')"
+                  [(ngModel)]="defaultClockwisePrivate">
+            <option *ngFor="let data of isPrivateSelector" [value]="data.value">{{data.id}}</option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{data.privateSequence | booleanToYesNo}}
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+      </form>
+    </div>
+    <div class="anti-clockwise pull-right">
+      <h6>Anti-Clockwise Sequence</h6>
+      <tm-table *ngIf="antiClockwiseSequence$ | async as antiSequence; else loading"
+                [data]="antiSequence"
+                [paginationParameters]="antiClockwisePaginationParameters$ | async"
+                [filters]="antiClockwiseFilters$ | async"
+                (filterChange)="onFilterChange($event, 'anti-clockwise')"
+                (paginationChange)="onAntiClockWisePaginationChange($event)"
+                [itemsPerPage]="itemsPerPage">
+        <tm-table-column>
+          <ng-template tmTableCellTemplate let-antiSequence>
+            <input type="radio" name="antiClockwiseGroup"
+                   [value]="antiSequence"
+                   (change)="addToGroup(antiSequence, $event, 'anti-clockwise')">
+          </ng-template>
+        </tm-table-column>
+        <tm-table-column name="Name" field="name" [searchable]="true"></tm-table-column>
+        <tm-table-column name="Category" field="category" [searchable]="false">
+          <ng-template tmTableFilterTemplate>
+            <select class="form-control"
+                    (change)="onFilterSelect($event.target.value, 'category', 'anti-clockwise')"
+                    [(ngModel)]="defaultAntiClockwiseCategory">
+              <option *ngFor="let category of categorySelection" [value]="category">{{category}}</option>
+            </select>
+          </ng-template>
+        </tm-table-column>
+        <tm-table-column name="No Of Test Cases" field="noOfTestCases" [searchable]="false"></tm-table-column>
+        <tm-table-column name="Private" field="privateSequence" [searchable]="false">
+          <ng-template tmTableFilterTemplate>
+            <select class="form-control"
+                    (change)="onFilterSelect($event.target.value, 'private', 'anti-clockwise')"
+                    [(ngModel)]="defaultAntiClockwisePrivate">
+              <option *ngFor="let data of isPrivateSelector" [value]="data.value">{{data.id}}</option>
+            </select>
+          </ng-template>
+          <ng-template tmTableCellTemplate let-data>
+            {{data.privateSequence | booleanToYesNo}}
+          </ng-template>
+        </tm-table-column>
+      </tm-table>
+    </div>
+    <div class="col-lg-12 d-inline-block userSelection">
+      <ul class="pull-left" *ngIf="selectedGroup.length > 0">
+        <li *ngFor="let group of selectedGroup;index as i">
+          {{group[0].name}} - {{group[1].name}} are grouped <span (click)="removeGroup(i)"><i class="fa fa-close"></i> </span>
+        </li>
+      </ul>
+      <button class="pull-right btn-toolbar"
+              [disabled]="disableMakeGroupBtn"
+              (click)="groupSelectedSequence(clockwiseForm)">Group Selected</button>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="">
+      <div class="col-lg-12 d-flex justify-content-end ">
+        <button class="btn btn-primary mr-2"
+                (click)="addSelectedSequence('groups');dismiss()"
+                [disabled]="selectedGroup.length === 0">Add</button>
+        <button class="btn btn-primary mr-2" (click)="dismiss()">Cancel</button>
+        <button class="btn btn-primary mr-2" (click)=" onClearFilterDropDown($event, 'clearGroup')">Clear Filters</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+</div>

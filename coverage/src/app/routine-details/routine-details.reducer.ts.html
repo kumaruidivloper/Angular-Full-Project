@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/routine-details/routine-details.reducer.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/app/routine-details</a> routine-details.reducer.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.68% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>28/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>7/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">28.57% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">84.38% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>27/32</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { RoutineDetailsFilters, RoutineDetails } from './routine-details.model';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import {
+  ActivitiesPaginate,
+  GetRoutineDetailsSuccess, GetRoutineResultTypeSuccess,
+  routineDetailsActionTypes, UpdateActivitiesFilters,
+  UpdateRoutineForm, UpdateUserGroupSuccess, UpdateUserSiteSuccess
+} from './routine-details.action';
+import { RoutineDetailsAction } from './routine-details.action';
+import { PaginationParameters } from '../core/interfaces/pagination-params.i';
+import { cloneDeep, omitBy } from 'lodash';
+import { Filter } from '../routine-details/routine-details.model';
+&nbsp;
+export const routineDetailsFeatureName = 'RoutineDetails';
+&nbsp;
+export interface RoutineDetailsState {
+  routineResultType: any;
+  routineDetails: RoutineDetails;
+  pagination: PaginationParameters;
+  filters: RoutineDetailsFilters;
+  routineUserGroup: string;
+  routineUserSite: string;
+}
+&nbsp;
+export const routineDetailsDefaultState: RoutineDetailsState = {
+  routineResultType: [],
+  routineDetails: {},
+  filters: {},
+  pagination: {
+    page: 1,
+    pageSize: 5
+  },
+  routineUserGroup: '',
+  routineUserSite: ''
+};
+&nbsp;
+export function routineDetailsReducer(state: RoutineDetailsState = routineDetailsDefaultState,
+                                   action: RoutineDetailsAction): RoutineDetailsState {
+&nbsp;
+  switch (action.type) {
+<span class="branch-0 cbranch-no" title="branch not covered" >    case routineDetailsActionTypes.GET_ROUTINE_RESULT_TYPE_SUCCESS:</span>
+<span class="cstat-no" title="statement not covered" >      return &lt;RoutineDetailsState&gt;{</span>
+        ...state,
+        routineResultType: (&lt;GetRoutineResultTypeSuccess&gt; action).payload
+      };
+    case routineDetailsActionTypes.GET_ROUTINE_DETAILS_SUCCESS:
+      return &lt;RoutineDetailsState&gt;{
+        ...state,
+        routineDetails: (&lt;GetRoutineDetailsSuccess&gt; action).payload
+      };
+    case routineDetailsActionTypes.UPDATE_ACTIVITIES_FILTERS:
+      const filterToUpdate: Filter = (&lt;UpdateActivitiesFilters&gt;action).payload;
+&nbsp;
+      const updatedFilters: {[key: string]: string} = cloneDeep(state.filters);
+&nbsp;
+      updatedFilters[filterToUpdate.field] = filterToUpdate.value;
+&nbsp;
+      return &lt;RoutineDetailsState&gt;{
+        ...state,
+        filters: omitBy(updatedFilters, value =&gt; value === '')
+      };
+    case routineDetailsActionTypes.CLEAR_ACTIVITIES_FILTERS:
+      return &lt;RoutineDetailsState&gt;{
+        ...state,
+        filters: {}
+      };
+    case routineDetailsActionTypes.ACTIVITIES_PAGINATE:
+      return &lt;RoutineDetailsState&gt;{
+        ...state,
+        pagination: (&lt;ActivitiesPaginate&gt;action).payload
+      };
+<span class="branch-5 cbranch-no" title="branch not covered" >    case routineDetailsActionTypes.CLEAR_ROUTINE_DETAILS:</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        ...state,
+        routineDetails: {}
+      };
+<span class="branch-6 cbranch-no" title="branch not covered" >    case routineDetailsActionTypes.UPDATE_ROUTINE_FORM:</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        ...state,
+        routineDetails: {
+          ...state.routineDetails,
+          ...(&lt;UpdateRoutineForm&gt;action).routineDetails
+        }
+      };
+<span class="branch-7 cbranch-no" title="branch not covered" >    case routineDetailsActionTypes.UPDATE_USER_SITE_SUCCESS:</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        ...state,
+        routineUserSite: (&lt;UpdateUserSiteSuccess&gt; action).payload
+      };
+<span class="branch-8 cbranch-no" title="branch not covered" >    case routineDetailsActionTypes.UPDATE_USER_GROUP_SUCCESS:</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        ...state,
+        routineUserGroup: (&lt;UpdateUserGroupSuccess&gt; action).payload
+      };
+    default:
+      return state;
+  }
+}
+&nbsp;
+export const getRoutineDetails = <span class="fstat-no" title="function not covered" >(</span>state: RoutineDetailsState) =&gt; <span class="cstat-no" title="statement not covered" >state.routineDetails;</span>
+export const getFilters = <span class="fstat-no" title="function not covered" >(</span>state: RoutineDetailsState) =&gt; <span class="cstat-no" title="statement not covered" >state.filters;</span>
+export const getRoutineResultType = <span class="fstat-no" title="function not covered" >(</span>state: RoutineDetailsState) =&gt; <span class="cstat-no" title="statement not covered" >state.routineResultType;</span>
+export const updateUserSite = <span class="fstat-no" title="function not covered" >(</span>state: RoutineDetailsState) =&gt; <span class="cstat-no" title="statement not covered" >state.routineUserSite;</span>
+export const updateUserGroup = <span class="fstat-no" title="function not covered" >(</span>state: RoutineDetailsState) =&gt; <span class="cstat-no" title="statement not covered" >state.routineUserGroup;</span>
+&nbsp;
+export const stateSelector = createFeatureSelector&lt;RoutineDetailsState&gt;(routineDetailsFeatureName);
+export const routineDetailsSelector = createSelector(stateSelector, getRoutineDetails);
+export const filtersSelector = createSelector(stateSelector, getFilters);
+export const resultTypeSelector = createSelector(stateSelector, getRoutineResultType);
+export const updateUserSiteSelector = createSelector(stateSelector, updateUserSite);
+export const updateUserGroupSelector = createSelector(stateSelector, updateUserGroup);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 12 2018 10:45:07 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

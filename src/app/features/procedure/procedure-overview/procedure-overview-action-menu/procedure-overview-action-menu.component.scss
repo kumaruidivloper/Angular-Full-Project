@@ -1,0 +1,12 @@
+// @todo this selector is really confusing, it would be much cleaner in cases like this to add a class to te element
+// however, one thing to remember about angular is that these SCSS files are scoped to the component.
+// therefore we can simply "input" (as the template only has 1 input, and it will not affect other inputs in other
+// components.
+div.col-md-3 label + input[type="checkbox"]{
+  margin: 9px 0 0 0;
+  height: 20px;
+  width: 20px;
+}
+.btn.disabled, .btn:disabled {
+  opacity: .45;
+}

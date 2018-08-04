@@ -1,0 +1,11 @@
+{
+  "MENU.TITLE": "Testhanterare",
+  "MENU.HELP": "Hjälp",
+  "MENU.SIGNOUT": "Logga ut",
+  "MENU.TEST": "Testa",
+  "MENU.PROCEDURE": "Procedur",
+  "MENU.SEQUENCE": "Sekvens",
+  "MENU.ROUTINE": "Rutin",
+  "MENU.TESTCASESTEP": "Testa Fall-Steg",
+  "MENU.TESTPROGRESS": "Testa Framsteg"
+}

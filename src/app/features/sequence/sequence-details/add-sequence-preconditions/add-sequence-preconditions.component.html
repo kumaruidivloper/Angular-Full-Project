@@ -1,0 +1,136 @@
+
+<div class="row ml-1" >
+  <div class="">
+    <tm-add-sequence-modal (data)="getSelectedTableData($event)"
+                           (sequenceAdded)="onDataAdd($event)"
+                           [isDisableSequence]="disableBtn"
+    ></tm-add-sequence-modal>
+  </div>
+  <div class="">
+    <tm-routine-lists [isDisableRoutine]="disableBtn" (routineAdded)="onDataAdd($event)"></tm-routine-lists>
+  </div>
+  <div class="">
+    <tm-test-case-step-lists [isDisableCaseStep]="disableBtn" (testCaseStepAdded)="onDataAdd($event)"></tm-test-case-step-lists>
+  </div>
+</div>
+<h6 class="pt-1 pb-2">Selected Sequences/Routines/Test Cases/Test Steps:</h6>
+<div class=" mb-3">
+  <div class="col-12 px-0" *ngIf="selectedData && selectedData.length > 0; else noData">
+    <tm-table *ngIf="selectedData as data"
+              [data]="data"
+              class="card">
+      <tm-table-column name="Name" field="name">
+          <ng-template tmTableCellTemplate let-data let-rowIndex="rowIndex">
+        <span *ngIf="data.sequenceLineType === 'SEQUENCE_GROUP'">
+               <span class="toggleTableRow" (click)="expandRow[rowIndex] = !expandRow[rowIndex]">
+                 <i class="fa" [ngClass]="expandRow[rowIndex] ? 'fa-caret-down' : 'fa-caret-right'"></i>
+               </span>
+                {{data.sequenceGroupID.sequenceGroupLines[0].sequence.name}}
+                <div class="subRow" *ngIf="expandRow[rowIndex]"> {{data.sequenceGroupID.sequenceGroupLines[1].sequence.name}}</div>
+              </span>
+              <span *ngIf="data.sequenceLineType !== 'SEQUENCE_GROUP'">
+                <span *ngIf="data.sequenceLineType === 'TEST_CASE'">{{data.testCase.name}}</span>
+                <span *ngIf="data.sequenceLineType === 'TEST_STEP'">{{data.testCase.name}}</span>
+                <span *ngIf="data.sequenceLineType === 'ROUTINE'">{{data.routine.name}}</span>
+                <span *ngIf="data.sequenceLineType === 'SEQUENCE'">{{data.sequence.name}}</span>
+              </span>
+          </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Type" field="type">
+        <ng-template tmTableCellTemplate let-data let-rowIndex="rowIndex">
+         <span *ngIf="data.sequenceLineType === 'SEQUENCE_GROUP'">
+            SEQUENCE GROUP
+            <div class="subRow" *ngIf="expandRow[rowIndex]">SEQUENCE GROUP</div>
+          </span>
+          <span *ngIf="data.sequenceLineType !== 'SEQUENCE_GROUP'">
+              <span *ngIf="data.sequenceLineType === 'TEST_CASE'">{{data.sequenceLineType}}</span>
+              <span *ngIf="data.sequenceLineType === 'TEST_STEP'">{{data.sequenceLineType}}</span>
+              <span *ngIf="data.sequenceLineType === 'ROUTINE'">{{data.sequenceLineType}}</span>
+              <span *ngIf="data.sequenceLineType === 'SEQUENCE'">{{data.sequenceLineType}}</span>
+            </span>
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Track Direction" field="trackDirection">
+        <ng-template tmTableCellTemplate let-data let-rowIndex="rowIndex">
+         <span *ngIf="data.sequenceLineType === 'SEQUENCE_GROUP'">
+            {{data.sequenceGroupID.sequenceGroupLines[0].sequence.trackDirection}}
+            <div class="subRow" *ngIf="expandRow[rowIndex]"> {{data.sequenceGroupID.sequenceGroupLines[1].sequence.trackDirection}}</div>
+          </span>
+          <span *ngIf="data.sequenceLineType !== 'SEQUENCE_GROUP'">
+              <span *ngIf="data.sequenceLineType === 'SEQUENCE'">{{data.sequence.trackDirection}}</span>
+          </span>
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Total No of Test Case" field="noOfTestCases">
+          <ng-template tmTableCellTemplate let-data let-rowIndex="rowIndex">
+           <span *ngIf="data.sequenceLineType === 'SEQUENCE_GROUP'">
+              {{data.sequenceGroupID.sequenceGroupLines[0].sequence.noOfTestCases}}
+              <div class="subRow" *ngIf="expandRow[rowIndex]"> {{data.sequenceGroupID.sequenceGroupLines[1].sequence.noOfTestCases}}</div>
+            </span>
+            <span *ngIf="data.sequenceLineType !== 'SEQUENCE_GROUP'">
+              <span *ngIf="data.sequenceLineType === 'TEST_CASE'">1</span>
+              <span *ngIf="data.sequenceLineType === 'SEQUENCE'">{{data.sequence.noOfTestCases}}</span>
+            </span>
+          </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Level" field="level">
+        <ng-template tmTableCellTemplate let-data let-rowIndex="rowIndex">
+          <span *ngIf="data.sequenceLineType === 'SEQUENCE_GROUP'">
+              {{data.sequenceGroupID.sequenceGroupLines[0].sequence.level}}
+              <div class="subRow" *ngIf="expandRow[rowIndex]"> {{data.sequenceGroupID.sequenceGroupLines[1].sequence.level}}</div>
+            </span>
+          <span *ngIf="data.sequenceLineType !== 'SEQUENCE_GROUP'">
+                <span *ngIf="data.sequenceLineType === 'TEST_CASE'">{{data.testCase.level}}</span>
+              <span *ngIf="data.sequenceLineType === 'TEST_STEP'">{{data.testCase.level}}</span>
+              <span *ngIf="data.sequenceLineType === 'SEQUENCE'">{{data.sequence.level}}</span>
+            </span>
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Speed" field="speed">
+        <ng-template tmTableCellTemplate let-data let-rowIndex="rowIndex">
+          <span *ngIf="data.sequenceLineType === 'SEQUENCE_GROUP'"></span>
+          <span *ngIf="data.sequenceLineType !== 'SEQUENCE_GROUP'">
+            <span *ngIf="data.sequenceLineType === 'TEST_CASE' && data.testCase.speed.speedValue !== ''">
+              {{data.testCase.speed.speedValue}} {{data.testCase.speed.speedUnit}}
+            </span>
+            <span *ngIf="data.sequenceLineType === 'TEST_STEP' && data.testCase.speed.speedValue !== ''">
+              {{data.testCase.speed.speedValue}} {{data.testCase.speed.speedUnit}}
+            </span>
+          </span>
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column>
+        <ng-template tmTableCellTemplate let-data let-rowIndex="rowIndex" let-rowCount="rowCount" let-data>
+        <div class="d-flex justify-content-end ">
+          <button class="btn btn-info mr-1" (click)="onMoveUpClick(rowIndex)" [disabled]="rowIndex === 0">
+            <i class="fa fa-caret-up"></i></button>
+          <button class="btn btn-info mr-1" (click)="onMoveDownClick(rowIndex)" [disabled]="rowIndex === rowCount - 1">
+            <i class="fa fa-caret-down"></i></button>
+          <ng-template #popContentOnCreate >
+            <div *ngIf="isCreate">
+              <p>Are you sure to delete this item?</p>
+              <button type="button" class="btn btn-outline-success" (click)="onDeleteClick(rowIndex, data.id)">Yes</button>
+              <button type="button" class="btn  btn-outline-primary" (click)="linePop.close()">No</button>
+            </div>
+            <div *ngIf="!isCreate">
+              <p *ngIf="data.id === 0">Are you sure to delete this new item?</p>
+              <p *ngIf="data.id !== 0">Are you sure to delete existing item? This page will be auto saved once line item is deleted</p>
+              <button type="button" class="btn btn-outline-success"  (click)="onDeleteClick(rowIndex, data.id)">Yes</button>
+              <button type="button" class="btn  btn-outline-primary" (click)="linePop.close()">No</button>
+            </div>
+          </ng-template>
+          <button type="button" [disabled]="disableBtn"  class="btn btn-danger" #linePop="ngbPopover" [ngbPopover]="popContentOnCreate" popoverTitle="Delete Item">
+            <i class="fa fa-trash-o"></i>
+          </button>
+        </div>
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+  </div>
+  <ng-template #noData>
+    <div class="alert alert-info">
+      No Data
+    </div>
+  </ng-template>
+
+</div>

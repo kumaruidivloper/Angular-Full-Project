@@ -1,0 +1,30 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+
+<div class="card">
+  <div class="card-header d-flex justify-content-between flex-column flex-md-row">
+    <div>
+      <button class="btn btn-primary" [disabled]="disableSave" (click)="onSave()">Save</button>
+      <button class="btn btn-primary">Create Copy</button>
+      <button class="btn btn-primary">Delete</button>
+    </div>
+  </div>
+
+  <div class="card-block visible-sm-* col-sm-5 col-md-6 col-lg-4">
+    <div class="d-flex justify-content-start">
+      <label class="pt-2 pr-2">Test Team:</label>
+      <span class="pr-2">
+              <tm-user-group (userGroupChange)="onUserGroupChange($event)"
+                             [hasAllOption]="false"></tm-user-group>
+            </span>
+      <span class="pr-2">
+               <tm-user-site (userSiteChange)="onUserSiteChange($event)"
+                             [hasAllOption]="false"></tm-user-site>
+            </span>
+    </div>
+  </div>
+
+  <tm-procedure-form [procedure]="procedure$ | async"
+                     (addSequence)="onAddSequence($event)"
+                     (addRoutine)="onAddRoutine($event)"></tm-procedure-form>
+</div>

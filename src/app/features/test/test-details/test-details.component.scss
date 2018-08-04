@@ -1,0 +1,45 @@
+@import "../../../../variables";
+
+.card {
+  margin-top: 20px;
+}
+
+button.date-picker-image img{
+  width: 1.2rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.userSiteSelect{
+  margin: 0 30px 0 0;
+}
+
+.userGroupSelect, .userSiteSelect {
+  width: 155px;
+}
+
+.table-striped.table{
+  border-color: #fff;
+  border-spacing: 10px;
+}
+
+
+.modal-header {border-bottom:0}
+.hint-text{
+  color: map-get($colors, grey);
+}
+.form-group{
+  margin-bottom: 1.5rem;
+  //display: inline-block;
+  .form-control, .input-group-addon{
+    border: 1px solid darkgray;
+  }
+  .input-group-addon{
+    border-left:0;
+  }
+}
+
+.alert-danger {
+  font-size: 0.9rem;
+  padding: 0.7rem;
+}

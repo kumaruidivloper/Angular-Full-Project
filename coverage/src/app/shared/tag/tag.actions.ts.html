@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/shared/tag/tag.actions.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/shared/tag</a> tag.actions.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">61.43% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>43/70</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">56% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>14/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">53.7% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>29/54</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Action } from '@ngrx/store';
+import { PaginationParameters } from '../../core/interfaces/pagination-params.i';
+import { PaginatedResponse } from '../../core/interfaces/paginated-response.i';
+import { Filter, Tag } from './tag.model';
+&nbsp;
+export const tagsActionTypes = {
+  UPDATE_TAG_FILTER: '[TagList] Update Tag Filters',
+  CLEAR_TABLE_FILTERS: '[TagList] Clear Filters of Tag Table',
+  EMPTY_FILTERS: '[TagList] Empty Tag Filters',
+  LOAD_TAGS: '[TagList] Load Tags in TestCaseStep',
+  LOAD_TAGS_SUCCESS: '[TagList] Load Tags in TestCaseStep Successfully',
+  LOAD_TAGS_FAILURE: '[TagList] Load Tags in TestCaseStep Failure',
+  SORT_TAGS: '[TagList] Sort Tags',
+  PAGINATE_TAGS: '[TagList] Pages of Tag',
+  SELECT_TAGS: '[TagList] Select Tags',
+  DESELECT_TAGS: '[TagList] Deselect Tags',
+  REORDER_TEST_CASE_TAGS: '[TagList] Reorder Test Case Tags',
+  REORDER_TEST_STEP_TAGS: '[TagList] Reorder Test Step Tags',
+  DELETE_TEST_CASE_TAGS: '[TagList] Delete Test Case Tags',
+  DELETE_TEST_STEP_TAGS: '[TagList] Delete Test Step Tags',
+  UPDATE_SELECTED_TAGS: '[TagList] Update Selected Tags'
+};
+&nbsp;
+export class UpdateTagFilters implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.UPDATE_TAG_FILTER;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: Filter)</span> {}
+}
+&nbsp;
+export class ClearTagTableFilters implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.CLEAR_TABLE_FILTERS;</span>
+}
+&nbsp;
+export class LoadTags implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.LOAD_TAGS;</span>
+}
+&nbsp;
+export class LoadTagsSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.LOAD_TAGS_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: PaginatedResponse&lt;Tag[]&gt;)</span> {}
+}
+&nbsp;
+export class LoadTagsFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.LOAD_TAGS_FAILURE;</span>
+}
+&nbsp;
+export class SortTags implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.SORT_TAGS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: string)</span> {}
+}
+&nbsp;
+export class PaginateTags implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.PAGINATE_TAGS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: PaginationParameters)</span> {}
+}
+export class SelectTags implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.SELECT_TAGS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>tag: Tag)</span> {}
+}
+&nbsp;
+export class DeSelectTags implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.DESELECT_TAGS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>name: string)</span> {}
+}
+&nbsp;
+export class ReorderTestCaseTags implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.REORDER_TEST_CASE_TAGS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>from: number,</span> public <span class="cstat-no" title="statement not covered" >to: number)</span> {}
+}
+&nbsp;
+export class ReorderTestStepTags implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.REORDER_TEST_STEP_TAGS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>from: number,</span> public <span class="cstat-no" title="statement not covered" >to: number)</span> {}
+}
+&nbsp;
+export class DeleteTestCaseTags implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.DELETE_TEST_CASE_TAGS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>tag: number)</span> {}
+}
+export class DeleteTestStepTags implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.DELETE_TEST_STEP_TAGS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>tag: number)</span> {}
+}
+export class UpdateSelectedTags implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = tagsActionTypes.UPDATE_SELECTED_TAGS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>tags: Tag[])</span> {}
+}
+&nbsp;
+export type TagActions = UpdateTagFilters | ClearTagTableFilters | LoadTags | LoadTagsSuccess | LoadTagsFailure
+  | SortTags | PaginateTags | SelectTags | DeSelectTags | ReorderTestCaseTags | ReorderTestStepTags
+  | DeleteTestCaseTags | DeleteTestStepTags  | UpdateSelectedTags;
+&nbsp;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\sorter.js"></script>
+</body>
+</html>

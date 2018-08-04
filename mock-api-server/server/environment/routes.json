@@ -1,0 +1,6 @@
+{
+  "/api/test": "/test",
+  "/api/user": "/user",
+  "/api/userGroup" : "/userGroup",
+  "/api/site" : "/site"
+}

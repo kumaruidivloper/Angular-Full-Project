@@ -1,0 +1,73 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+<div class="card application">
+  <div class="card-header">
+    <tm-sequence-overview-action-menu [disableUpdateSequence]="isUpdateDisabled"
+                                      (clearFilterDropDown)="onClearFilterDropDown($event)"
+                                      [disableCreateSequence]="disabledCreate"
+                                      [data]="sequenceById"
+                                      [sequenceTestTeam]="selectedTeamData"></tm-sequence-overview-action-menu>
+  </div>
+  <!--<div class="card-block col-md-12">-->
+    <div class="form-group user-team d-flex mt-3 ml-3 mb-0">
+      <label class="pt-2 pr-2">Test Team:</label>
+      <span class="pr-2">
+      <tm-user-group (userGroupChange)="onTestTeamGroup($event)"
+                     [hasAllOption]="true"
+                     (change)="onChangeEmit()"></tm-user-group>
+    </span>
+      <span class="pr-2">
+       <tm-user-site (userSiteChange)="onTestTeamSite($event)"
+                     [hasAllOption]="true"
+                     (change)="onChangeEmit()"></tm-user-site>
+    </span>
+    </div>
+  <!--</div>-->
+  <tm-table [data]="sequence$ | async"
+            [paginationParameters]="paginationParameters$ | async"
+            [sort]="sort$ | async"
+            [filters]="filters$ | async"
+            (sortChange)="onSortChange($event)"
+            (paginationChange)="onPaginationChange($event)"
+            (rowSelect)="onRowSelect($event)"
+            (rowAction)=" onRowAction($event)"
+            (resetSelection)="resetOnChangeTestTeamFilter($event)"
+            (disableUpdateButton)="disableUpdateButtonTestTeamFilter($event)"
+            [disableSelectedRow]="onChangeTestTeamFilter"
+            (filterChange)="onFilterChange($event)"
+            [itemsPerPage]="itemsPerPage">
+    <tm-table-column name="Site" field="sequenceSite">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.sequenceSite.siteName}}
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Name" field="name" [searchable]="true"></tm-table-column>
+    <tm-table-column name="Category" field="category" [searchable]="false">
+      <ng-template tmTableFilterTemplate>
+        <select class="form-control"
+                [(ngModel)]="defaultSelectionCategory"
+                (change)="onFilterSelect($event.target.value, 'category')">
+          <option *ngFor="let category of categorySelection" [value]="category">{{category}}</option>
+        </select>
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="Private" field="privateSequence" [searchable]="false">
+      <ng-template tmTableFilterTemplate>
+        <select class="form-control"
+                [(ngModel)]="defaultSelectionPrivate"
+                (change)="onFilterSelect($event.target.value, 'private')">
+          <option *ngFor="let data of isPrivateSelector" [value]="data.value">{{data.id}}</option>
+        </select>
+      </ng-template>
+      <ng-template tmTableCellTemplate let-data>
+       {{data.privateSequence | booleanToYesNo}}
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="No Of Test Case" field="noOfTestCases" [searchable]="false"></tm-table-column>
+    <tm-table-column name="Description" field="description" [searchable]="false"></tm-table-column>
+  </tm-table>
+
+</div>
+
+

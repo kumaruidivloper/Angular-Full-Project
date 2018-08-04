@@ -1,0 +1,6 @@
+<div class="form-group">
+  <select name="userGroupTeam" class="form-control" [(ngModel)]="defaultSite" (change)="onChangeSite(defaultSite)">
+    <option *ngIf="hasAllOption" value="ALL">ALL</option>
+    <option *ngFor="let site of userSites$ | async " [value]="site.siteId">{{ site.siteName }}</option>
+  </select>
+</div>

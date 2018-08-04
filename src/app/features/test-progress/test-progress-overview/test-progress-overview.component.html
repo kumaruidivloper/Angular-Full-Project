@@ -1,0 +1,137 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+<div class="card application">
+  <div class="card-header">
+    <tm-test-progress-overview-action-menu
+      [disableUpdateTestProgress]="disabledUpdate"
+      [removedButtonForReader]="RemovedButton"
+      (clearFilterDropDown)="onClearFilterDropDown($event)"
+      (createNew)="onCreateTest($event)"
+    [testId]="testDetailsById">
+    </tm-test-progress-overview-action-menu>
+  </div>
+  <div class="form-group user-team d-flex mt-3 ml-3 mb-0">
+    <label class="pt-2 pr-2">Test Team:</label>
+    <span class="pr-2">
+      <tm-user-group (userGroupChange)="onTestTeamGroup($event)"
+                     [hasAllOption]="true" (change)="onChangeEmit()"></tm-user-group>
+    </span>
+    <span class="pr-2">
+       <tm-user-site (userSiteChange)="onTestTeamSite($event)"
+                     [hasAllOption]="true" (change)="onChangeEmit()"></tm-user-site>
+    </span>
+  </div>
+  <tm-table [data]="testProgress$ | async"
+            [sort]="sort$ | async"
+            [paginationParameters]="paginationParameters$ | async"
+            [filters]="filters$ | async"
+            (sortChange)="onSortChange($event)"
+            (paginationChange)="onPaginationChange($event)"
+            (rowSelect)="onRowSelect($event)"
+            (rowAction)="onRowAction($event)"
+            (disableUpdateButton)="disableUpdateButtonTestTeamFilter($event)"
+            (resetSelection)="resetOnChangeTestTeamFilter($event)"
+            [disableSelectedRow]="onChangeTestTeamFilter"
+            (filterChange)="onFilterChange($event)"
+            [itemsPerPage]="itemsPerPage">
+    <tm-table-column name="Site" field="testSite">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.testSite.siteName}}
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Test Object" field="testObjectField" [searchable]="true"></tm-table-column>
+
+    <tm-table-column name="Name" field="name" [searchable]="true"></tm-table-column>
+
+    <tm-table-column name="Test Req ID" field="testRequestId" [searchable]="true"  *ngIf="removedTableColumnForLeader">
+      <ng-template tmTableCellTemplate let-data>
+        <span *ngIf="data.latestTestStatusLog === null"> {{nullFiller}} </span>
+        <span *ngIf="data.latestTestStatusLog">{{data.testRequestId}}</span>
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Test Requester" field="testRequester" [searchable]="true" *ngIf="removedTableColumnForLeader">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.testRequester}}
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Project" field="project" [searchable]="true"></tm-table-column>
+
+    <tm-table-column name="Progress (Done)" field="progress" [searchable]="false"></tm-table-column>
+
+    <tm-table-column name="Deviation" field="deviation" [searchable]="false" *ngIf="removedTableColumnForLeader">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.deviation}}
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Unhandled Fault Reports" field="unhandledFaultReports" [searchable]="false" *ngIf="removedTableColumnForReader">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.unhandledFaultReports}}
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Test Leader" field="testLeader" [searchable]="true">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.testUser.firstName}} {{data.testUser.lastName}}
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Status" field="status" [searchable]="false">
+      <ng-template tmTableFilterTemplate>
+        <select class="form-control"
+                (change)="onTestStatusChange($event.target.value)"
+                [formControl]="testStatusSelector" [(ngModel)]="defaultStatus">
+          <option *ngFor="let option of testStatusOptions | optionsFromEnum" [value]="option.value">
+            {{option.label}}
+          </option>
+        </select>
+      </ng-template>
+      <ng-template tmTableCellTemplate let-data>
+        <span *ngIf="data.latestTestStatusLog === null"> {{nullFiller}} </span>
+        <span *ngIf="data.latestTestStatusLog">{{data.latestTestStatusLog.status}}</span>
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Causes" field="causes" [searchable]="false">
+      <ng-template tmTableFilterTemplate>
+          <select  class="form-control"
+                   (change)="filterSelect($event.target.value, 'causes')"
+                   [(ngModel)]="defaultCauseOrRunningBy">
+            <option *ngFor="let option of causeRunningByOptions | optionsFromEnum" [value]="option.value">{{option.label}}</option>
+          </select>
+      </ng-template>
+      <ng-template tmTableCellTemplate let-data>
+        <span *ngIf="data.latestTestStatusLog === null"> {{nullFiller}} </span>
+        <span *ngIf="data.latestTestStatusLog && data.latestTestStatusLog.causes === null"> {{nullFiller}} </span>
+        <span *ngIf="data.latestTestStatusLog && data.latestTestStatusLog.causes">{{data.latestTestStatusLog.causes}}</span>
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Running by" field="runningBy" [searchable]="false" >
+      <ng-template tmTableCellTemplate let-data>
+        <span *ngIf="data.latestTestStatusLog === null"> {{nullFiller}} </span>
+        <span *ngIf="data.latestTestStatusLog &&
+       (data.latestTestStatusLog.runningBy === null || data.latestTestStatusLog.runningBy.trim() =='')"> {{nullFiller}} </span>
+        <span *ngIf="data.latestTestStatusLog && data.latestTestStatusLog.runningBy">{{data.latestTestStatusLog.runningBy}}</span>
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Private" field="privateTest" [searchable]="false" *ngIf="removedTableColumnForReader">
+      <ng-template tmTableFilterTemplate>
+        <select  class="form-control"
+                 (change)="filterSelect($event.target.value, 'privateTest')"
+                 [(ngModel)]="defaultSelectionPrivate">
+          <option *ngFor="let val of privateSelector" [value]="val.value">{{val.id}}</option>
+        </select>
+      </ng-template>
+    </tm-table-column>
+
+  </tm-table>
+</div>
+
+
+
+

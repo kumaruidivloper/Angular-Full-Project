@@ -1,0 +1,506 @@
+//{
+//  "id": 0,
+//  "type": "STANDARD",
+//  "name": "Procedure2",
+//  "description": "string",
+//  "basedOn": {
+//    "id": 0,
+//    "name": "string"
+//  },
+//  "changeInfo": {
+//    "created": "2018-07-11T05:10:01.069Z",
+//    "lastChanged": "2018-07-11T05:10:01.069Z",
+//    "changedByUserId": "PVT_GOT",
+//    "changedByFirstName": "PVT",
+//    "changedByLastName": "GOT"
+//  },
+//  "changed": true,
+//  "category": "STANDARD",
+//  "procedureSite": {
+//    "siteId": "GOT",
+//    "siteName": "GOT"
+//  },
+//  "procedureUserGroup": {
+//    "groupId": "PVT",
+//    "groupName": "PVT"
+//  },
+//  "testOverView": {
+//    "testId": 29,
+//    "name": "Engine Test",
+//    "description": "string",
+//    "testStatus": "INITIATED",
+//    "plannedStartDate": "2018-07-11T05:10:01.069Z",
+//    "actualStartDate": "2018-07-11T05:10:01.069Z",
+//    "plannedEndDate": "2018-07-11T05:10:01.069Z",
+//    "productClass": "string",
+//    "wbs": "string",
+//    "project": "string",
+//    "privateTest": true,
+//    "testObjectField": "string",
+//    "testRequestId": "string",
+//    "testSite": {
+//      "siteId": "GOT",
+//      "siteName": "GOT"
+//    },
+//    "testObjectPhaseView": {
+//      "name": "string",
+//      "type": "string",
+//      "plannedAssemblyStartDate": "2018-07-11T05:10:01.069Z",
+//      "actualAssemblyStartDate": "2018-07-11T05:10:01.069Z",
+//      "uid": 0
+//    },
+//    "testUserGroup": {
+//      "groupId": "string",
+//      "groupName": "string"
+//    },
+//    "testUser": {
+//      "firstName": "string",
+//      "lastName": "string"
+//    },
+//    "testSwVersion": {
+//      "name": "string"
+//    },
+//    "testProcedure": [
+//      null
+//    ],
+//    "changeInfo": {
+//      "created": "2018-07-11T05:10:01.069Z",
+//      "lastChanged": "2018-07-11T05:10:01.069Z",
+//      "changedByUserId": "string",
+//      "changedByFirstName": "string",
+//      "changedByLastName": "string"
+//    }
+//  },
+//  "lines": [
+//    {
+//      "id": 0,
+//      "lineNo": 0,
+//      "procedureLineType": "TESTCASE",
+//      "testCase": {
+//        "id": 0,
+//        "name": "string",
+//        "level": "string",
+//        "speed": {
+//          "speedValue": "string",
+//          "speedUnit": "string"
+//        },
+//        "testCaseStepType": "TEST_CASE",
+//        "changeInfo": {
+//          "created": "2018-07-19T09:57:28.604Z",
+//          "lastChanged": "2018-07-19T09:57:28.604Z",
+//          "createdByUserId": "string",
+//          "changedByUserId": "string",
+//          "changedByFirstName": "string",
+//          "changedByLastName": "string"
+//        },
+//        "site": {
+//          "siteId": "string",
+//          "siteName": "string"
+//        },
+//        "userGroup": {
+//          "groupId": "string",
+//          "groupName": "string"
+//        }
+//      }
+//    },
+//    {
+//      "id": 0,
+//      "lineNo": 0,
+//      "procedureLineType": "ROUTINE",
+//      "routine": {
+//        "id": 0,
+//        "name": "string",
+//        "category": "STANDARD",
+//        "status": "ACTIVE",
+//        "description": "string",
+//        "changeInfo": {
+//          "created": "2018-07-19T09:57:28.604Z",
+//          "lastChanged": "2018-07-19T09:57:28.604Z",
+//          "createdByUserId": "string",
+//          "changedByUserId": "string",
+//          "changedByFirstName": "string",
+//          "changedByLastName": "string"
+//        },
+//        "site": {
+//          "siteId": "string",
+//          "siteName": "string"
+//        },
+//        "userGroup": {
+//          "groupId": "string",
+//          "groupName": "string"
+//        }
+//      }
+//    },
+//    {
+//      "id": 0,
+//      "lineNo": 0,
+//      "procedureLineType": "SEQUENCE",
+//      "sequence": {
+//        "id": 0,
+//        "name": "string",
+//        "category": "STANDARD",
+//        "privateSequence": true,
+//        "noOfTestCases": 0,
+//        "description": "string",
+//        "level": "string",
+//        "strict": true,
+//        "sequenceSite": {
+//          "siteId": "string",
+//          "siteName": "string"
+//        },
+//        "sequenceUserGroup": {
+//          "groupId": "string",
+//          "groupName": "string"
+//        },
+//        "sequenceType": "ORIGINAL",
+//        "sequenceLines": [
+//          {
+//            "id": 0,
+//            "lineNo": 0,
+//            "sequenceLineType": "ROUTINE",
+//            "routine": {
+//              "id": 0,
+//              "name": "string"
+//            }
+//          },
+//          {
+//            "id": 0,
+//            "lineNo": 0,
+//            "sequenceLineType": "SEQUENCE",
+//            "sequence": {
+//              "id": 0,
+//              "name": "string",
+//              "noOfTestCases": 0,
+//              "level": "string",
+//              "trackDirection": "CLOCKWISE"
+//            }
+//          }
+//        ],
+//        "changeInfo": {
+//          "created": "2018-07-19T09:57:28.604Z",
+//          "lastChanged": "2018-07-19T09:57:28.604Z",
+//          "createdByUserId": "string",
+//          "changedByUserId": "string",
+//          "changedByFirstName": "string",
+//          "changedByLastName": "string"
+//        },
+//        "trackDirection": "CLOCKWISE",
+//        "testCaseCategory": "STANDARD"
+//      }
+//    }
+//  ]
+//}
+
+
+{
+  "id": 1,
+  "type": "STANDARD",
+  "name": "PVT TOTAL",
+  "description": "PVT TOTAL",
+  "basedOn": null,
+  "changeInfo": {
+    "created": 1008581447000,
+    "lastChanged": 1008581447000,
+    "createdByUserId": "A266188",
+    "changedByUserId": "A266188",
+    "changedByFirstName": "John",
+    "changedByLastName": "Doe"
+  },
+  "changed": null,
+  "category": "DEVELOPMENT",
+  "procedureSite": {
+    "siteId": "AGO",
+    "siteName": "AGO"
+  },
+  "procedureUserGroup": {
+    "groupId": "RT",
+    "groupName": "RT"
+  },
+  "testOverView": null,
+  "lines": [
+    {
+      "id": 1,
+      "lineNo": 1,
+      "procedureLineType": "TESTCASE",
+      "sequence": null,
+      "testCase": {
+        "id": 1,
+        "name": "TestCaseVersion1234",
+        "level": "1",
+        "speed": {
+          "speedValue": "123",
+          "speedUnit": "KM"
+        },
+        "testCaseStepType": null,
+        "changeInfo": {
+          "created": 1005808847000,
+          "lastChanged": 1006148447000,
+          "createdByUserId": "PVT_GOT",
+          "changedByUserId": "PVT_GOT",
+          "changedByFirstName": "Pvt",
+          "changedByLastName": "Got"
+        },
+        "site": {
+          "siteId": "GOT",
+          "siteName": "GOT"
+        },
+        "userGroup": {
+          "groupId": "PVT",
+          "groupName": "PVT"
+        }
+      },
+      "routine": null
+    },
+    {
+      "id": 2,
+      "lineNo": 1,
+      "procedureLineType": "ROUTINE",
+      "sequence": null,
+      "testCase": null,
+      "routine": {
+        "id": 2,
+        "versionNo": null,
+        "name": "RoutineVersion1235",
+        "category": "STANDARD",
+        "status": null,
+        "description": "This is Dummy RoutineVersion.",
+        "changeInfo": {
+          "created": 1005808847000,
+          "lastChanged": 1006148447000,
+          "createdByUserId": "A264568",
+          "changedByUserId": "A264568",
+          "changedByFirstName": "Ajit",
+          "changedByLastName": "Kulkarni"
+        },
+        "site": {
+          "siteId": "BLR",
+          "siteName": "BLR"
+        },
+        "userGroup": {
+          "groupId": "RT",
+          "groupName": "RT"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "lineNo": 1,
+      "procedureLineType": "SEQUENCE",
+      "sequence": {
+        "id": 1,
+        "name": "PVTCHECK1",
+        "category": "STANDARD",
+        "privateSequence": true,
+        "noOfTestCases": 12,
+        "description": "This is Dummy Seqence",
+        "level": null,
+        "strict": null,
+        "sequenceSite": {
+          "siteId": "GOT",
+          "siteName": "GOT"
+        },
+        "sequenceUserGroup": {
+          "groupId": "PVT",
+          "groupName": "PVT"
+        },
+        "sequenceType": null,
+        "sequenceLines": [],
+        "changeInfo": {
+          "created": 1005808847000,
+          "lastChanged": 1006148447000,
+          "createdByUserId": "PVT_GOT",
+          "changedByUserId": "PVT_GOT",
+          "changedByFirstName": "Pvt",
+          "changedByLastName": "Got"
+        },
+        "trackDirection": null,
+        "sequenceTrack": null,
+        "testCaseCategory": null
+      },
+      "testCase": null,
+      "routine": null
+    },
+    {
+      "id": 4,
+      "lineNo": 2,
+      "procedureLineType": "TESTCASE",
+      "sequence": null,
+      "testCase": {
+        "id": 1,
+        "name": "TestCaseVersion1234",
+        "level": "1",
+        "speed": {
+          "speedValue": "123",
+          "speedUnit": "KM"
+        },
+        "testCaseStepType": null,
+        "changeInfo": {
+          "created": 1005808847000,
+          "lastChanged": 1006148447000,
+          "createdByUserId": "PVT_GOT",
+          "changedByUserId": "PVT_GOT",
+          "changedByFirstName": "Pvt",
+          "changedByLastName": "Got"
+        },
+        "site": {
+          "siteId": "GOT",
+          "siteName": "GOT"
+        },
+        "userGroup": {
+          "groupId": "PVT",
+          "groupName": "PVT"
+        }
+      },
+      "routine": null
+    },
+    {
+      "id": 5,
+      "lineNo": 2,
+      "procedureLineType": "ROUTINE",
+      "sequence": null,
+      "testCase": null,
+      "routine": {
+        "id": 2,
+        "versionNo": null,
+        "name": "RoutineVersion1235",
+        "category": "STANDARD",
+        "status": null,
+        "description": "This is Dummy RoutineVersion.",
+        "changeInfo": {
+          "created": 1005808847000,
+          "lastChanged": 1006148447000,
+          "createdByUserId": "A264568",
+          "changedByUserId": "A264568",
+          "changedByFirstName": "Ajit",
+          "changedByLastName": "Kulkarni"
+        },
+        "site": {
+          "siteId": "BLR",
+          "siteName": "BLR"
+        },
+        "userGroup": {
+          "groupId": "RT",
+          "groupName": "RT"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "lineNo": 2,
+      "procedureLineType": "SEQUENCE",
+      "sequence": {
+        "id": 1,
+        "name": "PVTCHECK1",
+        "category": "STANDARD",
+        "privateSequence": true,
+        "noOfTestCases": 12,
+        "description": "This is Dummy Seqence",
+        "level": null,
+        "strict": null,
+        "sequenceSite": {
+          "siteId": "GOT",
+          "siteName": "GOT"
+        },
+        "sequenceUserGroup": {
+          "groupId": "PVT",
+          "groupName": "PVT"
+        },
+        "sequenceType": null,
+        "sequenceLines": [],
+        "changeInfo": {
+          "created": 1005808847000,
+          "lastChanged": 1006148447000,
+          "createdByUserId": "PVT_GOT",
+          "changedByUserId": "PVT_GOT",
+          "changedByFirstName": "Pvt",
+          "changedByLastName": "Got"
+        },
+        "trackDirection": null,
+        "sequenceTrack": null,
+        "testCaseCategory": null
+      },
+      "testCase": null,
+      "routine": null
+    },
+    {
+      "lineNo": 3,
+      "id": 0,
+      "sequence": {
+        "id": 9,
+        "name": "Sequence22",
+        "category": "STANDARD",
+        "privateSequence": false,
+        "noOfTestCases": 2,
+        "description": "",
+        "level": "0",
+        "strict": true,
+        "sequenceSite": {
+          "siteId": "GOT",
+          "siteName": "GOT"
+        },
+        "sequenceUserGroup": {
+          "groupId": "PVT",
+          "groupName": "PVT"
+        },
+        "sequenceType": "ORIGINAL",
+        "sequenceLines": [
+          {
+            "id": 0,
+            "lineNo": 1,
+            "versionNoOfType": null,
+            "sequenceLineType": "TEST_CASE",
+            "testCase": {
+              "id": 5,
+              "name": "TestCase1",
+              "level": "1",
+              "speed": {
+                "speedValue": "90",
+                "speedUnit": "km/h"
+              }
+            },
+            "routine": null,
+            "sequence": null,
+            "sequenceGroupID": null
+          },
+          {
+            "id": 0,
+            "lineNo": 2,
+            "versionNoOfType": null,
+            "sequenceLineType": "TEST_CASE",
+            "testCase": {
+              "id": 6,
+              "name": "TestCase2",
+              "level": "1",
+              "speed": {
+                "speedValue": "90",
+                "speedUnit": "km/h"
+              }
+            },
+            "routine": null,
+            "sequence": null,
+            "sequenceGroupID": null
+          }
+        ],
+        "changeInfo": {
+          "created": 1532081539102,
+          "lastChanged": 1532081539102,
+          "createdByUserId": null,
+          "changedByUserId": "PVT_GOT",
+          "changedByFirstName": "Pvt",
+          "changedByLastName": "Got"
+        },
+        "trackDirection": "CLOCKWISE",
+        "sequenceTrack": {
+          "id": 4,
+          "name": "Komfortbanan",
+          "trackSite": {
+            "siteId": "GOT",
+            "siteName": "GOT"
+          }
+        },
+        "testCaseCategory": null
+      },
+      "procedureLineType": "SEQUENCE"
+    }
+  ]
+}

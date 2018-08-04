@@ -1,0 +1,215 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+<div class="card">
+  <tm-sequence-details-action-menu
+    (save)="onSave(sequenceForm.value)"
+    (delete)="getParentSequenceToDelete()"
+    (createCopy)="open(confirmCreateCopy)"
+    [sequenceInfo]="sequenceInfo"
+    [isCreate]="isCreate"
+    [isCopy]="isCopy"
+  [disableSave]="disableSave"></tm-sequence-details-action-menu>
+  <form class="container-fluid" (click)="onFormValueChange()" novalidate [formGroup]="sequenceForm" [tmConnectForm]="sequenceDetails$ | async">
+    <div class="row">
+      <div class="card-block visible-sm-* col-sm-5 col-md-6 col-lg-4">
+        <div *ngIf="!isCreate && !isCopy">
+            <label>Test Team:</label>
+            <span	*ngIf="(sequenceDetails$ | async).sequenceUserGroup">{{(sequenceDetails$ |	async).sequenceUserGroup.groupName}}</span>
+            <span	*ngIf="(sequenceDetails$ | async).sequenceSite">{{(sequenceDetails$ |async).sequenceSite.siteName}}</span>
+        </div>
+        <div *ngIf="isCreate || isCopy" class="d-flex justify-content-start">
+          <label class="pt-2 pr-2">Test Team:</label>
+          <span class="pr-2">
+              <tm-user-group (userGroupChange)="onTestTeamGroup($event)"
+                             [hasAllOption]="false"
+                             [selectedGroup]="selectedSequenceGroup"></tm-user-group>
+            </span>
+          <span class="pr-2">
+               <tm-user-site (userSiteChange)="onTestTeamSite($event)"
+                             [hasAllOption]="false"
+                             [selectedSite]="selectedSequenceSite"></tm-user-site>
+            </span>
+        </div>
+      </div>
+      <div class="card-block col-xs-6  col-sm-5 col-md-6 col-lg-8 ">
+        <div class=" d-flex justify-content-end">
+          <span class="required"><label></label> Required Fields</span>
+        </div>
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col-sm-4 col-md-4 col-lg-1">
+        <div class="form-group">
+          <label for="name">ID</label>
+          <input type="text" id="id" class="form-control" formControlName="id" readonly />
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-4 col-lg-3 required" >
+        <div class="form-group required">
+          <label for="name">Name</label>
+          <input type="text" id="name"
+                 class="form-control"  name="name"
+                 formControlName="name" required />
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">Name is required!</div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2 required" >
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category"  class="form-control" required
+                  name="Category" formControlName="category">
+            <option *ngFor="let category of categoryOptions" [value]="category">{{category}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group">
+          <label for="track">Track</label>
+          <select id="track" class="form-control"
+                  name="sequenceTrack"
+                  [(ngModel)]="selectedTrack"
+                  [ngModelOptions]="{standalone: true}"
+                  (change)="onTrackSelection($event)">
+            <option value="">Select</option>
+            <option *ngFor="let track of trackList$ | async" [value]="track.name">{{track.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group">
+          <label for="trackDirection">Track Direction</label>
+          <select id="trackDirection" class="form-control" name="trackDirection"
+          formControlName="trackDirection">
+            <option *ngFor="let direction of trackDirection" [value]="direction">{{direction}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group">
+          <label for="noOfTestCase">No of Test Case</label>
+          <input id="noOfTestCase" class="form-control" type="text" readonly formControlName="noOfTestCases" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-md-4 col-lg-1">
+        <div class="form-group">
+          <label for="level">Level</label>
+          <select id="level" class="form-control" name="level"
+          formControlName="level" (change)="onLevelChange($event.target.value)">
+            <option value="0">Select</option>
+            <option *ngFor="let level of sequenceLevel" [value]="level">{{level}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group">
+          <label for="testCaseCategory">Test Case Category</label>
+          <select id="testCaseCategory" class="form-control" formControlName="testCaseCategory" (change)="onCategoryChange($event.target.value)">
+            <option value="">Select</option>
+            <option *ngFor="let category of categoryOptions" [value]="category">{{category}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-1">
+        <div class="form-group mt-4">
+          <button class="btn btn-secondary pull-right w-100 mt-2" [disabled]="isDisable" (click)="addAllTestCase()">Add</button>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2 required">
+        <div class="form-group">
+          <label for="privateTestCase">Private</label>
+          <select id="privateTestCase" class="form-control" name="private" formControlName="privateSequence">
+            <option *ngFor="let data of sequenceOptions" [value]="data.value">{{data.id}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2 required">
+        <div class="form-group">
+          <label for="strict">Strict</label>
+          <select id="strict" class="form-control" name="strict" formControlName="strict" required>
+            <option *ngFor="let data of sequenceOptions" [value]="data.value">{{data.id}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-8 col-md-8 col-lg-4">
+        <div class="form-group ">
+          <label for="description">Description:</label>
+          <textarea class="form-control" id="description" rows="3" maxlength="1000" formControlName="description"></textarea>
+        </div>
+      </div>
+    </div>
+    <div >
+      <tm-add-sequence-preconditions (click)="onFormValueChange()"
+       [asyncData]="(sequenceDetails$ | async).sequenceLines"
+       [isCreate]="isCreate"
+       [disableBtn]="isDisableAll"
+      (preConditionsAdded)="onPreConditionsAdded($event)"></tm-add-sequence-preconditions>
+    </div>
+
+  </form>
+</div>
+<ng-template #confirmCreateCopy let-confirmCreateCopyClose="close"
+             let-confirmCreateCopyDismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Are you sure you want to create a copy</h4>
+    <button type="button" class="close" aria-label="Close"
+            (click)="confirmCreateCopyDismiss('Cross click')">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary"
+                (click)="onCreateCopySequence();confirmCreateCopyClose('Close click')">Yes</button>
+        <button class="btn btn-primary"
+                (click)="confirmCreateCopyClose('Close click')">No</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+
+<ng-template #confirmDelete let-dismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Are you sure you want to delete this Sequence?</h4>
+    <button type="button" class="close" aria-label="Close"
+            (click)="dismiss()">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary"
+                (click)="onDeleteSequence();dismiss()">Yes</button>
+        <button class="btn btn-primary"
+                (click)="dismiss()">No</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+
+<ng-template #canNotDelete let-dismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Sorry! you can not delete this sequence. It is connected with another sequence.</h4>
+    <button type="button" class="close" aria-label="Close"
+            (click)="dismiss()">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary"
+                (click)="dismiss()">Close</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+
+<ngx-loading [show]="loading$ | async" [config]="{ backdropBorderRadius: '0' }"></ngx-loading>

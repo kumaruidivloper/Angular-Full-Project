@@ -1,0 +1,16 @@
+@import "../../../../../variables";
+@import "variables";
+
+.card-header {
+  margin-bottom: 30px;
+}
+
+.testInformation {
+  div {
+    font-size: $font-size-sm;
+  }
+}
+
+button {
+  margin-bottom: 5px;
+}

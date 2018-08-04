@@ -1,0 +1,23 @@
+// @todo class names written with dashes, i.e. main-nav
+.mainNav{
+
+  .col {
+    text-align: center;
+  }
+
+  .home-link {
+    margin-top: 40px;
+    background: transparent;
+    border: 0;
+    color: #000;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    i {
+      font-size: 5em;
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/features/sequence/sequence-details/sequence-details.actions.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/features/sequence/sequence-details</a> sequence-details.actions.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">64.54% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>91/141</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>30/48</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">55.96% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>61/109</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Action } from '@ngrx/store';
+import { SequenceDetails, TrackList } from './sequence-details.model';
+import { Sequence } from '../sequence-overview/sequence-overview.model';
+&nbsp;
+export const sequenceDetailsActionTypes = {
+  GET_TRACK_LIST: '[SequenceDetails] Get Track List',
+  GET_TRACK_LIST_SUCCESS: '[SequenceDetails] Get Track List Successful',
+  GET_TRACK_LIST_FAILURE: '[SequenceDetails] Get Track List Failure',
+  GET_SEQUENCE_DETAILS: '[SequenceDetails] Get Sequence Details',
+  GET_SEQUENCE_DETAILS_SUCCESS: '[SequenceDetails] Get Sequence Details Successful',
+  GET_SEQUENCE_DETAILS_FAILURE: '[SequenceDetails] Get Sequence Details Failure',
+  DELETE_SEQUENCE_ITEM: '[SequenceDetails] Delete Sequence item',
+  DELETE_SEQUENCE: '[SequenceDetails] Delete Sequence',
+  DELETE_SEQUENCE_SUCCESS: '[SequenceDetails] Delete Sequence Success',
+  DELETE_SEQUENCE_FAILURE: '[SequenceDetails] Delete Sequence Failure',
+  UPDATE_SEQUENCE_DETAILS: '[SequenceDetails] Update Sequence Details',
+  UPDATE_SEQUENCE_DETAILS_FAILURE: '[SequenceDetails] Update Sequence Details Failure',
+  UPDATE_SEQUENCE_DETAILS_SUCCESS: '[SequenceDetails] Update Sequence Details Success',
+  CREATE_SEQUENCE: '[SequenceDetails] Create Sequence',
+  CREATE_SEQUENCE_FAILURE: '[SequenceDetails] Create Sequence Failure',
+  CREATE_SEQUENCE_SUCCESS: '[SequenceDetails] Create Sequence Success',
+  UPDATE_SEQUENCE_DETAILS_FORM: '[SequenceDetails] Update Form',
+  UPDATE_USER_GROUP: '[SequenceDetails] Update User Group',
+  UPDATE_USER_GROUP_SUCCESS: '[SequenceDetails] Update User Group Success' ,
+  UPDATE_USER_SITE: '[SequenceDetails] Update User Site',
+  UPDATE_USER_SITE_SUCCESS: '[SequenceDetails] Update User Site Success',
+  CLEAR_SEQUENCE_DETAILS: '[SequenceDetails] Clear Test Case',
+  CLEAR_SEQUENCE_DETAILS_DATA: '[SequenceDetails] Clear Test Case Data',
+  REORDER_SEQUENCE_LINES: '[SequenceDetails] Reorder Sequence Lines',
+  DELETE_SEQUENCE_LINES: '[SequenceDetails] Delete Sequence Lines',
+  CHECK_PARENT_SEQUENCE: '[SequenceDetails] Check for Parent Sequence',
+  CHECK_PARENT_SEQUENCE_SUCCESS: '[SequenceDetails] Check for Parent Sequence Success',
+  CREATE_SEQUENCE_COPY: '[SequenceDetails] Create Sequence Copy',
+  CREATE_SEQUENCE_COPY_SUCCESS: '[SequenceDetails] Create Sequence Copy Success',
+  DELETE_AND_UPDATE_SEQUENCE_LINES: '[SequenceDetails] Delete and Update Sequence Lines'
+};
+&nbsp;
+export class GetTrackList implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.GET_TRACK_LIST;</span>
+<span class="fstat-no" title="function not covered" >  constructor ( public <span class="cstat-no" title="statement not covered" ></span>siteId: string)</span> {}
+}
+&nbsp;
+export class GetTrackListSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.GET_TRACK_LIST_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor ( public <span class="cstat-no" title="statement not covered" ></span>trackList: TrackList)</span> {}
+}
+&nbsp;
+export class GetTrackListFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.GET_TRACK_LIST_FAILURE;</span>
+}
+&nbsp;
+export class GetSequenceDetails implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.GET_SEQUENCE_DETAILS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>id: number)</span> {}
+}
+&nbsp;
+export class GetSequenceDetailsSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.GET_SEQUENCE_DETAILS_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: SequenceDetails)</span> {}
+}
+&nbsp;
+export class GetSequenceDetailsFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.GET_SEQUENCE_DETAILS_FAILURE;</span>
+}
+&nbsp;
+export class DeleteSequence implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.DELETE_SEQUENCE;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>id: number)</span> {}
+}
+&nbsp;
+export class DeleteSequenceSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.DELETE_SEQUENCE_SUCCESS;</span>
+}
+&nbsp;
+export class DeleteSequenceFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.DELETE_SEQUENCE_FAILURE;</span>
+}
+&nbsp;
+export class UpdateSequenceDetails implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.UPDATE_SEQUENCE_DETAILS;</span>
+}
+&nbsp;
+export class UpdateSequenceDetailsFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.UPDATE_SEQUENCE_DETAILS_FAILURE;</span>
+}
+&nbsp;
+export class UpdateSequenceDetailsSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.UPDATE_SEQUENCE_DETAILS_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor (public <span class="cstat-no" title="statement not covered" ></span>sequenceDetails: SequenceDetails)</span> {}
+}
+&nbsp;
+export class CreateSequence implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.CREATE_SEQUENCE;</span>
+}
+&nbsp;
+export class CreateSequenceFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.CREATE_SEQUENCE_FAILURE;</span>
+}
+&nbsp;
+export class CreateSequenceSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.CREATE_SEQUENCE_SUCCESS;</span>
+}
+&nbsp;
+export class UpdateSequenceDetailsForm implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.UPDATE_SEQUENCE_DETAILS_FORM;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>sequenceDetails: SequenceDetails)</span> {}
+}
+&nbsp;
+export class UpdateUserGroup implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.UPDATE_USER_GROUP;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: string)</span> {}
+}
+&nbsp;
+export class UpdateUserGroupSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.UPDATE_USER_GROUP_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: string)</span> {}
+}
+&nbsp;
+export class UpdateUserSite implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.UPDATE_USER_SITE;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: any)</span> {}
+}
+&nbsp;
+export class UpdateUserSiteSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.UPDATE_USER_SITE_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: any)</span> {}
+}
+&nbsp;
+export class ClearSequenceDetails implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.CLEAR_SEQUENCE_DETAILS;</span>
+}
+&nbsp;
+export class ClearSequenceDetailsData implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.CLEAR_SEQUENCE_DETAILS_DATA;</span>
+}
+&nbsp;
+export class ReorderSequenceLine implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.REORDER_SEQUENCE_LINES;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>from: number,</span> public <span class="cstat-no" title="statement not covered" >to: number)</span> {}
+}
+&nbsp;
+export class DeleteSequenceLine implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.DELETE_SEQUENCE_LINES;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>id: number,</span> public <span class="cstat-no" title="statement not covered" >itemNo: number)</span> {}
+}
+&nbsp;
+export class CheckForParentSequence implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.CHECK_PARENT_SEQUENCE;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>id: number)</span> {}
+}
+&nbsp;
+export class CheckForParentSequenceSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.CHECK_PARENT_SEQUENCE_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>sequence: Sequence[])</span> {}
+}
+&nbsp;
+export class DeleteSequenceItem implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.DELETE_SEQUENCE_ITEM;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>itemNo: number)</span> {}
+}
+&nbsp;
+export class CreateSequenceCopy implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.CREATE_SEQUENCE_COPY;</span>
+}
+&nbsp;
+export class CreateSequenceCopySuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.CREATE_SEQUENCE_COPY_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>sequenceCopy: SequenceDetails)</span> {}
+}
+&nbsp;
+export class DeleteAndUpdateSequenceLines implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = sequenceDetailsActionTypes.DELETE_AND_UPDATE_SEQUENCE_LINES;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>itemNo: number)</span> {}
+}
+&nbsp;
+export type SequenceDetailsActions = GetTrackList | GetTrackListSuccess
+                                    | GetTrackListFailure | GetSequenceDetails
+                                    | GetSequenceDetailsSuccess | GetSequenceDetailsFailure
+                                    | DeleteSequence | DeleteSequenceSuccess
+                                    | DeleteSequenceFailure | UpdateSequenceDetails
+                                    | UpdateSequenceDetailsFailure | UpdateSequenceDetailsSuccess
+                                    | CreateSequence | CreateSequenceFailure
+                                    | CreateSequenceSuccess | UpdateSequenceDetailsForm
+                                    | UpdateUserGroup | UpdateUserGroupSuccess
+                                    | UpdateUserSite | UpdateUserSiteSuccess
+                                    | ClearSequenceDetails | ReorderSequenceLine | DeleteSequenceLine
+                                    | CheckForParentSequence | CheckForParentSequenceSuccess
+                                    | DeleteSequenceItem | CreateSequenceCopy | CreateSequenceCopySuccess
+                                    | DeleteAndUpdateSequenceLines | ClearSequenceDetailsData;
+&nbsp;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

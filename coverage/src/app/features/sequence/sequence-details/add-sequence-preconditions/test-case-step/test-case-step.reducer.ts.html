@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/features/sequence/sequence-details/add-sequence-preconditions/test-case-step/test-case-step.reducer.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/features/sequence/sequence-details/add-sequence-preconditions/test-case-step</a> test-case-step.reducer.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">48.21% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>27/56</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.7% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>27/46</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { omitBy } from 'lodash';
+import { TestCaseStep } from './test-case-step.model';
+import { PaginationParameters } from '../../../../../core/interfaces/pagination-params.i';
+import {
+  GetTestCaseListSuccess,
+  GetTestStepListSuccess, GetTruckFunctionAreaSuccess,
+  LoadTagsSuccess,
+  PaginateTestCaseList,
+  PaginateTestStepList,
+  TestCaseStepListActions,
+  testCaseStepListActionTypes,
+  UpdateTestCaseList,
+  UpdateTestCaseListFilters,
+  UpdateTestStepList,
+  UpdateTestStepListFilters
+} from './test-case-step.actions';
+import { Tag } from '../../../../../shared/tag/tag.model';
+import { TruckFunctionArea } from '../../../../test-case-step/test-case-detail/test-case-detail.model';
+&nbsp;
+export const TestCaseStepListFeatureName = 'TestCaseStepList';
+&nbsp;
+export interface TestCaseStepListState {
+  testCases: TestCaseStep[];
+  testSteps: TestCaseStep[];
+  selectedTestCases: TestCaseStep[];
+  selectedTestSteps: TestCaseStep[];
+  paginationTestCase: PaginationParameters;
+  paginationTestStep: PaginationParameters;
+  testCaseFilters: any;
+  testStepFilters: any;
+  tags: Tag[];
+  tcTruckFunctionArea: TruckFunctionArea[];
+}
+&nbsp;
+export const TestCaseStepListDefaultState: TestCaseStepListState = {
+  testCases: [],
+  testSteps: [],
+  selectedTestCases: [],
+  selectedTestSteps: [],
+  paginationTestCase: {
+    page: 1,
+    pageSize: 5
+  },
+  paginationTestStep: {
+    page: 1,
+    pageSize: 5
+  },
+  testCaseFilters: {},
+  testStepFilters: {},
+  tags: [],
+  tcTruckFunctionArea: [],
+};
+&nbsp;
+<span class="fstat-no" title="function not covered" >export function TestCaseStepListReducer (</span>
+<span class="cstat-no" title="statement not covered" >  state: TestCaseStepListState = TestCaseStepListDefaultState,</span>
+  action: TestCaseStepListActions): TestCaseStepListState {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  switch (action.type) {</span>
+    case testCaseStepListActionTypes.LOAD_TEST_CASE_SUCCESS:
+<span class="cstat-no" title="statement not covered" >      return &lt;TestCaseStepListState&gt;{</span>
+        ...state,
+        testCases: (&lt;GetTestCaseListSuccess&gt; action).testCases.data,
+        paginationTestCase: (&lt;GetTestCaseListSuccess&gt; action).testCases.pagination
+      };
+    case testCaseStepListActionTypes.LOAD_TEST_STEP_SUCCESS:
+<span class="cstat-no" title="statement not covered" >      return &lt;TestCaseStepListState&gt;{</span>
+        ...state,
+        testSteps: (&lt;GetTestStepListSuccess&gt; action).testSteps.data,
+        paginationTestStep: (&lt;GetTestStepListSuccess&gt; action).testSteps.pagination
+      };
+    case testCaseStepListActionTypes.UPDATE_TEST_CASE_FILTER:
+      const filterToUpdate: object = (&lt;UpdateTestCaseListFilters&gt; <span class="cstat-no" title="statement not covered" >action).filterData;</span>
+<span class="cstat-no" title="statement not covered" >      return &lt;TestCaseStepListState&gt;{</span>
+        ...state,
+        testCaseFilters: omitBy(filterToUpdate, <span class="fstat-no" title="function not covered" >value =&gt; <span class="cstat-no" title="statement not covered" >value === '')</span></span>
+      };
+    case testCaseStepListActionTypes.UPDATE_TEST_STEP_FILTER:
+      const testStepFilter: object = (&lt;UpdateTestStepListFilters&gt; <span class="cstat-no" title="statement not covered" >action).filterData;</span>
+<span class="cstat-no" title="statement not covered" >      return &lt;TestCaseStepListState&gt;{</span>
+        ...state,
+        testStepFilters: omitBy(testStepFilter, <span class="fstat-no" title="function not covered" >value =&gt; <span class="cstat-no" title="statement not covered" >value === '')</span></span>
+      };
+    case testCaseStepListActionTypes.PAGINATE_TEST_CASE:
+<span class="cstat-no" title="statement not covered" >      return &lt;TestCaseStepListState&gt;{</span>
+        ...state,
+        paginationTestCase: (&lt;PaginateTestCaseList&gt;action).payload
+      };
+    case testCaseStepListActionTypes.PAGINATE_TEST_STEP:
+<span class="cstat-no" title="statement not covered" >      return &lt;TestCaseStepListState&gt;{</span>
+        ...state,
+        paginationTestStep: (&lt;PaginateTestStepList&gt;action).payload
+      };
+    case testCaseStepListActionTypes.EMPTY_TEST_CASE_STEP_FILTERS:
+<span class="cstat-no" title="statement not covered" >      return &lt;TestCaseStepListState&gt;{</span>
+        ...state,
+        testCaseFilters: {},
+        testStepFilters: {}
+      };
+    case testCaseStepListActionTypes.LOAD_TAGS_SUCCESS:
+<span class="cstat-no" title="statement not covered" >      return &lt;TestCaseStepListState&gt;{</span>
+        ...state,
+        tags: (&lt;LoadTagsSuccess&gt; action).payload.data,
+      };
+    case testCaseStepListActionTypes.UPDATE_TEST_STEP:
+<span class="cstat-no" title="statement not covered" >      return &lt;TestCaseStepListState&gt;{</span>
+        ...state,
+        selectedTestSteps: (&lt;UpdateTestStepList&gt;action).testStepList
+      };
+    case testCaseStepListActionTypes.UPDATE_TEST_CASE:
+<span class="cstat-no" title="statement not covered" >      return &lt;TestCaseStepListState&gt;{</span>
+        ...state,
+        selectedTestCases: (&lt;UpdateTestCaseList&gt;action).testCaseList
+      };
+    case testCaseStepListActionTypes.GET_TRUCK_FUNCTION_AREA_SUCCESS:
+      const truckFunctionAreaData = (&lt;GetTruckFunctionAreaSuccess&gt;<span class="cstat-no" title="statement not covered" >action).truckFunctionArea;</span>
+<span class="cstat-no" title="statement not covered" >      return &lt;TestCaseStepListState&gt;{</span>
+        ...state,
+        tcTruckFunctionArea: truckFunctionAreaData['data'] || []
+      };
+    default:
+<span class="cstat-no" title="statement not covered" >      return state;</span>
+  }
+}
+&nbsp;
+&nbsp;
+export const getTags = <span class="fstat-no" title="function not covered" >(</span>state: TestCaseStepListState) =&gt; <span class="cstat-no" title="statement not covered" >state.tags;</span>
+export const getTestCaseList = <span class="fstat-no" title="function not covered" >(</span>state: TestCaseStepListState) =&gt; <span class="cstat-no" title="statement not covered" >state.testCases;</span>
+export const getTestStepList = <span class="fstat-no" title="function not covered" >(</span>state: TestCaseStepListState) =&gt; <span class="cstat-no" title="statement not covered" >state.testSteps;</span>
+export const getTestCaseListPagination = <span class="fstat-no" title="function not covered" >(</span>state: TestCaseStepListState) =&gt; <span class="cstat-no" title="statement not covered" >state.paginationTestCase;</span>
+export const getTestStepListPagination = <span class="fstat-no" title="function not covered" >(</span>state: TestCaseStepListState) =&gt; <span class="cstat-no" title="statement not covered" >state.paginationTestStep;</span>
+export const getTestCaseListFilters = <span class="fstat-no" title="function not covered" >(</span>state: TestCaseStepListState) =&gt; <span class="cstat-no" title="statement not covered" >state.testCaseFilters;</span>
+export const getTestStepListFilters = <span class="fstat-no" title="function not covered" >(</span>state: TestCaseStepListState) =&gt; <span class="cstat-no" title="statement not covered" >state.testStepFilters;</span>
+export const getSelectedTestCase = <span class="fstat-no" title="function not covered" >(</span>state: TestCaseStepListState) =&gt; <span class="cstat-no" title="statement not covered" >state.selectedTestCases;</span>
+export const getSelectedTestStep = <span class="fstat-no" title="function not covered" >(</span>state: TestCaseStepListState) =&gt; <span class="cstat-no" title="statement not covered" >state.selectedTestSteps;</span>
+export const getTcTruckFunctionArea = <span class="fstat-no" title="function not covered" >(</span>state: TestCaseStepListState) =&gt; <span class="cstat-no" title="statement not covered" >state.tcTruckFunctionArea;</span>
+&nbsp;
+export const stateSelector = createFeatureSelector&lt;TestCaseStepListState&gt;(TestCaseStepListFeatureName);
+export const testCaseListSelector = createSelector(stateSelector, getTestCaseList);
+export const testStepListSelector = createSelector(stateSelector, getTestStepList);
+export const paginationTestCaseListSelector = createSelector(stateSelector, getTestCaseListPagination);
+export const paginationTestStepListSelector = createSelector(stateSelector, getTestStepListPagination);
+export const testCaseFiltersSelector = createSelector(stateSelector, getTestCaseListFilters);
+export const testStepFiltersSelector = createSelector(stateSelector, getTestStepListFilters);
+export const selectedTestCaseSelector = createSelector(stateSelector, getSelectedTestCase);
+export const selectedTestStepSelector = createSelector(stateSelector, getSelectedTestStep);
+export const tagsForSequenceSelector = createSelector(stateSelector, getTags);
+export const tcTruckFunctionAreaSelector = createSelector(stateSelector, getTcTruckFunctionArea);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

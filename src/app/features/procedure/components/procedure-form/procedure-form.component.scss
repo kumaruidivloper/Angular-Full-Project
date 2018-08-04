@@ -1,0 +1,8 @@
+::ng-deep {
+  tm-routine-lists,
+  tm-test-case-step-lists {
+    > .form-group {
+      display: inline-block;
+    }
+  }
+}

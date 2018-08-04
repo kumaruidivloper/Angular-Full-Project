@@ -1,0 +1,17 @@
+@import "../../../variables";
+
+.test-case {
+  background-color: map_get($theme-colors, primary);
+}
+
+.test-step {
+  background-color: map_get($theme-colors, secondary);
+}
+
+.routine {
+  background-color: map_get($theme-colors, success);
+}
+
+.sequence {
+  background-color: map_get($theme-colors, danger);
+}

@@ -1,0 +1,25 @@
+<html>
+<head>
+  <script type="text/javascript">
+function hasValidToken() {
+  var token_raw = window.location.hash || "";
+  if (token_raw !== '') {
+    var access_token = token_raw.split("=")[1].split("&")[0];
+    access_token = '"'+access_token+'"';
+    if (access_token !== '') {
+      sessionStorage.setItem("Login:Token", access_token);
+      if(window.location.hostname === 'localhost'){
+        window.location.href = window.location.origin;
+      } else {
+        window.location.href = window.location.origin+'/tm-client/';
+      }
+    }
+  }
+}
+window.onload = hasValidToken();
+  </script>
+</head>
+<body>Its loading . Please waiting...........
+<p></p>
+</body>
+</html>

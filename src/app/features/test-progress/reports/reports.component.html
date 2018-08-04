@@ -1,0 +1,400 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+<div class="card">
+  <tm-reports-action-menu (createNewReport)="onOpenNewReport()"
+                          [hideNewReportBtn]="hideNewReportBtn"
+                          (clearFilter)="onClearFilter();">
+  </tm-reports-action-menu>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8 mb-3">
+        <h5>Reports - {{(testDetails$ | async).name | uppercase}}</h5>
+      </div>
+    </div>
+    <form class="reportForm" [formGroup]="reportForm" [hidden]="newReportHidden">
+      <div class="row user-team mb-2">
+        <div class="card-block visible-sm-* col-sm-5 col-md-6 col-lg-4">
+          <div class="d-flex justify-content-start">
+            <label class="pr-2">Test Team:</label>
+            <span	*ngIf="(testDetails$ | async)?.testUserGroup" class="pr-2">
+              {{(testDetails$	| async).testUserGroup.groupName}}
+            </span>
+            <span	*ngIf="(testDetails$ | async)?.testSite">
+              {{(testDetails$ |	async).testSite.siteName}}
+            </span>
+          </div>
+        </div>
+        <div class="card-block col-xs-6  col-sm-5 col-md-6 col-lg-8 ">
+          <div class=" d-flex justify-content-end">
+            <span class="required"><label></label>Required Fields</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-2">
+              <div class="form-group required">
+                <label for="sequence">Sequence</label>
+                <input type="text" formControlName="sequenceName"
+                       id="sequence"
+                       class="form-control"
+                       maxlength="50"/>
+                <div *ngIf="sequenceName.invalid && (sequenceName.dirty || sequenceName.touched)" class="alert alert-danger">Sequence is required!</div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12">
+              <div class="form-group required">
+                <label for="itemType">Item Type</label>
+                <select class="form-control" id="itemType"  formControlName="testItemType" (change)="onChangeItemType($event)">
+                  <option value="">Select</option>
+                  <option *ngFor="let item of reportItemType" [value]="item">{{item}}</option>
+                </select>
+                <div *ngIf="testItemType.invalid && (testItemType.dirty || testItemType.touched)" class="alert alert-danger">Item Type is required!</div>
+              </div>
+            </div>
+            <div class="col-lg-1 col-md-2 col-sm-12">
+              <div class="form-group required">
+                <label for="itemId">Item ID<i *ngIf="showGear" class="fa fa-gear fa-spin" style="font-size:24px"></i></label>
+                <input type="text" class="form-control"
+                       id="itemId" formControlName="testItemId"
+                       (keypress)="numbersOnly($event)"
+                       (blur)="onItemIdInput()"/>
+
+                <div *ngIf="testItemId.invalid && (testItemId.dirty || testItemId.touched)" class="alert alert-danger">Item ID is required!</div>
+                <div *ngIf="itemIdNotFound" class="alert alert-danger">Could not find the given itemId!</div>
+              </div>
+            </div>
+            <div class="col-lg-1 col-md-4 col-sm-12">
+              <div class="form-group required">
+                <label for="version">Version</label>
+                <select class="form-control" id="version" formControlName="testItemVersion" (change)="onVersionNoChange()">
+                  <option value="">Select</option>
+                  <option *ngFor="let version of versionData" [ngValue]="version.versionNo">{{version.versionNo}}</option>
+                </select>
+                <div *ngIf="testItemVersion.invalid && (testItemVersion.dirty || testItemVersion.touched)" class="alert alert-danger">Version is required!</div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-12">
+              <div class="form-group">
+                <label for="version">Test Case Name</label>
+                <input type="text" class="form-control"  formControlName="name" value="Central door lock with Key" readonly />
+              </div>
+            </div>
+            <div class="col-lg-2">
+              <div class="form-group required">
+                <label for="reportType">Type</label>
+                <select class="form-control"
+                        id="reportType"
+                        formControlName="reportType"
+                        (click)="onChangeReportType()">
+                  <option *ngFor="let type of reportTypeList" [value]="type">{{type}}</option>
+                </select>
+                <div *ngIf="reportType.invalid && (reportType.dirty || reportType.touched)" class="alert alert-danger">Type is required!</div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+              <div class="form-group" [ngClass]="showEnergyVolume ? 'required': ''">
+                <label for="odometer">Odometer</label>
+                <div class="input-group">
+                  <input type="text"
+                         id="odometer"
+                         class="form-control"
+                         formControlName="odometer"
+                         maxlength="3"
+                         (keypress)="numbersOnly($event)"
+                         [required]="showEnergyVolume"/>
+                  <span class="input-group-addon font-italic">Km</span>
+                </div>
+                <div *ngIf="showEnergyVolume">
+                  <div *ngIf="odometer.invalid && (odometer.touched)" class="alert alert-danger">
+                    Odometer is required!
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+                <div class="col-lg-2 form-group required" *ngIf="showEnergyVolume">
+                    <label for="energyType">Energy Type:</label>
+                    <select class="form-control"
+                            id="energyType"
+                            [(ngModel)]="energyType"
+                            [ngModelOptions]="{standalone: true}">
+                      <option *ngFor="let type of energyTypeOptions" [value]="type">{{type}}</option>
+                    </select>
+                  <small class="hint-text">(Add Energy type, volume and units)</small>
+                    <div *ngIf="energyType.invalid && (energyType.dirty || energyType.touched)" class="alert alert-danger">Energy Type is required!</div>
+                </div>
+                <div class="col-lg-1 form-group required pr-0" *ngIf="showEnergyVolume">
+                  <label for="volume" >Volume</label>
+                  <input class="form-control"
+                         [(ngModel)]="volume"
+                         [ngModelOptions]="{standalone: true}"
+                         type="text"
+                         (keypress)="numbersOnly($event)"
+                         id="volume">
+                  <div *ngIf="volume.invalid && (volume.dirty || volume.touched)" class="alert alert-danger">Volume is required!</div>
+                </div>
+                <div class="col-lg-1 form-group required" *ngIf="showEnergyVolume">
+                  <label for="unit" class="d-block">Unit</label>
+                  <select class="form-control pull-left" style="width:70%"
+                          id="unit"
+                          [(ngModel)]="unit"
+                          [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let unit of unitOptions" [value]="unit">{{unit}}</option>
+                  </select>
+                  <div class="addEnergy pull-left ml-2" (click)="onAddEnergyVolume()" title="Add Energy type, volume and units"><i class="fa fa-plus-circle"></i></div>
+                </div>
+
+            <div class="col-lg-4 col-md-9">
+              <div class="row form-group  ml-1 mr-1 mb-0">
+                <label for="attachment">Attachment</label>
+                <input type="file"
+                       id="attachment"
+                       class="form-control"
+                       maxlength="50" #fileInput [ngClass]="uploadSuccess ? 'col-lg-11' : ''" (change)="fileToUpload($event)"/>
+                <span *ngIf="uploadSuccess" class="col-lg-1"><i class="fa fa-check"></i> </span>
+              </div>
+              <ul class="list-unstyled">
+                <li *ngFor="let file of fileDetailsObj" class="ml-1 mt-1 mb-1">
+                  <a href="{{baseUrl}}/tm-uiservice/api/v1/file/download/{{pageType}}/{{file.fileName}}" *ngIf="hasAttachment"><i class="fa fa-paperclip mr-1"></i>{{file.fileName}}</a>
+                  <a *ngIf="hasAttachment" href (click)="onRemoveFileAttachment(file)"><i class="fa fa-trash-o ml-3"></i></a>
+                </li>
+              </ul>
+            </div>
+            <div [ngClass]="showEnergyVolume ? 'col-lg-4' : 'col-lg-8'" formArrayName="reportComments">
+              <div class="form-group required" *ngFor="let comment of reportComments.controls; index as i">
+                <div [formGroupName]="i">
+                  <label for="reportComment">Comment:</label>
+                  <textarea class="form-control"  formControlName="comment"
+                            id="reportComment"
+                            rows="3"
+                            maxlength="1000">
+                     </textarea>
+                </div>
+                <div *ngIf="comment.invalid && (comment.dirty || comment.touched)" class="alert alert-danger">Report comments is required!</div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-lg-3 pull-left energryTable" *ngIf="showEnergyVolume">
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>Energy</th>
+                  <th>Volume</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+              <tr *ngFor="let data of energyVolumeArray; let i=index">
+                <td>{{data.energyType}}</td>
+                <td>{{data.volume}} {{data.unit}}</td>
+                <td><i (click)="onRemoveEnergyVolume(i)" class="fa fa-minus-circle removeEnergy"></i></td>
+              </tr>
+              </tbody>
+              </table>
+              <div *ngIf="emptyTableForEnergy" class="alert alert-danger">Add Energy/Volume/Unit</div>
+            </div>
+            <div class="col-lg-12 pull-right text-right">
+              <button class="btn btn-primary" (click)="onSaveReport(reportForm.value)">Save Report</button>
+              <button class="btn btn-primary"
+                      [disabled]="!reportForm.dirty "
+                      (click)="buildReportForm()">Reset Report</button>
+              <button class="btn btn-primary" (click)="onCloseNewReport()">Cancel Report</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="row tableFilter">
+      <div class="col-sm-4 col-lg-3">
+        <div class="form-group">
+          <label for="reportName">Name</label>
+          <input type="text"
+                 id="reportName"
+                 class="form-control"
+                 [(ngModel)]="selectedReportName"
+                 (keyup)="onTableFilterChange('sequenceName', selectedReportName)"
+                 maxlength="50" />
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group dateRange">
+          <label>Created</label>
+       <my-date-range-picker name="mydaterange"
+                             [(ngModel)] = "dateModel"
+                                [options]="myDateRangePickerOptions"
+                                placeholder="Select a date range "
+                                (dateRangeChanged)="onDateRangeChanged($event)"
+                                (inputFieldChanged)="onInputFieldChanged($event)"
+                                (keypress)="numbersOnly($event)"></my-date-range-picker>
+          <small class="hint-text" title=" Ex: 2018-01-01 - 2018-12-01">( yyyy-mm-dd  -  yyyy-mm-dd)</small> </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group">
+          <label for="type">Type</label>
+          <select class="form-control" id="type"
+                  [(ngModel)]="selectedReportType"
+                  (change)="onTableFilterChange('type', selectedReportType)">
+            <option value="">ALL</option>
+            <option *ngFor="let type of reportTypeList" [value]="type">{{type}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-3">
+        <div class="form-group">
+          <label for="truckFunctionArea">Truck Function Area</label>
+          <select class="form-control"
+                  id="truckFunctionArea"
+                  [(ngModel)]="selectedTruckArea"
+                  (change)="onSelectTruckFunctionArea()" >
+            <option value="0">Select</option>
+            <option *ngFor="let area of truckFunctionAreaList$ | async" [ngValue]="area.id">{{area.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group">
+          <label for="truckFunction">Truck Function</label>
+          <select class="form-control"
+                  id="truckFunction"
+                  [(ngModel)]="selectedTruckFunction"
+                  class="form-control"
+                  (change)="onTableFilterChange('truckFunction', selectedTruckFunction)">
+            <option value="">Select</option>
+            <option *ngFor="let data of truckFunctionList" [value]="data.name">{{data.name}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="(reportLists$ | async).length > 0; else noReports">
+      <div class="col-lg-12">
+        <div class="border rounded p-2 mb-3 commentsWrapper" *ngFor="let data of reportLists$ | async;let rowIndex = index">
+          <div class="row reportTitle">
+            <div class="col-lg-8">
+              <p class="ml-2 font-weight-bold">
+                <span class="reportIcons"><i class="fa {{data.reportType | lowercase}}"></i></span>
+                <span><strong>{{data.sequenceName}}/</strong></span>
+                <span><strong>{{data.testItemType}}/</strong></span>
+                <span *ngIf="data.truckFunctionArea"><strong>{{data.truckFunctionArea}}/</strong></span>
+                <span *ngIf="data.truckFunction"><strong>{{data.truckFunction}}/</strong></span>
+                {{data.name}}
+              </p>
+            </div>
+            <div class="col-lg-2">
+              <label class="ml-2 font-weight-bold">Version:</label>
+              <span>{{data.testItemVersion}}</span>
+            </div>
+            <div class="col-lg-2 text-right">
+              <label class="mr-2">Handled</label>
+              <input type="checkbox" [checked]="!data.unHandled" (change)="data.unHandled = !data.unHandled;onChangeReportHandled(data.unHandled, data)" class="pull-right mt-2">
+            </div>
+            <div class="col-lg-2 text-right">
+              <label class="mr-2">For Editor</label>
+              <input type="checkbox" [checked]="!data.unHandled" (change)="data.unHandled = !data.unHandled;onChangeReportHandled(data.unHandled, data)" class="pull-right mt-2">
+            </div>
+          </div>
+          <div *ngFor="let comments of data.reportComments; let i=index">
+            <div class="commentsSection" *ngIf="i == 0">
+              <div class="talk-bubble tri-right left-top col-lg-12">
+                <div class="talktext">
+                  <p class="commentsCreator">
+                    <i class="fa fa-user-circle-o"></i>
+                    <strong><em class="mr-3">{{comments.commentCreator.firstName}} {{comments.commentCreator.lastName }}</em></strong>
+                    {{comments.commentCreated | date: 'yyyy-MM-dd'}} <i class="text-white bg-secondary rounded p-1 ml-1">{{comments.commentCreated | date: 'HH:mm'}}</i>
+                    <span *ngIf="data.reportComments.length === 1"
+                          class="pull-right editTools ml-2"
+                          (click)="newComment[rowIndex] = i===0"><i class="fa fa-commenting-o"></i></span>
+                    <span class="pull-right" *ngIf="comments.commentUploadFile.length > 0">
+                      <span *ngFor="let file of comments.commentUploadFile" class="pl-1 pr-1">
+                        <a href="{{baseUrl}}/tm-uiservice/api/v1/file/download/{{pageType}}/{{file.fileName}}"> <i class="fa fa-paperclip mr-2"></i>{{file.fileName}}</a>
+                      </span>
+                    </span>
+                  </p>
+                  <p class="mt-2">{{comments.comment}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="newComment[rowIndex]" class="newComment answerSection">
+              <div class="talk-bubble tri-right right-top col-lg-12 answerTalkText pb-4">
+                <div class="talktext ">
+                  <div class="col-lg-12 text-right answerCreator pull-left">
+                    <div class="pull-left editTools">
+
+                      <span><i class="fa fa-upload" (click)="fileNew.click()"></i></span>
+                      <input type="file" class="hidden-file-input" #fileNew>
+                      <span><i class="fa fa-save" (click)="onSaveUserComment(data.id, rowIndex)"></i></span>
+                      <span><i class="fa fa-close" (click)="newComment[rowIndex]= false"></i></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control"
+                              [(ngModel)]="userCommentsText"
+                              cols="10" rows="5"
+                              placeholder="Enter your comments"></textarea>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="answerSection" *ngIf="i > 0">
+              <div class="talk-bubble tri-right right-top col-lg-12 answerTalkText pb-4">
+                <div class="talktext ">
+                  <div class="col-lg-12 text-right answerCreator pull-left">
+                    <div class="pull-left editTools">
+                      <span *ngIf="hasComments[rowIndex]">
+                        <span><i class="fa fa-close" (click)="showEditTextArea[rowIndex] = false;hasComments[rowIndex]= false"></i></span>
+                        <span><i class="fa fa-upload" (click)="fileUpdate.click()"></i></span>
+                        <input type="file" class="hidden-file-input" #fileUpdate>
+                        <span><i class="fa fa-save" (click)="onUpdateComments(comments, rowIndex)"></i></span>
+                      </span>
+                      <span *ngIf="userName">
+                      <span *ngIf="(userName.firstName === comments.commentCreator.firstName) && (userName.lastName === comments.commentCreator.lastName)">
+                        <span *ngIf="!hasComments[rowIndex]" (click)="onEditComments(comments.comment, rowIndex)"><i class="fa fa-edit" ></i></span>
+                        <ng-template #deleteComment >
+                          <p>Are you sure to delete this comment?</p>
+                          <button type="button" class="btn btn-outline-success"  (click)="onDeleteComment(comments.id)">Yes</button>
+                          <button type="button" class="btn  btn-outline-primary" (click)="deleteCommentPop.close()">No</button>
+                        </ng-template>
+                        <span #deleteCommentPop="ngbPopover" [ngbPopover]="deleteComment" popoverTitle="Delete Comment"  placement="right"><i class="fa fa-trash"></i></span>
+                      </span>
+                        </span>
+                      <span class="pull-right" *ngIf="comments.commentUploadFile.length > 0">
+                      <span *ngFor="let file of comments.commentUploadFile" class="pl-1 pr-1">
+                        <a href="{{baseUrl}}/tm-uiservice/api/v1/file/download/{{pageType}}/{{file.fileName}}"> <i class="fa fa-paperclip mr-2"></i>{{file.fileName}}</a>
+                      </span>
+                    </span>
+                    </div>
+                    <span class="pull-right">
+                              <strong><em class="mr-3"><i class="fa fa-user-circle-o"></i>
+                                {{comments.commentCreator.firstName}} {{comments.commentCreator.lastName }}</em></strong>{{comments.commentCreated | date: 'yyyy-MM-dd'}}
+                              <i class="text-white bg-secondary rounded p-1">{{comments.commentCreated | date: 'HH:mm'}}</i></span>
+                  </div>
+                  <p class="mt-2 pull-left" *ngIf="!showEditTextArea[rowIndex]">{{comments.comment}}</p>
+                  <div class="form-group" *ngIf="showEditTextArea[rowIndex]">
+                    <textarea class="form-control"
+                              [(ngModel)]="userCommentsText"
+                              cols="10" rows="5"
+                              placeholder="Enter your comments"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noReports>
+      <div class="alert alert-info col-12">
+        No Reports
+      </div>
+    </ng-template>
+  </div>
+</div>
+<ngx-loading [show]="loading$ | async" [config]="{ backdropBorderRadius: '0' }"></ngx-loading>

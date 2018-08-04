@@ -1,0 +1,78 @@
+<div class="form-group">
+    <button type="button" class="btn btn-primary" (click)="open(addTagTemplate)">Add Tag</button>
+</div>
+<div class="row mb-3">
+  <div class="col-12 px-0" *ngIf="(asyncDataDetails$ | async).currentTestCaseStepVersion">
+    <tm-table *ngIf="(asyncDataDetails$ | async).currentTestCaseStepVersion.testCaseStepTags as tags; else noTags"
+              [data]="tags"
+              class="card">
+      <tm-table-column name="Name" field="name"></tm-table-column>
+      <tm-table-column>
+        <ng-template tmTableCellTemplate let-tools let-rowIndex="rowIndex" let-rowCount="rowCount">
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-info mr-1" (click)="onMoveTagsUp(rowIndex)" [disabled]="rowIndex === 0">
+              <i class="fa fa-caret-up"></i></button>
+            <button class="btn btn-info" (click)="onMoveTagsDown(rowIndex)" [disabled]="rowIndex === rowCount - 1">
+              <i class="fa fa-caret-down"></i></button>
+            <ng-template #popContent>
+              <p>Are you sure to delete this tag?</p>
+              <button type="button" class="btn btn-outline-success" (click)="onDeleteTags(rowIndex)">Yes</button>
+              <button type="button" class="btn  btn-outline-primary" (click)="tagPop.close()">No</button>
+            </ng-template>
+            <button type="button" class="btn btn-danger" #tagPop="ngbPopover" [ngbPopover]="popContent" popoverTitle="Delete Tag">
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </div>
+
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+    <ng-template #noTags>
+      <div class="alert alert-info col-12">
+        No Tags added
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #addTagTemplate let-dismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Tag</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body ">
+    <tm-table *ngIf="tags$ | async as tags; else loading"
+              [data]="tags"
+              [paginationParameters]="tagPaginationParameters$ | async"
+              [filters]="tagFilters$ | async"
+              (filterChange)="onFilterChange($event)"
+              (paginationChange)="onPaginationChange($event)"
+              [itemsPerPage]="itemsPerPage">
+      <tm-table-column>
+        <ng-template tmTableCellTemplate let-tag>
+          <input type="checkbox"
+                 name="tag"
+                 [value]="tag.name"
+                 (change)="onTagRowSelect(tag, $event)">
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Name" field="name" [searchable]="true"></tm-table-column>
+    </tm-table>
+
+    <ng-template #loading>
+      Loading Tags
+    </ng-template>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-end ">
+        <button class="btn btn-primary mr-2" [disabled]="(selectedTags$ | async).length === 0"
+                (click)="addTags()">Add</button>
+        <button class="btn btn-primary mr-2" (click)="dismiss()">Cancel</button>
+        <button class="btn btn-primary mr-2" (click)="onClearTableFilter()">Clear Filters</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+

@@ -1,0 +1,70 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+<div class="card application">
+  <div class="card-header">
+    <tm-test-overview-action-menu [testTeam]="selectedTeamData"
+                                  [disableUpdateTest]="disabledUpdate"
+                                  [data]="testDetailsById"
+                                  (clearFilterDropDown)="onClearFilterDropDown($event)"
+                                  (createNew)="onCreateTest($event)"
+                                  [disableCreateTest]="disabledCreate"></tm-test-overview-action-menu>
+  </div>
+  <div class="form-group user-team d-flex mt-3 ml-3 mb-0">
+    <label class="pt-2 pr-2">Test Team:</label>
+    <span class="pr-2">
+      <tm-user-group (userGroupChange)="onTestTeamGroupChange($event)"
+                     [hasAllOption]="true" (change)="onChangeEmit()"></tm-user-group>
+    </span>
+    <span class="pr-2">
+       <tm-user-site (userSiteChange)="onTestTeamSiteChange($event)"
+                     [hasAllOption]="true" (change)="onChangeEmit()"></tm-user-site>
+    </span>
+  </div>
+  <tm-table [data]="tests$ | async"
+            [sort]="sort$ | async"
+            [paginationParameters]="paginationParameters$ | async"
+            [filters]="filters$ | async"
+            (sortChange)="onSortChange($event)"
+            (paginationChange)="onPaginationChange($event)"
+            (rowSelect)="onRowSelect($event)"
+            (rowAction)="onRowAction($event)"
+            (disableUpdateButton)="disableUpdateButtonTestTeamFilter($event)"
+            (resetSelection)="resetOnChangeTestTeamFilter($event)"
+            [disableSelectedRow]="onChangeTestTeamFilter"
+            (filterChange)="onFilterChange($event)"
+            [itemsPerPage]="itemsPerPage">
+    <tm-table-column name="Site" field="testSite">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.testSite.siteName}}
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="Test Object" field="testObjectField" [searchable]="true"></tm-table-column>
+    <tm-table-column name="Name" field="name" [searchable]="true"></tm-table-column>
+    <tm-table-column name="Project" field="project" [searchable]="true"></tm-table-column>
+    <tm-table-column name="Description" field="description" [searchable]="false"></tm-table-column>
+    <tm-table-column name="WBS" field="wbs" [searchable]="true"></tm-table-column>
+    <tm-table-column name="SW Version" field="swVersion" [searchable]="true">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.testSwVersion.name}}
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="Test Leader" field="testLeader" [searchable]="true">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.testUser.firstName}} {{data.testUser.lastName}}
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="Status" field="testStatus" [searchable]="false">
+      <ng-template tmTableFilterTemplate>
+        <select class="form-control"
+                (change)="onTestStatusChange($event.target.value)"
+                [formControl]="testStatusSelector" [(ngModel)]="defaultStatus">
+          <option *ngFor="let option of testStatusOptions | optionsFromEnum" [value]="option.value">
+            {{option.label}}
+          </option>
+        </select>
+      </ng-template>
+    </tm-table-column>
+  </tm-table>
+</div>
+
+

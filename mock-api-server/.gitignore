@@ -1,0 +1,8 @@
+node_modules
+.idea
+target
+npm-debug.log
+*.map
+*.js
+*.tscache
+typings

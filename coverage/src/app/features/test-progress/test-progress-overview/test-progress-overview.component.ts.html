@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/features/test-progress/test-progress-overview/test-progress-overview.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/features/test-progress/test-progress-overview</a> test-progress-overview.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">29.55% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>39/132</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20.83% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>10/48</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">4.55% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">29.13% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>37/127</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { pick } from 'lodash';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import 'rxjs/add/observable/combineLatest';
+import 'rxjs/add/observable/from';
+import 'rxjs/add/observable/zip';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/last';
+import 'rxjs/add/operator/distinctUntilChanged';
+import { Observable } from 'rxjs/Observable';
+import { PaginationParameters } from '../../../core/interfaces/pagination-params.i';
+import { SortOptions } from '../../../core/interfaces/sort.i';
+import { User, UserGroup, UserRole, UserSite } from '../../../core/services/user/user.model';
+import { groupsSelector, roleSelector, sitesSelector, userSelector } from '../../../core/services/user/user.reducer';
+import { tokenSelector } from '../../login/login.reducer';
+import {
+  ClearFilters,
+  FiltersOnPageLoad,
+  Paginate,
+  SelectTest,
+  Sort,
+  UpdateFilters
+} from './test-progress-overview.action';
+import {
+  CauseOrRunningBy,
+  Filter,
+  TestProgress,
+  TestProgressOverviewFilters,
+  TestStatusLog
+} from './test-progress-overview.model';
+import {
+  filtersSelector,
+  paginationSelector,
+  selectedTestGroupSelector,
+  selectedTestSiteSelector,
+  sortSelector,
+  TestProgressOverviewState,
+  testsSelector
+} from './test-progress-overview.reducer';
+import { SessionStorageService } from '../../../core/storage/session-storage.service';
+&nbsp;
+@Component({
+  selector: 'tm-test-progress-overview',
+  templateUrl: './test-progress-overview.component.html',
+  styleUrls: ['./test-progress-overview.component.scss']
+})
+export class TestProgressOverviewComponent implements OnInit, OnDestroy {
+  public testProgress$: Observable&lt;TestProgress[]&gt;;
+  public sort$: Observable&lt;SortOptions | undefined&gt;;
+  public user$: Observable&lt;User&gt;;
+  public paginationParameters$: Observable&lt;PaginationParameters&gt;;
+  public userSites$: Observable&lt;UserSite[]&gt;;
+  public userGroups$: Observable&lt;UserGroup[]&gt;;
+  public userRole$: Observable&lt;UserRole[]&gt;;
+  public filters$: Observable&lt;TestProgressOverviewFilters&gt;;
+  public selectedTestSite$: Observable&lt;UserSite&gt;;
+  public selectedTestGroup$: Observable&lt;UserGroup&gt;;
+  public <span class="cstat-no" title="statement not covered" >disabledUpdate: Boolean = true;</span>
+  public <span class="cstat-no" title="statement not covered" >RemovedButton: Boolean = true;</span>
+  public <span class="cstat-no" title="statement not covered" >disabledCreate: boolean = false;</span>
+  public <span class="cstat-no" title="statement not covered" >removedTableColumnForLeader: boolean = true;</span>
+  public <span class="cstat-no" title="statement not covered" >removedTableColumnForReader: boolean = false;</span>
+  public <span class="cstat-no" title="statement not covered" >testStatusOptions = TestStatusLog;</span>
+  public <span class="cstat-no" title="statement not covered" >causeRunningByOptions = CauseOrRunningBy;</span>
+  public <span class="cstat-no" title="statement not covered" >pagination: PaginationParameters  =  {'numberOfPages': 1, 'page': 1, 'pageSize': 5};</span>
+  public <span class="cstat-no" title="statement not covered" >itemsPerPage = [10, 20, 30];</span>
+  public <span class="cstat-no" title="statement not covered" >selectedTeamData = {};</span>
+  public <span class="cstat-no" title="statement not covered" >onChangeTestTeamFilter: Boolean = false;</span>
+  public testStatusSelector: FormControl;
+  public testDetailsById: string;
+  public <span class="cstat-no" title="statement not covered" >selectAll = TestStatusLog.ALL.toString().toUpperCase();</span>
+  public <span class="cstat-no" title="statement not covered" >defaultStatus: string = TestStatusLog.ALL.toString().toUpperCase();</span>
+  public <span class="cstat-no" title="statement not covered" >defaultCauseOrRunningBy: string = TestStatusLog.ALL.toString().toUpperCase();</span>
+  public <span class="cstat-no" title="statement not covered" >initalTestLoadFilter = {};</span>
+  public <span class="cstat-no" title="statement not covered" >nullFiller = '--';</span>
+  public <span class="cstat-no" title="statement not covered" >privateSelector = [{id: this.selectAll, value: this.selectAll},</span>
+    {id : 'YES', value: 'true'},
+    {id: 'NO', value: 'false'}];
+  public <span class="cstat-no" title="statement not covered" >defaultSelectionPrivate = this.selectAll;</span>
+<span class="fstat-no" title="function not covered" >  constructor(private <span class="cstat-no" title="statement not covered" ></span>store: Store<span class="branch-1 cbranch-no" title="branch not covered" >&lt;TestProgressOverviewState&gt;,</span></span>
+              public <span class="cstat-no" title="statement not covered" >router: Router<span class="branch-2 cbranch-no" title="branch not covered" >,</span></span>
+              private <span class="cstat-no" title="statement not covered" >sessionStorage: SessionStorageService<span class="branch-2 cbranch-no" title="branch not covered" >)</span> {}</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onSortChange(</span>field) {
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new Sort(field));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onPaginationChange(</span>paginationParameters) {
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new Paginate(paginationParameters));</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateFilters(this.selectedTeamData));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onFilterChange(</span>filter: Filter) {
+    const updatedFilters: {[key: string]: string} = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedTeamData[filter.field] = filter.value;</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateFilters(this.selectedTeamData));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onTestStatusChange(</span>val) {
+<span class="cstat-no" title="statement not covered" >    this.onChangeTestTeamFilter = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.disabledUpdate = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedTeamData['statusLogStatus'] = val !== this.selectAll ? val.toUpperCase() : '';</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateFilters(this.selectedTeamData));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onClearFilterDropDown(</span>event) {
+<span class="cstat-no" title="statement not covered" >    this.onChangeTestTeamFilter = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.disabledUpdate = true;</span>
+<span class="cstat-no" title="statement not covered" >    if (event) {</span>
+<span class="cstat-no" title="statement not covered" >      this.defaultStatus = this.defaultSelectionPrivate =  this.defaultCauseOrRunningBy = this.selectAll;</span>
+<span class="cstat-no" title="statement not covered" >      this.selectedTeamData = pick(this.selectedTeamData, ['siteId', 'groupId']);</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onChangeTestTeam(</span>val, filterFrom) {
+<span class="cstat-no" title="statement not covered" >    if (val === this.selectAll) {</span>
+<span class="cstat-no" title="statement not covered" >      delete this.selectedTeamData[filterFrom];</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.selectedTeamData[filterFrom] = val;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this.onChangeTestTeamFilter = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.disabledUpdate = true;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onChangeEmit() {</span>
+<span class="cstat-no" title="statement not covered" >    this.disabledCreate = !(this.selectedTeamData.hasOwnProperty('groupId')</span>
+      &amp;&amp; this.selectedTeamData.hasOwnProperty('siteId'));
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.selectedTeamData['statusLogStatus'] = this.defaultStatus !== this.selectAll</span>
+      ? this.defaultStatus.toUpperCase() : '';
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateFilters(this.selectedTeamData));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onTestTeamGroup(</span>value) {
+<span class="cstat-no" title="statement not covered" >    this.onChangeTestTeam(value, 'groupId');</span>
+  }
+<span class="fstat-no" title="function not covered" >  onTestTeamSite(</span>value) {
+<span class="cstat-no" title="statement not covered" >    this.onChangeTestTeam(value, 'siteId');</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  filterSelect(</span>value: string, field: string): void {
+<span class="cstat-no" title="statement not covered" >    this.onChangeTestTeamFilter = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.disabledUpdate = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedTeamData[field] = value !== this.selectAll ? value : '';</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateFilters(this.selectedTeamData));</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  ngOnInit() {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.testProgress$ = this.store.select(testsSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.sort$ = this.store.select(sortSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.paginationParameters$ = this.store.select(paginationSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.userGroups$ = this.store.select(groupsSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.userSites$ = this.store.select(sitesSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.userRole$ = this.store.select(roleSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.user$ = this.store.select(userSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.filters$ = this.store.select(filtersSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedTestSite$ = this.store.select(selectedTestSiteSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedTestGroup$ = this.store.select(selectedTestGroupSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.testStatusSelector = new FormControl(this.defaultStatus.toUpperCase());</span>
+<span class="cstat-no" title="statement not covered" >    Observable.combineLatest(this.userGroups$, this.userSites$, this.store.select(tokenSelector),</span>
+<span class="fstat-no" title="function not covered" >      (</span>userGroup, userSite, token) =&gt; {
+<span class="cstat-no" title="statement not covered" >        return {userGroup, userSite, token};</span>
+      }).subscribe(<span class="fstat-no" title="function not covered" >(</span>{<span class="cstat-no" title="statement not covered" >userGroup,</span> <span class="cstat-no" title="statement not covered" >userSite,</span> <span class="cstat-no" title="statement not covered" >token}</span>) =&gt; {
+<span class="cstat-no" title="statement not covered" >      if (userGroup.length &gt; 0 &amp;&amp; userSite.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        this.initalTestLoadFilter['groupId'] = userGroup[0].groupId;</span>
+<span class="cstat-no" title="statement not covered" >        this.initalTestLoadFilter['siteId'] = userSite[0].siteId;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (token) {</span>
+<span class="cstat-no" title="statement not covered" >          this.store.dispatch(new FiltersOnPageLoad(this.initalTestLoadFilter));</span>
+        }
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    this.userRole$.subscribe( <span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      if ( res &amp;&amp; res.length &gt; 0 ) {</span>
+<span class="cstat-no" title="statement not covered" >        if ( res[0].roleId === 'TEST_LEADER' || res[0].roleId === 'EDITOR') {</span>
+<span class="cstat-no" title="statement not covered" >          this.removedTableColumnForLeader = false;</span>
+<span class="cstat-no" title="statement not covered" >          this.removedTableColumnForReader = true;</span>
+<span class="cstat-no" title="statement not covered" >          this.RemovedButton = true;</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >          this.removedTableColumnForReader = false;</span>
+<span class="cstat-no" title="statement not covered" >          this.removedTableColumnForLeader = true;</span>
+<span class="cstat-no" title="statement not covered" >          this.RemovedButton = false;</span>
+        }
+      }
+    });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onRowAction(</span>test: TestProgress) {
+<span class="cstat-no" title="statement not covered" >    this.router.navigate(['test', 'details', test.testId]);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onRowSelect(</span>test: TestProgress) {
+<span class="cstat-no" title="statement not covered" >    if (test === null) {</span>
+<span class="cstat-no" title="statement not covered" >      this.disabledUpdate = true;</span>
+    }else {
+<span class="cstat-no" title="statement not covered" >      this.disabledUpdate = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.store.dispatch(new SelectTest(test));</span>
+<span class="cstat-no" title="statement not covered" >      this.testDetailsById = test ? test.testId : null;</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  resetOnChangeTestTeamFilter(</span>value: boolean): void {
+<span class="cstat-no" title="statement not covered" >    this.onChangeTestTeamFilter = value;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  disableUpdateButtonTestTeamFilter(</span>value: boolean): void {
+<span class="cstat-no" title="statement not covered" >    this.disabledUpdate = value;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onCreateTest(</span>isCreateTest: boolean) {
+<span class="cstat-no" title="statement not covered" >    if (isCreateTest &amp;&amp; this.selectedTeamData.hasOwnProperty('groupId') &amp;&amp; this.selectedTeamData.hasOwnProperty('siteId') ) {</span>
+      // @todo this should be moved to where the selectors are changes via an effect
+<span class="cstat-no" title="statement not covered" >      this.sessionStorage.setItem('userGroup', this.selectedTeamData['groupId']);</span>
+<span class="cstat-no" title="statement not covered" >      this.sessionStorage.setItem('userSite', this.selectedTeamData['siteId']);</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ngOnDestroy() {</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new ClearFilters());</span>
+  }
+}
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

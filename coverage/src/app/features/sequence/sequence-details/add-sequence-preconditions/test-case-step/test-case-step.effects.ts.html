@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/features/sequence/sequence-details/add-sequence-preconditions/test-case-step/test-case-step.effects.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/features/sequence/sequence-details/add-sequence-preconditions/test-case-step</a> test-case-step.effects.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">38.96% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>30/77</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.37% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>38/54</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.57% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">40.58% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>28/69</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { Actions, Effect } from '@ngrx/effects';
+import {Action, Store} from '@ngrx/store';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/switchMap';
+import { Observable } from 'rxjs/Rx';
+import { cloneDeep } from 'lodash';
+import {
+  DeSelectTestCaseList, DeSelectTestStepList,
+  GetTestCaseList,
+  GetTestCaseListFailure,
+  GetTestCaseListSuccess,
+  GetTestStepList,
+  GetTestStepListFailure,
+  GetTestStepListSuccess, GetTruckFunctionAreaFailure, GetTruckFunctionAreaSuccess, LoadTagsFailure, LoadTagsSuccess,
+  SelectTestCaseList,
+  SelectTestStepList,
+  testCaseStepListActionTypes,
+  UpdateTestCaseList,
+  UpdateTestStepList
+} from './test-case-step.actions';
+import {PaginatedResponse} from '../../../../../core/interfaces/paginated-response.i';
+import {TestCaseStep} from './test-case-step.model';
+import {TestCaseStepListService} from './test-case-step.service';
+import {
+  selectedTestCaseSelector,
+  selectedTestStepSelector,
+  TestCaseStepListState
+} from './test-case-step.reducer';
+import {Tag} from '../../../../../shared/tag/tag.model';
+import {TestCaseDetailService} from '../../../../test-case-step/test-case-detail/test-case-detail.service';
+&nbsp;
+&nbsp;
+@Injectable()
+export class TestCaseStepListEffects {
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  constructor(</span></span>
+    private <span class="cstat-no" title="statement not covered" >actions$: Actions<span class="branch-1 cbranch-no" title="branch not covered" >,</span></span>
+    public <span class="cstat-no" title="statement not covered" >testCaseStepListService: TestCaseStepListService<span class="branch-2 cbranch-no" title="branch not covered" >,</span></span>
+    private <span class="cstat-no" title="statement not covered" >store: Store<span class="branch-2 cbranch-no" title="branch not covered" >&lt;TestCaseStepListState&gt;,</span></span>
+    private <span class="cstat-no" title="statement not covered" >testCaseDetailService: TestCaseDetailService<span class="branch-2 cbranch-no" title="branch not covered" >)</span> {</span>
+  }
+&nbsp;
+  @Effect() getTestCaseList$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(testCaseStepListActionTypes.LOAD_TEST_CASE)
+    .mergeMap(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return this.testCaseStepListService.getTestCaseList()</span>
+        .map(<span class="fstat-no" title="function not covered" >(</span>result: PaginatedResponse&lt;TestCaseStep[]&gt;) =&gt; <span class="cstat-no" title="statement not covered" >new GetTestCaseListSuccess(result))</span>
+        .catch(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>Observable.of(new GetTestCaseListFailure()))</span>;
+    });
+  @Effect() getTestStepList$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(testCaseStepListActionTypes.LOAD_TEST_STEP)
+    .mergeMap(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return this.testCaseStepListService.getTestStepList()</span>
+        .map(<span class="fstat-no" title="function not covered" >(</span>result: PaginatedResponse&lt;TestCaseStep[]&gt;) =&gt; <span class="cstat-no" title="statement not covered" >new GetTestStepListSuccess(result))</span>
+        .catch(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>Observable.of(new GetTestStepListFailure()))</span>;
+    });
+&nbsp;
+  @Effect() testCaseFilter$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(...[
+      testCaseStepListActionTypes.UPDATE_TEST_CASE_FILTER,
+      testCaseStepListActionTypes.PAGINATE_TEST_CASE
+    ]).map(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>new GetTestCaseList())</span>;
+&nbsp;
+  @Effect() testStepFilter$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(...[
+      testCaseStepListActionTypes.UPDATE_TEST_STEP_FILTER,
+      testCaseStepListActionTypes.PAGINATE_TEST_STEP
+    ]).map(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>new GetTestStepList())</span>;
+&nbsp;
+  @Effect() selectTestCase$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(testCaseStepListActionTypes.SELECT_TEST_CASE)
+    .withLatestFrom(this.store.select(selectedTestCaseSelector))
+    .map(<span class="fstat-no" title="function not covered" >(</span>[<span class="cstat-no" title="statement not covered" >action,</span> <span class="cstat-no" title="statement not covered" >testCase]</span>) =&gt; {
+      const item = <span class="cstat-no" title="statement not covered" >cloneDeep(testCase);</span>
+<span class="cstat-no" title="statement not covered" >      item.push((&lt;SelectTestCaseList&gt;action).testCaseList);</span>
+<span class="cstat-no" title="statement not covered" >      return new UpdateTestCaseList(item);</span>
+    });
+  @Effect() selectTestStep$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(testCaseStepListActionTypes.SELECT_TEST_STEP)
+    .withLatestFrom(this.store.select(selectedTestStepSelector))
+    .map(<span class="fstat-no" title="function not covered" >(</span>[<span class="cstat-no" title="statement not covered" >action,</span> <span class="cstat-no" title="statement not covered" >selectedTestStep]</span>) =&gt; {
+      const item = <span class="cstat-no" title="statement not covered" >cloneDeep(selectedTestStep);</span>
+<span class="cstat-no" title="statement not covered" >      item.push((&lt;SelectTestStepList&gt;action).testStepList);</span>
+<span class="cstat-no" title="statement not covered" >      return new UpdateTestStepList(item);</span>
+    });
+&nbsp;
+  @Effect() deselectTestCase: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType( testCaseStepListActionTypes.DESELECT_TEST_CASE)
+    .withLatestFrom(this.store.select(selectedTestCaseSelector))
+    .map(<span class="fstat-no" title="function not covered" >(</span>[<span class="cstat-no" title="statement not covered" >action,</span> <span class="cstat-no" title="statement not covered" >testCase]</span>) =&gt; {
+      const testCaseID = (&lt;DeSelectTestCaseList&gt;<span class="cstat-no" title="statement not covered" >action).testCaseID;</span>
+      const testCaseData = <span class="cstat-no" title="statement not covered" >testCase.filter(<span class="fstat-no" title="function not covered" >item =&gt; <span class="cstat-no" title="statement not covered" >item.id !== testCaseID)</span>;</span></span>
+<span class="cstat-no" title="statement not covered" >      return new UpdateTestCaseList(testCaseData);</span>
+    });
+&nbsp;
+  @Effect() deselectTestStep: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType( testCaseStepListActionTypes.DESELECT_TEST_STEP)
+    .withLatestFrom(this.store.select(selectedTestStepSelector))
+    .map(<span class="fstat-no" title="function not covered" >(</span>[<span class="cstat-no" title="statement not covered" >action,</span> <span class="cstat-no" title="statement not covered" >testStep]</span>) =&gt; {
+      const testStepID = (&lt;DeSelectTestStepList&gt;<span class="cstat-no" title="statement not covered" >action).testStepID;</span>
+      const testStepData = <span class="cstat-no" title="statement not covered" >testStep.filter(<span class="fstat-no" title="function not covered" >item =&gt; <span class="cstat-no" title="statement not covered" >item.id !== testStepID)</span>;</span></span>
+<span class="cstat-no" title="statement not covered" >      return new UpdateTestCaseList(testStepData);</span>
+    });
+&nbsp;
+  @Effect() getTagsList$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(testCaseStepListActionTypes.LOAD_TAGS)
+    .mergeMap(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return this.testCaseStepListService.getTags()</span>
+        .map(<span class="fstat-no" title="function not covered" >(</span>result: PaginatedResponse&lt;Tag[]&gt;) =&gt; <span class="cstat-no" title="statement not covered" >new LoadTagsSuccess(result))</span>
+        .catch(<span class="fstat-no" title="function not covered" >() =&gt;  <span class="cstat-no" title="statement not covered" ></span>Observable.of(new LoadTagsFailure()))</span>;
+    });
+&nbsp;
+  @Effect() getTCTruckFunctionArea$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(testCaseStepListActionTypes.GET_TRUCK_FUNCTION_AREA)
+    .mergeMap(<span class="fstat-no" title="function not covered" >(</span>action) =&gt; {
+<span class="cstat-no" title="statement not covered" >      return this.testCaseDetailService.getTruckFunctionArea()</span>
+        .map(<span class="fstat-no" title="function not covered" >(</span>result) =&gt; {
+<span class="cstat-no" title="statement not covered" >          return new GetTruckFunctionAreaSuccess(result);</span>
+        })
+        .catch(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          return Observable.of(new GetTruckFunctionAreaFailure());</span>
+        });
+    });
+&nbsp;
+  @Effect() getAllTestCases$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(testCaseStepListActionTypes.LOAD_ALL_TEST_CASE)
+    .mergeMap(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return this.testCaseStepListService.getAllTestCases()</span>
+        .map(<span class="fstat-no" title="function not covered" >(</span>result: PaginatedResponse&lt;TestCaseStep[]&gt;) =&gt; <span class="cstat-no" title="statement not covered" >new GetTestCaseListSuccess(result))</span>
+        .catch(<span class="fstat-no" title="function not covered" >() =&gt;  <span class="cstat-no" title="statement not covered" ></span>Observable.of(new GetTestCaseListFailure()))</span>;
+    });
+&nbsp;
+  @Effect() getAllTestSteps$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(testCaseStepListActionTypes.LOAD_ALL_TEST_STEP)
+    .mergeMap(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return this.testCaseStepListService.getAllTestSteps()</span>
+        .map(<span class="fstat-no" title="function not covered" >(</span>result: PaginatedResponse&lt;TestCaseStep[]&gt;) =&gt; <span class="cstat-no" title="statement not covered" >new GetTestStepListSuccess(result))</span>
+        .catch(<span class="fstat-no" title="function not covered" >() =&gt;  <span class="cstat-no" title="statement not covered" ></span>Observable.of(new GetTestStepListFailure()))</span>;
+    });
+&nbsp;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

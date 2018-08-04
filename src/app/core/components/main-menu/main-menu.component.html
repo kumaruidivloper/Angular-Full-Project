@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light row font-weight-bold">
+  <a class="navbar-brand" routerLink="/">{{ 'MENU.TITLE' | translate}}</a>
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon" (click)="toggleMenuOpen()"></span>
+  </button>
+
+  <div class="navbar-collapse tm-main-navbar" [ngClass]="{'collapse': !(menuOpen | async) }" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngFor="let menuItem of menuItems">
+        <a class="nav-link" [routerLink]="menuItem.link">{{ menuItem.name | translate }}</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="#" class="nav-link" (click)="logout($event)">{{'MENU.SIGNOUT'  | translate}}</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">{{'MENU.HELP' | translate }}</a>
+      </li>
+      <li class="nav-item " (click)="changeLanguage('en_GB')">
+        <span class="nav-link" >EN</span>
+      </li>
+      <li class="nav-item" (click)="changeLanguage('sv_SV')">
+        <span class="nav-link" >SV</span>
+      </li>
+    </ul>
+  </div>
+</nav>
+

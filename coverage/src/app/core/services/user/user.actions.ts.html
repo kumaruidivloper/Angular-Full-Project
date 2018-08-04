@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/core/services/user/user.actions.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/core/services/user</a> user.actions.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">74.58% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>44/59</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>11/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68.75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>33/48</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Action } from '@ngrx/store';
+&nbsp;
+import { User, UserGroup, UserSite, UserRole } from './user.model';
+&nbsp;
+// @todo, we should apply the same refactoring here as was done in test-details.actions.ts
+export const GET_USER = '[User] Get User Details';
+export const GET_USER_SUCCESS = '[User] Get User Details Success';
+export const USER_GROUP = '[User] Get User Groups';
+export const USER_GROUP_SUCCESS = '[User] Get User Groups Success';
+export const USER_GROUP_FAILURE = '[User] Get User Groups Failure';
+export const USER_SITE = '[User] Get User Sites';
+export const USER_SITE_SUCCESS = '[User] Get User Sites Success';
+export const USER_SITE_FAILURE = '[User] Get User Sites Failure';
+export const GET_USER_ROLE = '[User] Get User Role';
+export const GET_USER_ROLE_SUCCESS = '[User] Get User Role Success';
+export const GET_USER_ROLE_FAILURE = '[User] Get User Role Failure';
+&nbsp;
+&nbsp;
+export class GetUser implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = GET_USER;</span>
+}
+&nbsp;
+export class GetUserSites implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = USER_SITE;</span>
+}
+&nbsp;
+export class GetUserGroups implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = USER_GROUP;</span>
+}
+&nbsp;
+export class GetUserSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = GET_USER_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>user: User)</span> {}
+}
+&nbsp;
+export class GetUserSitesSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = USER_SITE_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>sites: UserSite[])</span> {}
+}
+&nbsp;
+export class GetUserGroupsSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = USER_GROUP_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>groups: UserGroup[])</span> {}
+}
+&nbsp;
+export class GetUserSitesFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = USER_SITE_FAILURE;</span>
+}
+&nbsp;
+export class GetUserGroupsFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = USER_GROUP_FAILURE;</span>
+}
+&nbsp;
+export class GetUserRole implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = GET_USER_ROLE;</span>
+}
+&nbsp;
+export class GetUserRoleSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = GET_USER_ROLE_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>userRole: UserRole[])</span> {}
+}
+&nbsp;
+export class GetUserRoleFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = GET_USER_ROLE_FAILURE;</span>
+}
+&nbsp;
+export type UserActions = GetUser | GetUserSuccess | GetUserGroups | GetUserGroupsSuccess | GetUserGroupsFailure |
+                          GetUserSites | GetUserSitesSuccess | GetUserSitesFailure | GetUserRole;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

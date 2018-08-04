@@ -1,0 +1,8 @@
+<div>
+  <button class="btn btn-primary"  routerLink="details" [disabled]="disableUpdateTestProgress" *ngIf="removedButtonForReader">Open</button>
+  <button class="btn btn-primary" (click)="clearFilters()">Clear Filters</button>
+  <!--<button class="btn btn-primary" routerLink="create" (click)="onCreate()" [disabled]="disableCreateTest">Create New</button>-->
+  <button class="btn btn-primary" *ngIf="removedButtonForReader">Fault Report</button>
+  <button class="btn btn-primary" [routerLink] ="['message-board', testId]" [disabled]="testId === 0" *ngIf="removedButtonForReader">Message Board</button>
+  <button class="btn btn-primary"  [disabled]="testId === 0" [routerLink] ="['reports', testId]">Reports</button>
+</div>

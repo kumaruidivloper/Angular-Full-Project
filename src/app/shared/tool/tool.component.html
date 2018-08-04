@@ -1,0 +1,80 @@
+<div class="form-group">
+    <button type="button" class="btn btn-primary" (click)="open(addToolsTemplate)">Add Tool</button>
+</div>
+
+<div class="row mb-3" >
+  <div class="col-12 px-0" *ngIf="(asyncDataDetails$ | async).currentTestCaseStepVersion">
+    <tm-table *ngIf="(asyncDataDetails$ | async).currentTestCaseStepVersion.testCaseStepTools as tools; else noTools"
+              [data]="tools"
+              class="card">
+      <tm-table-column name="Name" field="name"></tm-table-column>
+      <tm-table-column>
+        <ng-template tmTableCellTemplate let-tools let-rowIndex="rowIndex" let-rowCount="rowCount">
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-info mr-1" (click)="onMoveToolsUp(rowIndex)" [disabled]="rowIndex === 0">
+              <i class="fa fa-caret-up"></i></button>
+            <button class="btn btn-info" (click)="onMoveToolsDown(rowIndex)" [disabled]="rowIndex === rowCount - 1">
+              <i class="fa fa-caret-down"></i></button>
+            <ng-template #popContent>
+              <p>Are you sure to delete this tool?</p>
+              <button type="button" class="btn btn-outline-success" (click)="onDeleteTools(rowIndex)">Yes</button>
+              <button type="button" class="btn  btn-outline-primary" (click)="toolPop.close()">No</button>
+            </ng-template>
+            <button type="button" class="btn btn-danger" #toolPop="ngbPopover" [ngbPopover]="popContent" popoverTitle="Delete Tool">
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </div>
+
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+    <ng-template #noTools>
+    <div class="alert alert-info col-12">
+      No Tools added
+    </div>
+  </ng-template>
+  </div>
+</div>
+
+<ng-template #addToolsTemplate let-dismiss="dismiss">
+<div class="modal-header">
+  <h4 class="modal-title">Add Tools</h4>
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body toolsModalTemplate">
+  <tm-table *ngIf="tools$ | async as tools; else loading"
+            [data]="tools"
+            [paginationParameters]="toolsPaginationParameters$ | async"
+            [filters]="toolsFilters$ | async"
+            (filterChange)="onFilterChange($event)"
+            (paginationChange)="onPaginationChange($event)"
+            [itemsPerPage]="itemsPerPage">
+
+    <tm-table-column>
+      <ng-template tmTableCellTemplate let-tools>
+        <input type="checkbox"
+               name="tools"
+               [value]="tools.name"
+               (change)="onToolRowSelect(tools, $event)">
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="Name" field="name" [searchable]="true"></tm-table-column>
+  </tm-table>
+
+  <ng-template #loading>
+    Loading Tools
+  </ng-template>
+
+  <div class="row">
+    <div class="col-lg-12 d-flex justify-content-end ">
+      <button class="btn btn-primary mr-2" [disabled]="(selectedTools$ | async).length === 0"
+              (click)="addTools()">Add</button>
+      <button class="btn btn-primary mr-2" (click)="dismiss()">Cancel</button>
+      <button class="btn btn-primary mr-2" (click)="onClearTableFilter()">Clear Filters</button>
+    </div>
+  </div>
+</div>
+</ng-template>
+

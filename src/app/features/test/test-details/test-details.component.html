@@ -1,0 +1,265 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+<div class="card">
+  <tm-test-details-action-menu
+    (save)="onSave(testForm.value)"
+    (delete)="open(confirmDelete)" [isCreate]="isCreate" [disableSave]="disableSave"
+    [testInfo] ="testInfo" [enableDelete]="!enableDeleteTest"></tm-test-details-action-menu>
+
+  <form [formGroup]="testForm" class="container-fluid" novalidate>
+    <div class="row user-team">
+      <div class="card-block visible-sm-* col-sm-5 col-md-6 col-lg-4 required">
+        <div *ngIf="!isCreate">
+          <label>Test Team:</label>
+          <span	*ngIf="(testDetails$ | async)?.testUserGroup">
+              {{(testDetails$	| async).testUserGroup.groupName}}
+            </span>
+          <span	*ngIf="(testDetails$ | async)?.testSite">
+              {{(testDetails$ |	async).testSite.siteName}}
+            </span>
+        </div>
+        <div *ngIf="isCreate" class="d-flex justify-content-start required">
+          <label class="pt-2 pr-2">Test Team:</label>
+          <span class="pr-2">
+              <tm-user-group (userGroupChange)="onTestTeamGroup($event)"
+                             [hasAllOption]="false"
+                             [selectedGroup]="selectedTestGroup"></tm-user-group>
+            </span>
+          <span class="pr-2">
+               <tm-user-site (userSiteChange)="onTestTeamSite($event)"
+                             [hasAllOption]="false"
+                             [selectedSite]="selectedTestSite"></tm-user-site>
+            </span>
+        </div>
+      </div>
+      <div class="card-block col-xs-6  col-sm-5 col-md-6 col-lg-8 ">
+        <div class=" d-flex justify-content-end">
+          <span class="required"><label></label>Required Fields</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="form-group col-sm-4 col-md-4 col-lg-2">
+        <label for="testId">ID</label> <input type="text" id="testId"
+                                              class="form-control" formControlName="testId" readonly />
+      </div>
+
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group required">
+          <label for="testName">Name</label> <input type="text" id="testName"
+                                                formControlName="name" class="form-control" required maxlength="50"/>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+               class="alert alert-danger">Name is required!</div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group">
+          <label for="testRequestId">Test Request ID</label> <input
+          type="text" id="testRequestId" formControlName="testRequestId"
+          class="form-control" maxlength="15"/>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-3 ">
+        <div class="form-group required">
+          <label for="testUser">Test Leader</label>
+          <select id="testUser" *ngIf="!isCreate"
+                  class="form-control"
+                  formControlName="testUser"
+                  [compareWith]="compare" required>
+            <option *ngFor="let testLeader of testLeaders$ | async"
+                    [ngValue]="testLeader" >
+              {{testLeader.firstName}} {{testLeader.lastName}}
+            </option>
+          </select>
+          <select class="form-control" *ngIf="isCreate"
+                  formControlName="testUser"
+                  [compareWith]="compare" required>
+            <option *ngFor="let testLeader of testLeaders$ | async"
+                    [value]="testLeader.userId">
+              {{testLeader.firstName}} {{testLeader.lastName}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div *ngIf="!isCreate" class="form-group required">
+          <label for="testStatusUpdate">Status</label> <select
+          id="testStatusUpdate" class="form-control"
+          formControlName="testStatus" required #testStatus>
+          <option *ngFor="let option of testStatusOptions | optionsFromEnum"
+                  [value]="option.value">{{option.label}}</option>
+        </select>
+        </div>
+        <div *ngIf="isCreate" class="form-group required">
+          <label for="testStatus">Status</label> <select id="testStatus"
+                                                         class="form-control" formControlName="testStatus"
+                                                         required #testStatus>
+          <option
+            *ngFor="let option of defaultTestStatusOptions | optionsFromEnum"
+            [value]="option.value">{{option.label}}</option>
+        </select>
+        </div>
+      </div>
+
+      <div class="col-sm-3 col-md-3 col-lg-1">
+        <div class="form-group required">
+          <label for="privateTest">Private</label> <select id="privateTest"
+                                                           class="form-control" name="privateTest"
+                                                           formControlName="privateTest" required [disabled]="">
+          <option [value]="true">Yes</option>
+          <option [value]="false">No</option>
+        </select>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group required">
+          <label for="testObjectField">Test Object</label>
+          <select id="testObjectField"
+                  class="form-control"
+                  formControlName="testObjectField" required >
+
+            <option *ngIf="isCreate" value="">Select</option>
+            <option *ngFor="let value of testObjects$ | async" [ngValue]="value.testObjectFieldData">
+              {{value.testObjectFieldData}}
+            </option>
+          </select>
+          <span class="col-lg-3" [hidden]="testObjectField.invalid">
+						<a href="http://protom.got.volvo.net/ProtomWeb/code/Protom.jnlp?jnlp.displayId={{selectedTestObjectId}}&jnlp.displayClass=TestObject&jnl" target="_blank"> PROTOM </a>
+					</span>
+          <div
+            *ngIf="testObjectField.invalid && (testObjectField.dirty || testObjectField.touched)"
+            class="alert alert-danger">Test Object is required!</div>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-4 col-lg-2 form-group">
+        <label for="productClass">Product Class</label> <input type="text"
+                                                               id="productClass" formControlName="productClass"
+                                                               class="form-control" readonly />
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2 required">
+        <div class="form-group">
+          <label for="testProject">Project</label> <input type="text"
+                                                          id="testProject" class="form-control" formControlName="project"
+                                                          required maxlength="15"/>
+          <div *ngIf="project.invalid && (project.dirty || project.touched)"
+               class="alert alert-danger">Project is required!</div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-3 required">
+        <div class="form-group">
+          <label for="testWbs">WBS</label>
+          <input type="text" id="testWbs" formControlName="wbs" class="form-control" maxlength="60" required/>
+          <div *ngIf="wbs.invalid && (wbs.dirty || wbs.touched)"
+               class="alert alert-danger">WBS is required!</div>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-4 col-lg-3 required">
+        <div class="form-group">
+          <label for="testSoftwareVersion">Software Version</label>
+          <select
+            id="testSoftwareVersion" class="form-control"
+            formControlName="testSwVersion" [compareWith]="compare" required>
+            <option *ngIf="isCreate" value="">Select</option>
+            <option
+              *ngFor="let softwareVersion of testSoftwareVersions$ | async"
+              [ngValue]="softwareVersion">
+              {{softwareVersion.name}}
+            </option>
+          </select>
+          <div
+            *ngIf="testSoftwareVersion.invalid && (testSoftwareVersion.dirty || testSoftwareVersion.touched)"
+            class="alert alert-danger">Software Version is required!</div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group">
+          <label for="testPlannedStartDate">Planned Start Date</label>
+          <div class="input-group">
+            <input class="form-control" id="testPlannedStartDate"
+                   ngx-mydatepicker name="testPlannedStartDate"
+                   formControlName="plannedStartDate" [options]="datePickerOptions" (keypress)="numbersOnly($event)"
+                   type="text" #testPlannedStartDate="ngx-mydatepicker" />
+            <button class="input-group-addon date-picker-image"
+                    (click)="testPlannedStartDate.toggleCalendar()" type="button">
+              <img src="./assets/img/calendar-icon.svg" />
+            </button>
+          </div>
+          <small class="hint-text">(yyyy-mm-dd)</small>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group">
+          <label for="testPlannedEndDate">Planned End Date</label>
+          <div class="input-group">
+            <input class="form-control" id="testPlannedEndDate"
+                   ngx-mydatepicker name="testPlannedEndDate"
+                   formControlName="plannedEndDate" [options]="datePickerOptions" (keypress)="numbersOnly($event)"
+                   type="text" #testPlannedEndDate="ngx-mydatepicker" />
+            <button class="input-group-addon date-picker-image"
+                    (click)="testPlannedEndDate.toggleCalendar()" type="button">
+              <img src="./assets/img/calendar-icon.svg" />
+            </button>
+          </div>
+          <small class="hint-text">(yyyy-mm-dd)</small>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2">
+        <div class="form-group">
+          <label for="testActualStartDate">Actual Start Date</label>
+          <div class="input-group">
+            <input class="form-control" name="actualStartDate"
+                   formControlName="actualStartDate"
+                   ngx-mydatepicker (keypress)="numbersOnly($event)"
+                   [options]="datePickerOptions"
+                   #testActualStartDate="ngx-mydatepicker" type="text"
+                   id="testActualStartDate" />
+            <button class="input-group-addon date-picker-image"
+                    (click)="testActualStartDate.toggleCalendar()" type="button">
+
+              <img src="./assets/img/calendar-icon.svg" />
+            </button>
+          </div>
+          <small class="hint-text">(yyyy-mm-dd)</small>
+        </div>
+      </div>
+      <div class="col-sm-8 col-md-8 col-lg-6">
+        <div class="form-group ">
+          <label for="testDescription">Description:</label>
+          <textarea class="form-control" id="testDescription" #testDescription
+                    formControlName="description" rows="5" maxlength="3000"></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<tm-test-details-procedures (enableSave)="enableSave()"></tm-test-details-procedures>
+
+<ng-template #confirmDelete let-confirmDeleteClose="close"
+             let-confirmDeleteDismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Are you sure you want to delete test</h4>
+    <button type="button" class="close" aria-label="Close"
+            (click)="confirmDeleteDismiss('Cross click')">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary"
+                (click)="deleteTest();confirmDeleteClose('Close click')">Yes</button>
+        <button class="btn btn-primary"
+                (click)="confirmDeleteClose('Close click')">No</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>

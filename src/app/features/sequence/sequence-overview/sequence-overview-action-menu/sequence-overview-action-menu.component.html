@@ -1,0 +1,7 @@
+<div>
+  <button class="btn btn-primary" [disabled]="disableUpdateSequence" [routerLink] ="['details', data]">Open</button>
+  <button class="btn btn-primary" routerLink="create"
+          (click)="setSelectedUserGroupSite()"
+          [disabled]="disableCreateSequence">Create New</button>
+  <button class="btn btn-primary" (click)="clearSequenceFilters()">Clear Filters</button>
+</div>

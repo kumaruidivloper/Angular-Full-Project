@@ -1,0 +1,117 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+<div class="card">
+  <form  class="container-fluid" novalidate name="messageForm" #messageForm="ngForm" >
+    <div class="row pl-3">
+      <h5 class="mb-3 mt-4">Name - {{(testDetails$ | async).name | uppercase}}</h5>
+    </div>
+    <div class="row user-team">
+      <div class="card-block visible-sm-* col-sm-5 col-md-6 col-lg-4">
+        <div class="d-flex justify-content-start">
+          <label class="pr-2">Test Team:</label>
+          <span	*ngIf="(testDetails$ | async)?.testUserGroup" class="pr-2">
+              {{(testDetails$	| async).testUserGroup.groupName}}
+            </span>
+          <span	*ngIf="(testDetails$ | async)?.testSite">
+              {{(testDetails$ |	async).testSite.siteName}}
+            </span>
+        </div>
+      </div>
+      <div class="card-block col-xs-6  col-sm-5 col-md-6 col-lg-8 ">
+        <div class="d-flex justify-content-end">
+          <span class="required"><label></label>Required Fields</span>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="form-group col-sm-12 col-md-7 col-lg-7 required">
+        <label for="newMessage">{{ 'MESSAGE.NEW' | translate}}</label>
+        <textarea class="form-control"
+                  id="newMessage"
+                  ngModel
+                  name="messageBoard" #messageBoard
+                  rows="5" maxlength="3000"
+                  [(ngModel)]="textAreaValue"
+                  (keyup)="textAreaValidation(textAreaValue); "
+                  required></textarea>
+      </div>
+      <div class="form-group col-sm-12 col-md-5 col-lg-5">
+        <div>
+          <label for="AttachmentFile"> {{'MESSAGE.ATTACHMENT' | translate }} </label>
+          <div class="row form-group ml-1 mr-1 mb-0">
+            <input type="file" class="form-control" [ngClass]="uploadSuccess ? 'col-lg-11' : ''" #fileInput (change)="fileToUpload($event)" id="AttachmentFile"/>
+            <span *ngIf="uploadSuccess" class="col-lg-1"><i class="fa fa-check"></i> </span>
+          </div>
+
+          <ul class="list-unstyled" [hidden]="hideAttachmentList">
+            <li *ngFor="let file of fileDetailsObj" class="ml-1 mt-1 mb-1">
+              <a href="{{baseUrl}}/tm-uiservice/api/v1/file/download/{{pageType}}/{{file.fileName}}" *ngIf="hasAttachment"><i class="fa fa-paperclip mr-1"></i>{{file.fileName}}</a>
+              <a href (click)="removeFileAttachment(file)"><i class="fa fa-trash-o ml-3"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="mt-3 float-right">
+          <button class="btn btn-primary" (click)="clearMsgFilter()">{{'MESSAGE.CLEAR FILTER' | translate}}</button>
+          <button class="btn btn-primary" [disabled]="textAreaEmpty" (click)="onSaveMessage(messageForm.value)">{{'MESSAGE.SAVE' | translate }}</button>
+          <button class="btn btn-primary">{{'MESSAGE.CANCEL' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="card application mb-2 mr-3 ml-3 messageList" *ngIf="showMessageList; else noMessages">
+    <tm-table [data]="messageList$ | async"
+              [sort]="sort"
+              [paginationParameters]="paginationParameters$ | async"
+              [filters]="filter$ | async"
+              (sortChange)="onSortChange($event)"
+              (paginationChange)="onPaginationChange($event)"
+              (filterChange)="onFilterChange($event)"
+              [itemsPerPage]="itemsPerPage">
+      <tm-table-column name="{{'MESSAGE.FROM' | translate}}" field="name" [searchable]="true">
+        <ng-template tmTableCellTemplate let-data>
+          {{data.user.firstName}}  {{data.user.lastName}}
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="{{'MESSAGE.CREATED' | translate }}" field="createdDate" [searchable]="false">
+        <ng-template tmTableFilterTemplate>
+          <my-date-range-picker name="myDateRange"
+                                [options]="myDateRangePickerOptions"
+                                placeholder="Select a date range "
+                                required
+                                [(ngModel)]="clearDateRange"
+                                (dateRangeChanged)="onDateRangeChanged($event)"
+                                (keypress)="numbersOnly($event)"></my-date-range-picker>
+          <small class="hint-text" title=" Ex: 2018-01-01 - 2018-12-01">( yyyy-mm-dd  -  yyyy-mm-dd)</small>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{ data.created | date: 'yyyy-MM-dd'}} <i class="time-bg pl-2 pr-2 ml-1">{{data.created | date: 'hh:mm'}}</i>
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="{{'MESSAGE.MESSAGE' | translate }}" field="message" [searchable]="false"></tm-table-column>
+      <tm-table-column name="" field="" [searchable]="false">
+        <ng-template tmTableCellTemplate let-data>
+          <div class="d-flex justify-content-end" *ngIf="data.messageAttachments.length > 0">
+            <ul class="list-unstyled">
+              <li *ngFor="let file of data.messageAttachments"> <a href="{{baseUrl}}/tm-uiservice/api/v1/file/download/{{pageType}}/{{file.fileName}}" class="attachment" (click)="onDownloadAttachment($event)"><i class="fa fa-download mr-1"></i>{{file.fileName}}</a></li>
+            </ul>
+          </div>
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column >
+        <ng-template tmTableCellTemplate let-data>
+            <ng-template #deleteComment >
+              <p>Are you sure to delete this comment?</p>
+              <button type="button" class="btn btn-outline-success"  (click)="onDeleteMessage(data.id, $event)">Yes</button>
+              <button type="button" class="btn  btn-outline-primary" (click)="deleteCommentPop.close()">No</button>
+            </ng-template>
+            <button class="btn btn-danger" #deleteCommentPop="ngbPopover" [ngbPopover]="deleteComment" popoverTitle="Delete Comment" ><i class="fa fa-trash-o"></i></button>
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+  </div>
+  <ng-template  #noMessages>
+    <div class="mr-3 ml-3 alert alert-info">
+      No Messages found!
+    </div>
+  </ng-template>
+</div>

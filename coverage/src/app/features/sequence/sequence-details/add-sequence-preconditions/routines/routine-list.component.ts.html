@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/features/sequence/sequence-details/add-sequence-preconditions/routines/routine-list.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/features/sequence/sequence-details/add-sequence-preconditions/routines</a> routine-list.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>23/69</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">34.78% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>8/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">8.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>21/63</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import { Store } from '@ngrx/store';
+import 'rxjs/add/observable/from';
+import { Observable } from 'rxjs/Observable';
+import { Filter, Routine } from './routine-list.model';
+import { PaginationParameters } from '../../../../../core/interfaces/pagination-params.i';
+import {
+  ClearRoutineListFilters,
+  DeSelectRoutineList,
+  LoadRoutineList,
+  PaginateRoutineList,
+  SelectRoutineList,
+  UpdateRoutineListFilters,
+  UpdateSelectedRoutine
+} from './routine-list.action';
+import {
+  filtersRoutineListSelector,
+  paginationRoutineListSelector,
+  routineListSelector,
+  RoutineListState,
+  selectedRoutineListSelector
+} from './routine-list.reducer';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { SequenceDetails } from '../../sequence-details.model';
+import { sequenceDetailsSelector } from '../../sequence-details.reducer';
+import { UpdateSequenceDetailsForm } from '../../sequence-details.actions';
+&nbsp;
+&nbsp;
+@Component({
+  selector: 'tm-routine-lists',
+  templateUrl: './routine-list.component.html'
+})
+export class RoutineListComponent implements OnInit, OnDestroy {
+  @Output() routineAdded: EventEmitter<span class="branch-1 cbranch-no" title="branch not covered" >&lt;boolean&gt; = new EventEmitter();</span>
+  @Input() isDisableRoutine: boolean ;
+&nbsp;
+  private addRoutineListModal: NgbModalRef;
+  public routine$: Observable&lt;Routine[]&gt;;
+  public selectedRoutine$: Observable&lt;Routine[]&gt;;
+  public sequenceDetails$: Observable&lt;SequenceDetails&gt;;
+  public paginationParameters$: Observable&lt;PaginationParameters&gt;;
+  public filters$: Observable&lt;any&gt;;
+  public <span class="cstat-no" title="statement not covered" >selectAll = 'ALL';</span>
+  public <span class="cstat-no" title="statement not covered" >pagination  =  {'numberOfPages': 1, 'page': 1, 'pageSize': 5};</span>
+  public <span class="cstat-no" title="statement not covered" >categorySelection = [this.selectAll, 'STANDARD', 'DEVELOPMENT'];</span>
+  public <span class="cstat-no" title="statement not covered" >privateSelector = [{id: this.selectAll, value: this.selectAll},</span>
+                            {id : 'YES', value: true},
+                            {id: 'NO', value: false}];
+  public <span class="cstat-no" title="statement not covered" >statusSelector = [this.selectAll, 'ACTIVE', 'INACTIVE'];</span>
+  public <span class="cstat-no" title="statement not covered" >defaultSelectionCategory = this.selectAll;</span>
+  public <span class="cstat-no" title="statement not covered" >defaultSelectionPrivate = this.selectAll;</span>
+  public <span class="cstat-no" title="statement not covered" >itemsPerPage = [5, 10, 15];</span>
+  private <span class="cstat-no" title="statement not covered" >filterData = {};</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  constructor(private <span class="cstat-no" title="statement not covered" ></span>store: Store<span class="branch-1 cbranch-no" title="branch not covered" >&lt;RoutineListState&gt;,</span> private <span class="cstat-no" title="statement not covered" >ngModal: </span>NgbModal<span class="branch-2 cbranch-no" title="branch not covered" >)</span> { }</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onPaginationChange(</span>paginationParameters): void {
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new PaginateRoutineList(paginationParameters));</span>
+    // this.store.dispatch(new UpdateRoutineListFilters(this.selectedTeamData));
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onFilterChange(</span>filter: Filter): void {
+    const updatedFilters: {[key: string]: string} = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >    this.filterData[filter.field] = filter.value;</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateRoutineListFilters(this.filterData));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onFilterSelect(</span>value: string, field: string): void {
+      // this.onChangeTestTeamFilter = true;
+      // this.disabledUpdate = true;
+<span class="cstat-no" title="statement not covered" >        this.filterData[field] = value !== this.selectAll ? value : '';</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new UpdateRoutineListFilters( this.filterData));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onClearFilterDropDown(</span>event: string): void {
+<span class="cstat-no" title="statement not covered" >    if (event) {</span>
+<span class="cstat-no" title="statement not covered" >      this.defaultSelectionCategory = this.defaultSelectionPrivate  = this.selectAll;</span>
+<span class="cstat-no" title="statement not covered" >      this.filterData = {};</span>
+<span class="cstat-no" title="statement not covered" >      this.store.dispatch(new UpdateRoutineListFilters( this.filterData));</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onRoutineChange(</span>routine, event) {
+<span class="cstat-no" title="statement not covered" >    if (event.target.checked) {</span>
+<span class="cstat-no" title="statement not covered" >      this.store.dispatch(new SelectRoutineList(routine));</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.store.dispatch(new DeSelectRoutineList(routine.id));</span>
+    }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  addRoutineToSequence() {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.selectedRoutine$</span>
+      .first()
+      .withLatestFrom(this.sequenceDetails$)
+      .subscribe(<span class="fstat-no" title="function not covered" >(</span>[<span class="cstat-no" title="statement not covered" >selectedRoutine,</span> <span class="cstat-no" title="statement not covered" >sequenceDetails]</span>) =&gt; {
+      const getSequenceLineLength = <span class="cstat-no" title="statement not covered" >sequenceDetails.sequenceLines ? sequenceDetails.sequenceLines.length : 0;</span>
+        const routineArray = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >          for ( const item<span class="cstat-no" title="statement not covered" > of selectedRoutine){</span></span>
+            const routine =  <span class="cstat-no" title="statement not covered" >{</span>
+                id: 0,
+                lineNo: getSequenceLineLength &gt; 0 ? getSequenceLineLength + 1 : 0,
+                versionNoOfType: 0,
+                sequenceLineType: 'ROUTINE',
+                routine: {
+                  id: item.id,
+                  name: item.objectCurrentRoutineVersion.name
+                }
+              };
+<span class="cstat-no" title="statement not covered" >            routineArray.push(routine);</span>
+          }
+          const updateFormValue<span class="cstat-no" title="statement not covered" > = {</span>
+          ...sequenceDetails,
+            sequenceLines : [
+              ...( sequenceDetails.sequenceLines || []),
+              ...routineArray
+            ]
+          };
+<span class="cstat-no" title="statement not covered" >          this.store.dispatch(new UpdateSequenceDetailsForm(updateFormValue));</span>
+<span class="cstat-no" title="statement not covered" >          this.routineAdded.emit(true);</span>
+        });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ngOnInit(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.routine$ = this.store.select(routineListSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.paginationParameters$ = this.store.select(paginationRoutineListSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.filters$ = this.store.select(filtersRoutineListSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedRoutine$ =  this.store.select(selectedRoutineListSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.sequenceDetails$ = this.store.select(sequenceDetailsSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch( new LoadRoutineList());</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ngOnDestroy() {</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new ClearRoutineListFilters());</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  open(</span>template) {
+<span class="cstat-no" title="statement not covered" >    this.addRoutineListModal = this.ngModal.open(template, {</span>
+      size: 'lg',
+    });
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch( new UpdateSelectedRoutine([]));</span>
+  }
+&nbsp;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

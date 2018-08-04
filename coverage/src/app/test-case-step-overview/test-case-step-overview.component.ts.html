@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/test-case-step-overview/test-case-step-overview.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/app/test-case-step-overview</a> test-case-step-overview.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">69.12% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>47/68</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>8/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">26.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">67.69% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>44/65</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import { PaginationParameters } from '../core/interfaces/pagination-params.i';
+import { SortOptions } from '../core/interfaces/sort.i';
+import { tokenSelector } from '../login/login.reducer';
+import { FormsModule} from '@angular/forms';
+import {
+  GetTestCaseSteps,
+  PaginateTestCaseStep,
+  SelectTestCaseStep,
+  SortTestCaseStep,
+  UpdateTestCaseStepFilters
+} from './test-case-step-overview.actions';
+import { Filter, TestCaseStep } from './test-case-step-overview.model';
+import {
+  filtersTsTcSelector,
+  paginationTsTcSelector,
+  sortTsTcSelector,
+  TestCaseStepOverviewState,
+  testCaseStepSelector
+} from './test-case-step-overview.reducer';
+&nbsp;
+@Component({
+  selector: 'tm-test-case-step-overview',
+  templateUrl: './test-case-step-overview.component.html',
+  styleUrls: ['./test-case-step-overview.component.scss']
+})
+export class TestCaseStepOverviewComponent implements OnInit {
+  public testCaseStep$: Observable&lt;TestCaseStep[]&gt;;
+  public paginationParameters$: Observable&lt;PaginationParameters&gt;;
+  public filters$: Observable&lt;any&gt;;
+  public sort$: Observable&lt;SortOptions | undefined&gt;;
+  private selectAll: string = 'ALL';
+  public itemsPerPage = [10, 20, 30];
+  public levelSelector = [this.selectAll, 1, 2, 3];
+  public typeSelector = [this.selectAll, 'TEST_CASE', 'TEST_STEP'];
+  public statusSelector = [this.selectAll, 'ACTIVE', 'INACTIVE'];
+  public categorySelection = [this.selectAll, 'STANDARD', 'DEVELOPMENT'];
+  public isPrivateSelector = [{id: this.selectAll, value: this.selectAll}, { id: 'Yes', value: 'true'}, {id: 'No', value: 'false'}];
+  public isCreateDisabled: boolean = true;
+  public isUpdateDisabled: boolean = true;
+  public selectedTeamData = {};
+  // @todo we should consider creating a reusable component for filter select box, it would save a lot of duplicate code
+  public defaultSelectionLevel: string = this.selectAll;
+  public defaultSelectionStatus: string = this.selectAll;
+  public defaultSelectionCategory: string = this.selectAll;
+  public defaultSelectionPrivate: string = this.selectAll;
+  public defaultSelectionType: string = this.selectAll;
+  public onChangeTestTeamFilter: Boolean = false;
+  constructor(private store: Store<span class="branch-1 cbranch-no" title="branch not covered" >&lt;TestCaseStepOverviewState&gt;,</span>
+              public router: Router<span class="branch-2 cbranch-no" title="branch not covered" >) { }</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onSortChange(</span>field: string): void {
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new SortTestCaseStep(field));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onPaginationChange(</span>paginationParameters): void {
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new PaginateTestCaseStep(paginationParameters));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onFilterChange(</span>filter: Filter): void {
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateTestCaseStepFilters(filter));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onChangeTestTeam(</span>value: string, filterFrom: string): void {
+<span class="cstat-no" title="statement not covered" >    if (value === this.selectAll) {</span>
+<span class="cstat-no" title="statement not covered" >      this.isCreateDisabled = true;</span>
+<span class="cstat-no" title="statement not covered" >      delete this.selectedTeamData[filterFrom];</span>
+<span class="cstat-no" title="statement not covered" >      this.store.dispatch(new UpdateTestCaseStepFilters({ field: filterFrom, value: ''}));</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.store.dispatch(new UpdateTestCaseStepFilters({ field: filterFrom, value: value}));</span>
+<span class="cstat-no" title="statement not covered" >      this.selectedTeamData[filterFrom] = value;</span>
+<span class="cstat-no" title="statement not covered" >      if (this.selectedTeamData.hasOwnProperty('siteId') &amp;&amp; this.selectedTeamData.hasOwnProperty('groupId')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.isCreateDisabled = false;</span>
+      }
+    }
+    // this.onChangeTestTeamFilter = true;
+<span class="cstat-no" title="statement not covered" >    this.isUpdateDisabled = true;</span>
+  }
+<span class="fstat-no" title="function not covered" >  onTestTeamGroup(</span>value) {
+<span class="cstat-no" title="statement not covered" >    this.onChangeTestTeam(value, 'groupId');</span>
+  }
+<span class="fstat-no" title="function not covered" >  onTestTeamSite(</span>value) {
+<span class="cstat-no" title="statement not covered" >    this.onChangeTestTeam(value, 'siteId');</span>
+  }
+<span class="fstat-no" title="function not covered" >  onFilterSelect(</span>value: string, fromSelector: string): void {
+    // this.onChangeTestTeamFilter = true;
+<span class="cstat-no" title="statement not covered" >    this.isUpdateDisabled = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateTestCaseStepFilters({ field: fromSelector, value: (value === 'ALL') ? '' : value }));</span>
+  }
+<span class="fstat-no" title="function not covered" >  resetOnChangeTestTeamFilter(</span>value: boolean): void {
+    // this.onChangeTestTeamFilter = value;
+  }
+<span class="fstat-no" title="function not covered" >  onClearFilterDropDown(</span>event: string): void {
+    // this.onChangeTestTeamFilter = true;
+<span class="cstat-no" title="statement not covered" >    this.isUpdateDisabled = true;</span>
+<span class="cstat-no" title="statement not covered" >    if (event) {</span>
+<span class="cstat-no" title="statement not covered" >      this.defaultSelectionCategory =</span>
+      this.defaultSelectionPrivate =
+      this.defaultSelectionLevel =
+      this.defaultSelectionStatus =
+        this.defaultSelectionType = this.selectAll;
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onRowAction(</span>testCaseStep: TestCaseStep) {
+<span class="cstat-no" title="statement not covered" >    if (testCaseStep.hasOwnProperty('testCaseType') &amp;&amp;  testCaseStep['testCaseType'] === 'TEST_CASE') {</span>
+<span class="cstat-no" title="statement not covered" >        this.router.navigate(['test-case-step', 'testCaseDetails', testCaseStep.id]);</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onRowSelect(</span>testCaseStep: TestCaseStep): void {
+    // if (testCaseStep) {
+    //   this.isUpdateDisabled = false;
+    //   this.store.dispatch(new SelectTestCaseStep(testCaseStep));
+    // } else {
+    //   this.isUpdateDisabled = true;
+    // }
+&nbsp;
+  }
+  ngOnInit() {
+    this.testCaseStep$ = this.store.select(testCaseStepSelector);
+    this.paginationParameters$ = this.store.select(paginationTsTcSelector);
+    this.filters$ = this.store.select(filtersTsTcSelector);
+    this.sort$ = this.store.select(sortTsTcSelector);
+    this.store.select(tokenSelector)
+      .subscribe(token =&gt; {
+        token &amp;&amp; this.store.dispatch(new GetTestCaseSteps());
+      });
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 12 2018 10:45:07 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/features/sequence/sequence-details/add-sequence-preconditions/sequences/sequence-list.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/features/sequence/sequence-details/add-sequence-preconditions/sequences</a> sequence-list.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.85% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>31/130</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">28.57% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>16/56</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.56% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.39% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>29/124</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+import { SequenceListService } from './sequence-list.service';
+import { PaginationParameters } from '../../../../../core/interfaces/pagination-params.i';
+import {
+  DeSelectSequenceList,
+  LoadAntiClockwiseSequenceList,
+  LoadClockwiseSequenceList,
+  LoadSequenceList,
+  PaginateAntiClockwiseSequenceList,
+  PaginateClockwiseSequenceList,
+  PaginateSequenceList,
+  SelectSequenceList,
+  UpdateSelectedSequence,
+  UpdateSequenceListFilters
+} from './sequence-list.actions';
+import {
+  antiClockWiseFilterSelector,
+  antiClockWiseSequenceListSelector,
+  clockWiseFilterSelector,
+  clockWiseSequenceListSelector,
+  filtersSequenceListSelector,
+  paginationAntiClockwiseSequenceListSelector,
+  paginationClockwiseSequenceListSelector,
+  paginationSequenceListSelector,
+  selectedSequenceListSelector,
+  SequenceListingState,
+  sequenceListSelector
+} from './sequence-list.reducer';
+&nbsp;
+import { Filter, Sequence } from '../../../sequence-overview/sequence-overview.model';
+import { UpdateSequenceDetailsForm } from '../../sequence-details.actions';
+import { SequenceDetails } from '../../sequence-details.model';
+import { sequenceDetailsSelector } from '../../sequence-details.reducer';
+import { NgForm } from '@angular/forms';
+&nbsp;
+@Component({
+  selector: 'tm-add-sequence-modal',
+  templateUrl: './sequence-list.component.html',
+  styleUrls: ['./sequence-list.component.scss']
+})
+export class SequenceListComponent implements  OnInit {
+  @Input() isDisableSequence: boolean ;
+  @Output() data: EventEmitter<span class="branch-1 cbranch-no" title="branch not covered" >&lt;any&gt; = new EventEmitter&lt;any&gt;();</span>
+  @Output() sequenceAdded: EventEmitter<span class="branch-1 cbranch-no" title="branch not covered" >&lt;boolean&gt; = new EventEmitter();</span>
+&nbsp;
+  @ViewChild('frm') public userFrm: NgForm<span class="branch-1 cbranch-no" title="branch not covered" >;</span>
+&nbsp;
+  private addSequencePreConditionsModal: NgbModalRef;
+  public sequence$: Observable&lt;Sequence[]&gt;;
+  public clockwiseSequence$: Observable&lt;Sequence[]&gt;;
+  public antiClockwiseSequence$: Observable&lt;Sequence[]&gt;;
+  public selectedSequence$: Observable&lt;Sequence[]&gt;;
+  public paginationParameters$: Observable&lt;PaginationParameters&gt;;
+  public clockwisePaginationParameters$: Observable&lt;PaginationParameters&gt;;
+  public antiClockwisePaginationParameters$: Observable&lt;PaginationParameters&gt;;
+  public filters$: Observable&lt;any&gt;;
+  public clockwiseFilters$: Observable&lt;any&gt;;
+  public antiClockwiseFilters$: Observable&lt;any&gt;;
+  public sequenceDetails$: Observable&lt;SequenceDetails&gt;;
+  private <span class="cstat-no" title="statement not covered" >selectAll: string = 'ALL';</span>
+  public <span class="cstat-no" title="statement not covered" >defaultClockwiseCategory: string = this.selectAll;</span>
+  public <span class="cstat-no" title="statement not covered" >defaultAntiClockwiseCategory: string = this.selectAll;</span>
+  public <span class="cstat-no" title="statement not covered" >defaultSelectionCategory: string = this.selectAll;</span>
+  public <span class="cstat-no" title="statement not covered" >defaultClockwisePrivate: string = this.selectAll;</span>
+  public <span class="cstat-no" title="statement not covered" >defaultAntiClockwisePrivate: string = this.selectAll;</span>
+  public <span class="cstat-no" title="statement not covered" >defaultSelectionPrivate: string = this.selectAll;</span>
+  public <span class="cstat-no" title="statement not covered" >defaultSelectionDirection: string = this.selectAll;</span>
+  public <span class="cstat-no" title="statement not covered" >isSequenceDisable: boolean = false;</span>
+  public addSequenceGroup: any;
+  public addSequenceFilters$: any;
+  public <span class="cstat-no" title="statement not covered" >itemsPerPage = [6, 12, 18, 24];</span>
+  public <span class="cstat-no" title="statement not covered" >selectedData = [];</span>
+  public <span class="cstat-no" title="statement not covered" >disableMakeGroupBtn: boolean = true;</span>
+  public <span class="cstat-no" title="statement not covered" >selectedClockwise: boolean = false;</span>
+  public <span class="cstat-no" title="statement not covered" >selectedAntiClockwise: boolean = false;</span>
+  private <span class="cstat-no" title="statement not covered" >clockWiseSequenceObj = {};</span>
+  private <span class="cstat-no" title="statement not covered" >antiClockWiseSequenceObj = {};</span>
+  public <span class="cstat-no" title="statement not covered" >selectedGroup = [];</span>
+  public <span class="cstat-no" title="statement not covered" >trackDirection = ['CLOCKWISE', 'ANTICLOCKWISE'];</span>
+  public <span class="cstat-no" title="statement not covered" >categorySelection = [this.selectAll, 'STANDARD', 'DEVELOPMENT'];</span>
+  public <span class="cstat-no" title="statement not covered" >isPrivateSelector = [{id: this.selectAll, value: this.selectAll}, { id: 'YES', value: 'true'}, {id: 'NO', value: 'false'}];</span>
+  private  <span class="cstat-no" title="statement not covered" >updatedFilters: {[key: string]: string} = {};</span>
+  private <span class="cstat-no" title="statement not covered" >filterObj = {};</span>
+<span class="fstat-no" title="function not covered" >  constructor(private <span class="cstat-no" title="statement not covered" ></span>ngModal: NgbModal<span class="branch-1 cbranch-no" title="branch not covered" >,</span></span>
+              private <span class="cstat-no" title="statement not covered" >sequenceListService: SequenceListService<span class="branch-2 cbranch-no" title="branch not covered" >,</span></span>
+              private <span class="cstat-no" title="statement not covered" >store: Store<span class="branch-2 cbranch-no" title="branch not covered" >&lt;SequenceListingState&gt;)</span> { }</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ngOnInit() {</span>
+<span class="cstat-no" title="statement not covered" >    this.sequence$ = this.store.select(sequenceListSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.paginationParameters$ = this.store.select(paginationSequenceListSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.clockwisePaginationParameters$ = this.store.select(paginationClockwiseSequenceListSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.antiClockwisePaginationParameters$ = this.store.select(paginationAntiClockwiseSequenceListSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.filters$ = this.store.select(filtersSequenceListSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.antiClockwiseFilters$ = this.store.select(antiClockWiseFilterSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.clockwiseFilters$ = this.store.select(clockWiseFilterSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new LoadSequenceList());</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new LoadClockwiseSequenceList());</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new LoadAntiClockwiseSequenceList());</span>
+<span class="cstat-no" title="statement not covered" >    this.addSequenceFilters$ = {};</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedSequence$ = this.store.select(selectedSequenceListSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.sequenceDetails$ = this.store.select(sequenceDetailsSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.clockwiseSequence$ = this.store.select(clockWiseSequenceListSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.antiClockwiseSequence$ = this.store.select(antiClockWiseSequenceListSelector);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onDelete(</span>index) {
+<span class="cstat-no" title="statement not covered" >    this.selectedData.splice(index, 1);</span>
+<span class="cstat-no" title="statement not covered" >    this.data.emit(this.selectedData);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onPaginationChange(</span>paginationParameters): void {
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new PaginateSequenceList(paginationParameters));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onClockWisePaginationChange(</span>paginationParameters): void {
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new PaginateClockwiseSequenceList(paginationParameters));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onAntiClockWisePaginationChange(</span>paginationParameters): void {
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new PaginateAntiClockwiseSequenceList(paginationParameters));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onFilterChange(</span>filter: Filter, fromPage: string ): void {
+<span class="cstat-no" title="statement not covered" >    this.updatedFilters[filter.field] = filter.value;</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateSequenceListFilters(this.updatedFilters, fromPage));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onFilterSelect(</span>value: string, filterType: string, fromPage: string): void {
+<span class="cstat-no" title="statement not covered" >    this.filterObj[filterType] = (value === 'ALL') ? '' : value;</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateSequenceListFilters(this.filterObj, fromPage));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onSequenceSelectChange(</span>sequence, event) {
+<span class="cstat-no" title="statement not covered" >    if (event.target.checked) {</span>
+<span class="cstat-no" title="statement not covered" >      this.store.dispatch(new SelectSequenceList(sequence));</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.store.dispatch(new DeSelectSequenceList(sequence.id));</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  open(</span>template) {
+<span class="cstat-no" title="statement not covered" >    this.addSequencePreConditionsModal = this.ngModal.open(template, {</span>
+      size: 'lg',
+      windowClass: 'sequenceGroup'
+    });
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateSelectedSequence([]));</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedGroup = [];</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedClockwise = this.selectedAntiClockwise = false;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  addSelectedSequence(</span>type) {</span>
+<span class="cstat-no" title="statement not covered" >    if ( type === 'groups') {</span>
+<span class="cstat-no" title="statement not covered" >      this.sequenceDetails$</span>
+        .take(1)
+        .subscribe(<span class="fstat-no" title="function not covered" >sequenceDetails =&gt; {</span>
+          const getSequenceLineLength =  <span class="cstat-no" title="statement not covered" >sequenceDetails.sequenceLines ? sequenceDetails.sequenceLines.length : 0;</span>
+          const sequenceGroupArray = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >          for ( const item<span class="cstat-no" title="statement not covered" > of this.selectedGroup){</span></span>
+            const sequenceGroup =  <span class="cstat-no" title="statement not covered" >{</span>
+              id: 0,
+              lineNo: getSequenceLineLength &gt; 0 ? getSequenceLineLength + 1 : 0,
+              versionNoOfType: 0,
+              sequenceLineType: 'SEQUENCE_GROUP',
+              sequenceGroupID : {
+                id : 0,
+                sequenceGroupLines : [
+                  {
+                    id : 0,
+                    lineNo : 0,
+                    sequence : {
+                      id : item[0].id,
+                      name :  item[0].name ,
+                      trackDirection :  item[0].trackDirection ,
+                      noOfTestCases : item[0].noOfTestCases,
+                      level :  item[0].level
+                    }
+                  } ,
+                  {
+                    id : 0,
+                    lineNo : 0,
+                    sequence : {
+                      id : item[1].id,
+                      name :  item[1].name ,
+                      trackDirection :  item[1].trackDirection ,
+                      noOfTestCases : item[1].noOfTestCases,
+                      level :  item[1].level
+                    }
+                  }
+                ]
+              },
+            };
+<span class="cstat-no" title="statement not covered" >            sequenceGroupArray.push(sequenceGroup);</span>
+          }
+          const updateFormValue<span class="cstat-no" title="statement not covered" > = {</span>
+            ...sequenceDetails,
+            sequenceLines : [
+              ...( sequenceDetails.sequenceLines || []),
+              ...sequenceGroupArray
+            ]
+          };
+<span class="cstat-no" title="statement not covered" >          this.store.dispatch(new UpdateSequenceDetailsForm(updateFormValue));</span>
+      });
+&nbsp;
+    } else {
+<span class="cstat-no" title="statement not covered" >    this.selectedSequence$</span>
+      .first()
+      .withLatestFrom(this.sequenceDetails$)
+      .subscribe(<span class="fstat-no" title="function not covered" >(</span>[<span class="cstat-no" title="statement not covered" >selectedSequence,</span> <span class="cstat-no" title="statement not covered" >sequenceDetails]</span>) =&gt; {
+        const getSequenceLineLength = <span class="cstat-no" title="statement not covered" >sequenceDetails.sequenceLines.length || 0;</span>
+        const sequenceArray = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >        for ( const item<span class="cstat-no" title="statement not covered" > of selectedSequence){</span></span>
+          const sequence =  <span class="cstat-no" title="statement not covered" >{</span>
+            id: 0,
+            lineNo: getSequenceLineLength &gt; 0 ? getSequenceLineLength + 1 : 0,
+            versionNoOfType: 0,
+            sequenceLineType: 'SEQUENCE',
+            sequence: {
+              id: item.id,
+              name: item.name,
+              trackDirection: item.trackDirection,
+              noOfTestCases: item.noOfTestCases,
+              level: item.level
+            },
+          };
+<span class="cstat-no" title="statement not covered" >          sequenceArray.push(sequence);</span>
+        }
+        const updateFormValue<span class="cstat-no" title="statement not covered" > = {</span>
+          ...sequenceDetails,
+          sequenceLines : [
+            ...( sequenceDetails.sequenceLines || []),
+            ...sequenceArray
+          ]
+        };
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new UpdateSequenceDetailsForm(updateFormValue));</span>
+      });
+    }
+<span class="cstat-no" title="statement not covered" >    this.sequenceAdded.emit(true);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  addToGroup( </span>sequence, event, direction) {
+<span class="cstat-no" title="statement not covered" >    if (event.target.checked &amp;&amp; direction === 'clockwise') {</span>
+<span class="cstat-no" title="statement not covered" >        this.selectedClockwise = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.clockWiseSequenceObj = sequence;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (event.target.checked &amp;&amp; direction === 'anti-clockwise') {</span>
+<span class="cstat-no" title="statement not covered" >        this.selectedAntiClockwise = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.antiClockWiseSequenceObj = sequence;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if ( this.selectedClockwise &amp;&amp; this.selectedAntiClockwise) {</span>
+<span class="cstat-no" title="statement not covered" >      this.disableMakeGroupBtn = false;</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  groupSelectedSequence(</span>form) {
+    const group = <span class="cstat-no" title="statement not covered" >{0: this.clockWiseSequenceObj , 1: this.antiClockWiseSequenceObj};</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedGroup.push(group);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  removeGroup(</span>index) {
+<span class="cstat-no" title="statement not covered" >    this.selectedGroup.splice(index, 1);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onClearFilterDropDown(</span>event: string, clearFrom: string): void {
+<span class="cstat-no" title="statement not covered" >    if (event) {</span>
+<span class="cstat-no" title="statement not covered" >      if ( clearFrom !== '') {</span>
+<span class="cstat-no" title="statement not covered" >        this.defaultAntiClockwiseCategory =</span>
+          this.defaultClockwiseCategory =
+            this.defaultAntiClockwisePrivate =
+              this.defaultClockwisePrivate = this.selectAll;
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new UpdateSequenceListFilters({}, 'clockwise'));</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new UpdateSequenceListFilters({}, 'anti-clockwise'));</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.defaultSelectionCategory = this.defaultSelectionPrivate = this.defaultSelectionDirection = this.selectAll;</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new UpdateSequenceListFilters({}, ''));</span>
+      }
+<span class="cstat-no" title="statement not covered" >      this.filterObj = {};</span>
+<span class="cstat-no" title="statement not covered" >      this.updatedFilters = {};</span>
+    }
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

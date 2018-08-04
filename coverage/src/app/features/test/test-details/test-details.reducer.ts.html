@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/features/test/test-details/test-details.reducer.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/features/test/test-details</a> test-details.reducer.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">52.17% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>24/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.29% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.11% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60.53% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>23/38</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { User } from '../../../core/services/user/user.model';
+import { Filter, TestDetails, TestDetailsFilters, TestObject } from './test-details.model';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import {
+  GetTestDetailsSuccess,
+  GetTestLeadersSuccess,
+  GetTestObjectSuccess,
+  GetTestSoftwareVersionSuccess,
+  ProcedurePaginate,
+  TestDetailsActions,
+  testDetailsActionTypes,
+  UpdateDetailsForm,
+  UpdateProcedureFilters,
+  UpdateUserGroupSuccess,
+  UpdateUserSiteSuccess
+} from './test-details.actions';
+import { PaginationParameters } from '../../../core/interfaces/pagination-params.i';
+import { cloneDeep, omitBy } from 'lodash';
+&nbsp;
+export const testDetailsFeatureName = 'TestDetails';
+&nbsp;
+export interface TestDetailsState {
+  testObjects: TestObject[];
+  testDetails: TestDetails;
+  testSoftwareVersions: any;
+  pagination: PaginationParameters;
+  filters: TestDetailsFilters;
+  testLeaders: User[];
+  testUserGroup: string;
+  testUserSite: string;
+&nbsp;
+}
+&nbsp;
+export const testDetailsDefaultState: TestDetailsState = {
+  testObjects: [],
+  testDetails: {},
+  testSoftwareVersions: [],
+  filters: {},
+  pagination: {
+    page: 1,
+    pageSize: 5
+  },
+  testLeaders: [],
+  testUserGroup: '',
+  testUserSite: ''
+};
+&nbsp;
+export function testDetailsReducer(<span class="missing-if-branch" title="else path not taken" >E</span>state: TestDetailsState = testDetailsDefaultState,
+                                   action: TestDetailsActions): TestDetailsState {
+&nbsp;
+  switch (action.type) {
+<span class="branch-0 cbranch-no" title="branch not covered" >    case testDetailsActionTypes.GET_TEST_DETAILS_SUCCESS:</span>
+<span class="cstat-no" title="statement not covered" >      return &lt;TestDetailsState&gt;{</span>
+        ...state,
+        testDetails: (&lt;GetTestDetailsSuccess&gt;action).payload
+      };
+<span class="branch-1 cbranch-no" title="branch not covered" >    case testDetailsActionTypes.GET_TEST_OBJECTS_SUCCESS:</span>
+<span class="cstat-no" title="statement not covered" >      return &lt;TestDetailsState&gt;{</span>
+        ...state,
+        testObjects: (&lt;GetTestObjectSuccess&gt;action).payload
+      };
+<span class="branch-2 cbranch-no" title="branch not covered" >    case testDetailsActionTypes.GET_TEST_SOFTWARE_VERSION_SUCCESS:</span>
+<span class="cstat-no" title="statement not covered" >      return &lt;TestDetailsState&gt;{</span>
+        ...state,
+        testSoftwareVersions: (&lt;GetTestSoftwareVersionSuccess&gt; action).payload
+      };
+<span class="branch-3 cbranch-no" title="branch not covered" >    case testDetailsActionTypes.UPDATE_PROCEDURE_FILTERS:</span>
+      const filterToUpdate: Filter = (&lt;UpdateProcedureFilters&gt;<span class="cstat-no" title="statement not covered" >action).payload;</span>
+&nbsp;
+      const updatedFilters: TestDetailsFilters = <span class="cstat-no" title="statement not covered" >cloneDeep(state.filters);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      updatedFilters[filterToUpdate.field] = filterToUpdate.value;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return &lt;TestDetailsState&gt;{</span>
+        ...state,
+        filters: omitBy(updatedFilters, <span class="fstat-no" title="function not covered" >value =&gt; <span class="cstat-no" title="statement not covered" >value === '')</span></span>
+      };
+<span class="branch-4 cbranch-no" title="branch not covered" >    case testDetailsActionTypes.CLEAR_PROCEDURE_FILTERS:</span>
+<span class="cstat-no" title="statement not covered" >      return &lt;TestDetailsState&gt;{</span>
+        ...state,
+        filters: {}
+      };
+<span class="branch-5 cbranch-no" title="branch not covered" >    case testDetailsActionTypes.PROCEDURE_PAGINATE:</span>
+<span class="cstat-no" title="statement not covered" >      return &lt;TestDetailsState&gt;{</span>
+        ...state,
+        pagination: (&lt;ProcedurePaginate&gt;action).payload
+      };
+<span class="branch-6 cbranch-no" title="branch not covered" >    case testDetailsActionTypes.GET_TEST_LEADERS_SUCCESS:</span>
+<span class="cstat-no" title="statement not covered" >      return &lt;TestDetailsState&gt;{</span>
+        ...state,
+        testLeaders: (&lt;GetTestLeadersSuccess&gt; action).payload
+      };
+<span class="branch-7 cbranch-no" title="branch not covered" >    case testDetailsActionTypes.CLEAR_TEST_DETAILS:</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        ...state,
+        testDetails: {}
+      };
+<span class="branch-8 cbranch-no" title="branch not covered" >    case testDetailsActionTypes.UPDATE_DETAILS_FORM:</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        ...state,
+        testDetails: {
+          ...state.testDetails,
+          ...(&lt;UpdateDetailsForm&gt;action).testDetails
+        }
+      };
+<span class="branch-9 cbranch-no" title="branch not covered" >    case testDetailsActionTypes.UPDATE_USER_SITE_SUCCESS:</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        ...state,
+        testUserSite: (&lt;UpdateUserSiteSuccess&gt; action).payload
+      };
+<span class="branch-10 cbranch-no" title="branch not covered" >    case testDetailsActionTypes.UPDATE_USER_GROUP_SUCCESS:</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        ...state,
+        testUserGroup: (&lt;UpdateUserGroupSuccess&gt; action).payload
+      };
+    default:
+      return state;
+  }
+}
+&nbsp;
+&nbsp;
+export const getTestObjects = <span class="fstat-no" title="function not covered" >(</span>state: TestDetailsState) =&gt; <span class="cstat-no" title="statement not covered" >state.testObjects;</span>
+export const getTestDetails = <span class="fstat-no" title="function not covered" >(</span>state: TestDetailsState) =&gt; <span class="cstat-no" title="statement not covered" >state.testDetails;</span>
+export const getTestSoftwareVersions = <span class="fstat-no" title="function not covered" >(</span>state: TestDetailsState) =&gt; <span class="cstat-no" title="statement not covered" >state.testSoftwareVersions;</span>
+export const getFilters = <span class="fstat-no" title="function not covered" >(</span>state: TestDetailsState) =&gt; <span class="cstat-no" title="statement not covered" >state.filters;</span>
+export const getTestLeaders = <span class="fstat-no" title="function not covered" >(</span>state: TestDetailsState) =&gt; <span class="cstat-no" title="statement not covered" >state.testLeaders;</span>
+export const updateUserSite = <span class="fstat-no" title="function not covered" >(</span>state: TestDetailsState) =&gt; <span class="cstat-no" title="statement not covered" >state.testUserSite;</span>
+export const updateUserGroup = <span class="fstat-no" title="function not covered" >(</span>state: TestDetailsState) =&gt; <span class="cstat-no" title="statement not covered" >state.testUserGroup;</span>
+&nbsp;
+export const stateSelector = createFeatureSelector&lt;TestDetailsState&gt;(testDetailsFeatureName);
+export const testObjectsSelector = createSelector(stateSelector, getTestObjects);
+export const testDetailsSelector = createSelector(stateSelector, getTestDetails);
+export const testSoftwareVersionsSelector = createSelector(stateSelector, getTestSoftwareVersions);
+export const filtersSelector = createSelector(stateSelector, getFilters);
+export const testLeaderSelector = createSelector(stateSelector, getTestLeaders);
+export const updateUserSiteSelector = createSelector(stateSelector, updateUserSite);
+export const updateUserGroupSelector = createSelector(stateSelector, updateUserGroup);
+&nbsp;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<div class="form-group">
+  <button type="button" class="btn btn-primary mr-1" [disabled]="isDisableCaseStep" (click)="open(addTestCaseTemplate)">Add Test Case</button>
+  <button type="button" class="btn btn-primary" [disabled]="isDisableCaseStep" (click)="open(addTestStepTemplate)">Add Test Step</button>
+</div>
+
+<ng-template #addTestCaseTemplate let-dismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add Test Case</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body ">
+    <tm-table *ngIf="testCaseList$ | async as testCase; else loading"
+              [data]="testCase"
+              [paginationParameters]="paginationTestCase | async"
+              [filters]="testCaseFilters$ | async"
+              (filterChange)="onTestCaseFilterChange($event)"
+              (paginationChange)="onTestCasePaginationChange($event)"
+              [itemsPerPage]="itemsPerPage">
+      <tm-table-column>
+        <ng-template tmTableCellTemplate let-testCase>
+          <input type="checkbox"
+                 name="testCase"
+                 [value]="testCase"
+                 (change)="onTestCaseSelectChange('testCase', testCase, $event)">
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Name" field="name" [searchable]="true">
+        <ng-template tmTableCellTemplate let-data>
+          {{data.currentTestCaseStepVersion.name}}
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Category" field="category">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  [(ngModel)]="defaultSelectionCategory"
+                  (change)="onTestCaseFilterSelect($event.target.value, 'category')">
+            <option *ngFor="let category of categorySelection" [value]="category">{{category}}</option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{data.currentTestCaseStepVersion.category}}
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Truck Function Area" field="truckFunctionArea">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  [(ngModel)]="selectedTruckArea"
+                  (change)="onSelectTruckFunctionArea($event.target.value, 'truckFunctionArea')">
+            <option value="">ALL</option>
+            <option *ngFor="let area of truckFunctionAreaList$ | async" [ngValue]="area.id">{{area.name}}</option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{data.currentTestCaseStepVersion.testCaseStepTruckFunction ? data.currentTestCaseStepVersion.testCaseStepTruckFunction.testCaseStepTruckFunctionArea.name : ''}}
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Truck Function" field="truckFunction">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  [disabled]="isTruckFunction"
+                  [(ngModel)]="selectedTruckFunction"
+                  (change)="onSelectTruckFunction($event.target.value, 'truckFunction')">
+            <option value="">Select</option>
+            <option *ngFor="let data of truckFunctionList" [value]="data.name">{{data.name}}</option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{data.currentTestCaseStepVersion.testCaseStepTruckFunction ? data.currentTestCaseStepVersion.testCaseStepTruckFunction.name : ''}}
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Level" field="level">
+      <ng-template tmTableFilterTemplate>
+        <select class="form-control"
+                [(ngModel)]="defaultSelectionLevel"
+                (change)="onTestCaseFilterSelect($event.target.value, 'level')">
+          <option *ngFor="let level of levelSelector" [value]="level">{{level}}</option>
+        </select>
+      </ng-template>
+      <ng-template tmTableCellTemplate let-data>
+        {{data.level}}
+      </ng-template>
+    </tm-table-column>
+      <tm-table-column name="Private" field="private">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  [(ngModel)]="defaultSelectionPrivate"
+                  (change)="onTestCaseFilterSelect($event.target.value, 'private')">
+            <option *ngFor="let data of isPrivateSelector" [value]="data.value">{{data.id}}</option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{data.currentTestCaseStepVersion.privateTestCaseStep | booleanToYesNo}}
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Tags" field="tags">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  [(ngModel)]="defaultSelectTag"
+                  (change)="onTestCaseFilterSelect($event.target.value, 'tag')">
+            <option value="">Select</option>
+            <option *ngFor="let tag of tags$ | async" [value]="tag.name">{{tag.name}}</option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          <div *ngIf="data.currentTestCaseStepVersion.testCaseStepTags">
+            <span *ngFor="let tag of data.currentTestCaseStepVersion.testCaseStepTags"><span>{{tag.name}}</span>,<br></span>
+          </div>
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-end ">
+        <button class="btn btn-primary mr-2" (click)="addTestCase();dismiss()"
+                [disabled]="(selectedTestCases$ | async).length === 0">Add</button>
+        <button class="btn btn-primary mr-2"
+                [disabled]="(testCaseList$ | async).length === 0"
+                (click)="addAllTestCase();dismiss()">Add all</button>
+        <button class="btn btn-primary mr-2" (click)="dismiss()">Cancel</button>
+        <button class="btn btn-primary mr-2 pull-right" (click)="onTestCaseClearFilterDropDown($event)">Clear Filters</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #addTestStepTemplate let-dismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Test Step</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body ">
+    <tm-table *ngIf="testStepList$ | async as testStep; else loading"
+              [data]="testStep"
+              [paginationParameters]="paginationTestStep | async"
+              [filters]="testStepFilters$ | async"
+              (filterChange)="onTestStepFilterChange($event)"
+              (paginationChange)="onTestStepPaginationChange($event)"
+              [itemsPerPage]="itemsPerPage">
+      <tm-table-column>
+        <ng-template tmTableCellTemplate let-testStep>
+          <input type="checkbox"
+                 name="testStep"
+                 [value]="testStep"
+                 (change)="onTestCaseSelectChange('testStep', testStep, $event)">
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Name" field="name" [searchable]="true">
+        <ng-template tmTableCellTemplate let-data>
+          {{data.currentTestCaseStepVersion.name}}
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Category" field="category">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  [(ngModel)]="defaultSelectionCategory"
+                  (change)="onTestStepFilterSelect($event.target.value, 'category')">
+            <option *ngFor="let category of categorySelection" [value]="category">{{category}}</option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{data.currentTestCaseStepVersion.category}}
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Private" field="private">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  [(ngModel)]="defaultSelectionPrivate"
+                  (change)="onTestStepFilterSelect($event.target.value, 'private')">
+            <option *ngFor="let data of isPrivateSelector" [value]="data.value">{{data.id}}</option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{data.currentTestCaseStepVersion.privateTestCaseStep | booleanToYesNo}}
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Tags" field="tags">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  [(ngModel)]="defaultSelectionTag"
+                  (change)="onTestStepFilterSelect($event.target.value, 'tag')">
+            <option value="">Select</option>
+            <option *ngFor="let tag of tags$ | async" [value]="tag.name">{{tag.name}}</option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          <div *ngIf="data.currentTestCaseStepVersion.testCaseStepTags">
+            <span *ngFor="let tag of data.currentTestCaseStepVersion.testCaseStepTags"><span>{{tag.name}}</span>,<br></span>
+          </div>
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-end ">
+        <button class="btn btn-primary mr-2"
+                (click)="addTestStep();dismiss()"
+                [disabled]="(selectedTestSteps$ | async).length === 0">Add</button>
+        <button class="btn btn-primary mr-2"
+                [disabled]="(testStepList$ | async).length === 0"
+                (click)="addAllTestStep();dismiss()">Add all</button>
+        <button class="btn btn-primary mr-2" (click)="dismiss()">Cancel</button>
+        <button class="btn btn-primary mr-2 pull-right" (click)="onTestStepClearFilterDropDown($event)">Clear Filters</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

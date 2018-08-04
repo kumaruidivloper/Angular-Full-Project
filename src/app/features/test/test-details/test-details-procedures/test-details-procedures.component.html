@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="col-xs-4 col-sm-5 col-md-4 col-lg-3 pl-0">
+    <label>Selected Procedures:</label>
+  </div>
+  <div class="col-xs-8 col-sm-7 col-md-8 col-lg-5">
+    <button type="button" class="btn btn-primary" (click)="open(addProcedureTemplate)">Add Procedure</button>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-12 px-0">
+    <tm-table *ngIf="(testDetails$ | async).testProcedure as procedures; else noProcedures"
+              [data]="procedures"
+              class="card">
+      <tm-table-column name="Name" field="name"></tm-table-column>
+      <tm-table-column name="Category" field="category"></tm-table-column>
+      <tm-table-column>
+        <ng-template tmTableCellTemplate let-procedure let-rowIndex="rowIndex" let-rowCount="rowCount">
+          <div class="d-flex justify-content-end">
+            <!-- @todo naming of event functions should start with "on" i.e. onMoveUpClick, onMoveDownClick, onDeleteClick
+             this makes it easier to instantly see that this function is called by an event-->
+            <button class="btn btn-info" (click)="moveProcedureUp(rowIndex)" [disabled]="rowIndex === 0">
+              <i class="fa fa-caret-up"></i></button>
+            <button class="btn btn-info" (click)="moveProcedureDown(rowIndex)" [disabled]="rowIndex === rowCount - 1">
+              <i class="fa fa-caret-down"></i></button>
+            <button class="btn btn-danger" (click)="deleteProcedure(rowIndex); onEnableSave()">Delete</button>
+          </div>
+
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+    <ng-template #noProcedures>
+      <div class="alert alert-info">
+        No Procedures added
+      </div>
+    </ng-template>
+  </div>
+
+</div>
+
+<ng-template #addProcedureTemplate let-dismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Procedure</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body testProcedures">
+    <tm-table *ngIf="testProcedures$ | async as testProcedures; else loading"
+              [data]="testProcedures"
+              [paginationParameters]="paginationParameters$ | async"
+              [filters]="filters$ | async"
+              (filterChange)="onFilterChange($event)"
+              (paginationChange)="onPaginationChange($event)"
+              [itemsPerPage]="itemsPerPage">
+
+      <tm-table-column>
+        <ng-template tmTableCellTemplate let-procedure>
+          <input type="checkbox"
+                 name="procedure"
+                 [value]="procedure.id"
+                 (change)="onProcedureRowSelect(procedure, $event)">
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Name" field="name" [searchable]="true"></tm-table-column>
+      <tm-table-column name="Category" field="category">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  (change)="onFilterChange({field: 'category', value: $event.target.value})"
+                  [(ngModel)]="resetSelection">
+            <option *ngFor="let val of categorySelection" [value]="val">{{val}}</option>
+          </select>
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+
+    <ng-template #loading>
+      Loading procedures
+    </ng-template>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-end ">
+        <button class="btn btn-primary"
+                [disabled]="(selectedTestProcedures$ | async).length === 0"
+                (click)="addProcedures();clearProcedureFilters();onEnableSave();">
+          Add
+        </button>
+        <button class="btn btn-primary" (click)="dismiss();clearProcedureFilters()">Cancel</button>
+        <button class="btn btn-primary" (click)="clearProcedureFilters()">Clear Filters</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+

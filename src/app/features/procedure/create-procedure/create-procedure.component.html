@@ -1,0 +1,14 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+
+<div class="card">
+  <tm-procedure-details-action-menu
+    [isCreate]="true"
+    [isCopy]="isCopy"
+    (onSaveButtonClick)="onSave()"
+    [enableDelete]="!enableDeleteProcedure"
+    [disableSave]="disableSave"></tm-procedure-details-action-menu>
+  <tm-procedure-form [procedure]="procedure$ | async"
+                     (addSequence)="onAddSequence($event)"
+                     (addRoutine)="onAddRoutine($event)"></tm-procedure-form>
+</div>

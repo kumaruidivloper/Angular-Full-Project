@@ -1,0 +1,103 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+<div class="card application">
+  <div class="card-header">
+    <!--[disableCreateRoutine]="isCreateDisabled"-->
+  <tm-routine-overview-action-menu [routineTestTeam]="selectedTeamData"
+                                   [data]="routineDetailsById"
+                                   [disableUpdateRoutine]="disabledUpdate"
+                                   [disableCreateRoutine]="disabledCreate"
+                                   (clearFilterDropDown)="onClearFilterDropDown($event)"
+                                   (createNew)="onCreateTest($event)"> </tm-routine-overview-action-menu>
+  </div>
+  <!--<div class="card-block col-md-12">-->
+    <div class="form-group user-team d-flex mt-3 ml-3 mb-0">
+      <label class="pt-2 pr-2">Test Team:</label>
+      <span class="pr-2">
+      <tm-user-group (userGroupChange)="onTestTeamGroup($event)"
+                     [hasAllOption]="true"  (change)="onChangeEmit()"></tm-user-group>
+      </span>
+      <span class="pr-2">
+       <tm-user-site (userSiteChange)="onTestTeamSite($event)"
+                     [hasAllOption]="true"  (change)="onChangeEmit()"></tm-user-site>
+      </span>
+    </div>
+  <!--</div>-->
+
+  <tm-table [data]="routine$ | async"
+            [sort]="sort$ | async"
+            [paginationParameters]="paginationParameters$ | async"
+            [filters]="filters$ | async"
+            (sortChange)="onSortChange($event)"
+            (paginationChange)="onPaginationChange($event)"
+            (rowSelect)="onRowSelect($event)"
+            (rowAction)="onRowAction($event)"
+            (filterChange)="onFilterChange($event)"
+            (disableUpdateButton)="disableUpdateButtonTestTeamFilter($event)"
+            (resetSelection)="resetOnChangeTestTeamFilter($event)"
+            [disableSelectedRow]="onChangeTestTeamFilter"
+            [itemsPerPage]="itemsPerPage">
+    <tm-table-column name="Site" field="routineSite">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.routineSite.siteName}}
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="ID" field="objectCurrentRoutineVersion">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.id}}
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="Name" field="name" [searchable]="true">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.objectCurrentRoutineVersion.name}}
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="Category" field="category" [searchable]="false">
+      <ng-template tmTableFilterTemplate>
+        <select class="form-control"
+                (change)="filterSelect($event.target.value, 'category')"
+                [(ngModel)]="defaultSelectionCategory">
+
+          <option *ngFor="let val of categorySelection" [value]="val">{{val}}</option>
+        </select>
+      </ng-template>
+      <ng-template tmTableCellTemplate let-data>
+        {{data.objectCurrentRoutineVersion.category}}
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Status" field="status" [searchable]="false">
+      <ng-template tmTableFilterTemplate>
+        <select  class="form-control"
+                 (change)="filterSelect($event.target.value, 'status')"
+                 [(ngModel)]="defaultSelectionStatus">
+
+          <option *ngFor="let val of statusSelector" [value]="val">{{val}}</option>
+        </select>
+      </ng-template>
+      <ng-template tmTableCellTemplate let-data>
+        {{data.objectCurrentRoutineVersion.status}}
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Private" field="privateRoutine" [searchable]="false">
+      <ng-template tmTableFilterTemplate>
+        <select  class="form-control"
+                 (change)="filterSelect($event.target.value, 'privateRoutine')"
+                 [(ngModel)]="defaultSelectionPrivate">
+
+          <option *ngFor="let val of privateSelector" [value]="val.value">{{val.id}}</option>
+        </select>
+      </ng-template>
+      <ng-template tmTableCellTemplate let-data>
+        {{data.objectCurrentRoutineVersion.privateRoutine}}
+      </ng-template>
+    </tm-table-column>
+
+    <tm-table-column name="Description" field="description">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.objectCurrentRoutineVersion.description}}
+      </ng-template>
+    </tm-table-column>
+  </tm-table>
+</div>

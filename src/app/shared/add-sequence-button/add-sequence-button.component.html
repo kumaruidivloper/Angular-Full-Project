@@ -1,0 +1,65 @@
+<button class="btn btn-primary" (click)="open(addSequenceModal)">Add Sequence</button>
+
+<ng-template #addSequenceModal>
+  <div class="modal-header">
+    <h4>Add Sequence</h4>
+  </div>
+  <div class="modal-body">
+    <tm-table *ngIf="sequences$ | async as sequence"
+              [data]="sequence"
+              [paginationParameters]="paginationParameters$ | async"
+              [filters]="filters$ | async"
+              (filterChange)="onFilterChange($event)"
+              (paginationChange)="onPaginationChange($event)"
+              (rowSelect)="onRowSelect($event)"
+              [itemsPerPage]="itemsPerPage">
+
+      <tm-table-column name="Name" field="name" [searchable]="true"></tm-table-column>
+      <tm-table-column name="Category" field="category" [searchable]="false">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  (change)="onFilterSelect($event.target.value, 'category')">
+            <option *ngFor="let option of categoryOptions | optionsFromEnum" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Track Direction" field="trackDirection" [searchable]="false">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  (change)="onFilterSelect($event.target.value, 'trackDirectionOptions')">
+            <option value="ALL">ALL</option>
+            <option *ngFor="let option of trackDirectionOptions | optionsFromEnum" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="No Of Test Cases" field="noOfTestCases" [searchable]="false"></tm-table-column>
+      <tm-table-column name="Private" field="privateSequence" [searchable]="false">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  (change)="onFilterSelect($event.target.value, 'private')">
+            <option *ngFor="let option of privateSelectorOptions | optionsFromEnum" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{data.privateSequence | booleanToYesNo}}
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-end ">
+        <button class="btn btn-primary mr-2"
+                (click)="addSelectedSequence()"
+                [disabled]="!(selectedSequence$ | async)">Add</button>
+        <button class="btn btn-primary mr-2" (click)="dismiss()">Cancel</button>
+        <button class="btn btn-primary mr-2" (click)=" onClearFilterDropDown($event, '')">Clear Filters</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

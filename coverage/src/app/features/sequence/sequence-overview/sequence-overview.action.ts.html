@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/features/sequence/sequence-overview/sequence-overview.action.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/features/sequence/sequence-overview</a> sequence-overview.action.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">65.71% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>46/70</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>15/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">56.36% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>31/55</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Action } from '@ngrx/store';
+import { Sequence } from './sequence-overview.model';
+import { PaginatedResponse } from '../../../core/interfaces/paginated-response.i';
+import { PaginationParameters } from '../../../core/interfaces/pagination-params.i';
+import { UserGroup, UserSite } from '../../../core/services/user/user.model';
+&nbsp;
+export const SequenceOverviewActions = {
+  UPDATE_SEQUENCE_FILTER: '[SequenceOverview] Update Filters',
+  CLEAR_SEQUENCE_FILTERS: '[SequenceOverview] Clear Filters',
+  EMPTY_SEQUENCE_FILTERS: '[SequenceOverview] Empty Filters',
+  CLEAR_SEQUENCE_TABLE_FILTERS: '[SequenceOverview] Clear Filters of Sequence Table',
+  PAGINATE: '[SequenceOverview] Pages of Sequences',
+  LOAD_SEQUENCES: '[SequenceOverview] Load Sequences',
+  LOAD_SEQUENCES_SUCCESS: '[SequenceOverview] Load Sequences Successfully',
+  LOAD_SEQUENCES_FAILURE: '[SequenceOverview] Load Sequences Failure',
+  SORT: '[SequenceOverview] Sort Sequences',
+  SELECT_SEQUENCE: '[SequenceOverview] Select Sequences',
+  LOAD_ALL_SEQUENCE: '[SequenceOverview] Load All Sequence',
+  LOAD_TYPE_OF_SEQUENCE: '[SequenceOverview] Load Type of Sequence',
+  UPDATE_SELECTED_SEQUENCE_SITE: '[SequenceOverview] Update Selected Sequence Site',
+  UPDATE_SELECTED_SEQUENCE_GROUP: '[SequenceOverview] Update Selected Sequence Group',
+  INITIAL_FILTER_ON_PAGE_LOAD: '[SequenceOverview] Filter On Page Load',
+  INITIAL_FILTER_ON_PAGE_LOAD_SUCCESS: '[SequenceOverview] Filter On Page Load Success',
+};
+&nbsp;
+&nbsp;
+export class UpdateSequenceFilters implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.UPDATE_SEQUENCE_FILTER;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>filterData: object)</span> {}
+}
+&nbsp;
+export class ClearSequenceFilters implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.CLEAR_SEQUENCE_FILTERS;</span>
+}
+export class EmptySequenceFilters implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.EMPTY_SEQUENCE_FILTERS;</span>
+}
+export class ClearSequenceTableFilters implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.CLEAR_SEQUENCE_TABLE_FILTERS;</span>
+}
+&nbsp;
+export class LoadSequences implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.LOAD_SEQUENCES;</span>
+}
+&nbsp;
+export class PaginateSequence implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.PAGINATE;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: PaginationParameters)</span> {}
+}
+&nbsp;
+export class LoadSequencesSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.LOAD_SEQUENCES_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: PaginatedResponse&lt;Sequence[]&gt;)</span> {}
+}
+&nbsp;
+export class LoadSequencesFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.LOAD_SEQUENCES_FAILURE;</span>
+}
+&nbsp;
+export class SortSequence implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.SORT;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: string)</span> {}
+}
+&nbsp;
+export class SelectSequence implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.SELECT_SEQUENCE;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>sequence: Sequence)</span> {}
+}
+&nbsp;
+export class LoadAllSequence implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.LOAD_ALL_SEQUENCE;</span>
+}
+&nbsp;
+export class UpdateSelectedSequenceSite implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.UPDATE_SELECTED_SEQUENCE_SITE;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>site: UserSite)</span> {}
+}
+&nbsp;
+export class UpdateSelectedSequenceGroup implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.UPDATE_SELECTED_SEQUENCE_GROUP;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>group: UserGroup)</span> {}
+}
+&nbsp;
+export class FiltersOnPageLoad implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.INITIAL_FILTER_ON_PAGE_LOAD;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>filterData: object)</span> {}
+}
+export class FiltersOnPageLoadSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = SequenceOverviewActions.INITIAL_FILTER_ON_PAGE_LOAD_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: PaginatedResponse&lt;Sequence[]&gt;)</span> {}
+}
+&nbsp;
+export type SequenceOverviewActions = UpdateSequenceFilters | ClearSequenceFilters  | LoadSequences | LoadSequencesSuccess |
+  LoadSequencesFailure | SortSequence | PaginateSequence | SelectSequence | LoadAllSequence | ClearSequenceTableFilters
+  | EmptySequenceFilters | FiltersOnPageLoad | FiltersOnPageLoadSuccess;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

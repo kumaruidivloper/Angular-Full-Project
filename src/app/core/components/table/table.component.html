@@ -1,0 +1,72 @@
+<div class="table-component">
+  <table class="table table-striped table-hover" #testTable>
+    <thead>
+      <tr>
+        <th *ngFor="let column of columns" [hidden]="headerHiddenForActivitiesList">
+          <a href="" class="sorter" (click)="sortData($event, column.field)">
+            {{column.name}}
+            <i class="fa"
+               *ngIf="sort && sort.field === column.field"
+               [ngClass]="{
+                 'fa-caret-up': sort.direction === SortDirection.ASC,
+                 'fa-caret-down': sort.direction === SortDirection.DESC
+               }"></i>
+          </a>
+          <tm-table-text-filter *ngIf="column.searchable"
+                                [field]="column.field"
+                                [value]="filters[column.field] || ''"
+                                (filterChange)="onFilterChange($event)"></tm-table-text-filter>
+          <div *ngIf="column.filterTemplate">
+            <ng-container *ngTemplateOutlet="column.filterTemplate;
+                                             context: {$implicit: column}"></ng-container>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data; let rowIndex = index"
+          tabindex="0"
+          (click)="onRowClick(row, rowIndex)"
+          (keyup.space)="onRowClick(row, rowIndex)"
+          (dblclick)="onRowAction(row)"
+          (keyup.enter)="onRowAction(row)"
+          [ngClass]="{'active-row': selectedRow === rowIndex && !disableSelectedRow}">
+          <td *ngFor="let column of columns">
+          <div *ngIf="!column.cellTemplate">{{row[column.field] | defaultFill }}</div>
+          <div *ngIf="column.cellTemplate">
+            <ng-container *ngTemplateOutlet="column.cellTemplate;
+                                             context: {
+                                               $implicit: row,
+                                               rowIndex: rowIndex,
+                                               rowCount: data.length
+                                             }"></ng-container>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<table class="table table-pagination" *ngIf="paginationParameters && data.length !== 0">
+  <tfoot>
+  <tr>
+    <td>
+      <ngb-pagination [page]="paginationParameters.page"
+                      (pageChange)="goToPage($event)"
+                      [collectionSize]="paginationParameters.numberOfPages * paginationParameters.pageSize"
+                      [pageSize]="paginationParameters.pageSize"
+                      [boundaryLinks]="true"
+                      [maxSize]="5"
+                      [rotate]="true"
+                      [ellipses]="false"></ngb-pagination>
+    </td>
+    <td class="text-center">{{paginationParameters.page}} of {{paginationParameters.numberOfPages}}</td>
+    <td class="text-right">
+      <span class="d-inline">Items to display per page</span>
+      <select class="form-control d-inline numberOfPage" (change)="selectItemsPerPage($event.target.value)">
+        <option *ngFor="let num of itemsPerPage" [value]="num" [selected]="num === paginationParameters.pageSize">{{num}}</option>
+      </select>
+    </td>
+  </tr>
+  </tfoot>
+</table>

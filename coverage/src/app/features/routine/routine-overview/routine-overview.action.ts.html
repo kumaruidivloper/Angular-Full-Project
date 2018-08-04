@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/features/routine/routine-overview/routine-overview.action.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/features/routine/routine-overview</a> routine-overview.action.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">67.19% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>43/64</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>14/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>29/50</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Action } from '@ngrx/store';
+import { Routine } from './routine-overview.model';
+import { PaginationParameters } from '../../../core/interfaces/pagination-params.i';
+import { PaginatedResponse } from '../../../core/interfaces/paginated-response.i';
+&nbsp;
+export const routineOverviewActionTypes = {
+  UPDATE_ROUTINE_FILTER: '[RoutineOverview] Update Filters',
+  DELETE_SELECTED: '[RoutineOverview] Delete Selected',
+  CLEAR_ROUTINE_FILTERS: '[RoutineOverview] Clear Filters',
+  EMPTY_ROUTINE_FILTERS: '[RoutineOverview] Empty Filters',
+  CLEAR_ROUTINE_TABLE_FILTERS: '[RoutineOverview] Clear Filters of Routine Table',
+  PAGINATE: '[RoutineOverview] Pages of Routines',
+  LOAD_ROUTINES: '[RoutineOverview] Load Routines',
+  LOAD_ROUTINES_SUCCESS: '[RoutineOverview] Load Routines Successfully',
+  LOAD_ROUTINES_FAILURE: '[RoutineOverview] Load Routines Failure',
+  SORT: '[RoutineOverview] Sort Routines',
+  SELECT_ROUTINE: '[RoutineOverview] Select Routines',
+  LOAD_ALL_ROUTINE: '[RoutineOverview] Load All Routine',
+  LOAD_TYPE_OF_ROUTINE: '[RoutineOverview] Load Type of Routine',
+  INITIAL_FILTER_ON_PAGE_LOAD: '[RoutineOverview] Filter On Page Load',
+  INITIAL_FILTER_ON_PAGE_LOAD_SUCCESS: '[RoutineOverview] Filter On Page Load Success'
+};
+&nbsp;
+&nbsp;
+export class UpdateRoutineFilters implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.UPDATE_ROUTINE_FILTER;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: object)</span> {}
+}
+&nbsp;
+export class DeleteSelected implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.DELETE_SELECTED;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: Routine[])</span> {}
+}
+&nbsp;
+export class ClearFilters implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.CLEAR_ROUTINE_FILTERS;</span>
+}
+export class EmptyFilters implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.EMPTY_ROUTINE_FILTERS;</span>
+}
+export class ClearTableFilters implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.CLEAR_ROUTINE_TABLE_FILTERS;</span>
+}
+&nbsp;
+export class LoadRoutines implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.LOAD_ROUTINES;</span>
+}
+&nbsp;
+export class Paginate implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.PAGINATE;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: PaginationParameters)</span> {}
+}
+&nbsp;
+export class LoadRoutinesSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.LOAD_ROUTINES_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: PaginatedResponse&lt;Routine[]&gt;)</span> {}
+}
+&nbsp;
+export class LoadRoutinesFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.LOAD_ROUTINES_FAILURE;</span>
+}
+&nbsp;
+export class Sort implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.SORT;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>payload: string)</span> {}
+}
+&nbsp;
+export class SelectRoutine implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.SELECT_ROUTINE;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>routine: Routine)</span> {}
+}
+&nbsp;
+export class LoadAllRoutine implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.LOAD_ALL_ROUTINE;</span>
+}
+export class LoadTypeOfRoutine implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.LOAD_TYPE_OF_ROUTINE;</span>
+}
+&nbsp;
+export class FiltersOnPageLoad implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = routineOverviewActionTypes.INITIAL_FILTER_ON_PAGE_LOAD;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>filterData: object)</span> {}
+}
+export type RoutineOverviewActions = UpdateRoutineFilters | ClearFilters  | LoadRoutines | LoadRoutinesSuccess |
+  LoadRoutinesFailure | Sort | Paginate | SelectRoutine | LoadAllRoutine | LoadTypeOfRoutine | ClearTableFilters
+  | EmptyFilters | FiltersOnPageLoad;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

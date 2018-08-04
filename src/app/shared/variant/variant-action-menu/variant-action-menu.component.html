@@ -1,0 +1,11 @@
+<div class="card-header d-flex justify-content-between flex-column flex-md-row">
+  <div>
+    <button type="button" class="btn btn-primary">Clear Filters</button>
+    <button type="button" class="btn btn-primary" (click)="onCancelVariant()">Cancel</button>
+  </div>
+  <div class="test-information" *ngIf="!isCreate">
+    <div><strong>Created : </strong></div>
+    <div><strong>Last Updated : </strong></div>
+    <div><strong>Updated By : </strong></div>
+  </div>
+</div>

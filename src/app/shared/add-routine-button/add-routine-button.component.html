@@ -1,0 +1,60 @@
+<button class="btn btn-primary" (click)="open(addRoutineModal)">Add Routine</button>
+
+<ng-template #addRoutineModal>
+  <div class="modal-header">
+    <h4>Add Routine</h4>
+  </div>
+  <div class="modal-body">
+    <tm-table *ngIf="routines$ | async as routines"
+              [data]="routines"
+              [paginationParameters]="paginationParameters$ | async"
+              [filters]="filters$ | async"
+              (filterChange)="onFilterChange($event)"
+              (paginationChange)="onPaginationChange($event)"
+              (rowSelect)="onRowSelect($event)"
+              [itemsPerPage]="itemsPerPage">
+
+      <tm-table-column name="Name" [searchable]="true">
+        <ng-template tmTableCellTemplate let-row>
+          {{ row.objectCurrentRoutineVersion.name }}
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Category" [searchable]="false">
+        <ng-template tmTableCellTemplate let-row>
+          {{ row.objectCurrentRoutineVersion.category }}
+        </ng-template>
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  (change)="onFilterSelect($event.target.value, 'category')">
+            <option *ngFor="let option of categoryOptions | optionsFromEnum" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Private" field="privateRoutine" [searchable]="false">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  (change)="onFilterSelect($event.target.value, 'private')">
+            <option *ngFor="let option of privateSelectorOptions | optionsFromEnum" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{data.privateRoutine | booleanToYesNo}}
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-end ">
+        <button class="btn btn-primary mr-2"
+                (click)="addSelectedRoutine()"
+                [disabled]="!(selectedRoutine$ | async)">Add</button>
+        <button class="btn btn-primary mr-2" (click)="dismiss()">Cancel</button>
+        <button class="btn btn-primary mr-2" (click)=" onClearFilterDropDown($event, '')">Clear Filters</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

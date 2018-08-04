@@ -1,0 +1,78 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+
+<div class="card application">
+  <div class="card-header">
+    <tm-procedure-overview-action-menu (clearFilterDropDown)="onClearFilterDropDown($event)"
+                                       [disableUpdateOverview]="disabledUpdate"
+                                       [disableCreateProcedure]="disabledCreate"></tm-procedure-overview-action-menu>
+  </div>
+
+  <div class="form-group user-team d-flex mt-3 ml-3 mb-0">
+    <label class="pt-2 pr-2">Test Team:</label>
+    <span class="pr-2">
+      <tm-user-group (userGroupChange)="onTestTeamGroup($event)"
+                     [hasAllOption]="true"
+                     (change)="onChangeEmit()"></tm-user-group>
+    </span>
+    <span class="pr-2">
+       <tm-user-site (userSiteChange)="onTestTeamSite($event)"
+                     [hasAllOption]="true"
+                     (change)="onChangeEmit()"></tm-user-site>
+    </span>
+  </div>
+
+  <tm-table [data]="procedures$ | async"
+            [sort]="sort$ | async"
+            [paginationParameters]="paginationParameters$ | async"
+            [filters]="filters$ | async"
+            (sortChange)="onSortChange($event)"
+            (paginationChange)="onPaginationChange($event)"
+            (rowSelect)="onRowSelect($event)"
+            (rowAction)="onRowAction($event)"
+            (resetSelection)="resetOnChangeTestTeamFilter($event)"
+            (disableUpdateButton)="disableUpdateButtonTestTeamFilter($event)"
+            [disableSelectedRow]="onChangeTestTeamFilter"
+            (filterChange)="onFilterChange($event)"
+            [itemsPerPage]="itemsPerPage">
+
+    <tm-table-column name="Site" field="site">
+      <ng-template tmTableCellTemplate let-data>
+        {{data.procedureSite.siteName}}
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="Name" field="name" [searchable]="true"></tm-table-column>
+    <tm-table-column name="Category" field="category" [searchable]="false">
+      <ng-template tmTableFilterTemplate>
+        <select class="form-control"
+                (change)="onProcedureCategoryChange($event.target.value)"
+                [formControl]="procedureStatusSelector" [(ngModel)]="defaultStatus">
+
+          <option *ngFor="let option of procedureStatusOptions | optionsFromEnum" [value]="option.value">
+            {{option.label}}
+          </option>
+        </select>
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="BasedOn" field="basedOn" [searchable]="true">
+      <ng-template tmTableCellTemplate let-data>
+        <span>{{data.basedOn?.name}}</span>
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="Changed" field="changed" [searchable]="false">
+      <ng-template tmTableFilterTemplate>
+        <select class="form-control"
+                (change)="onProcedureChangedChange($event.target.value)"
+                [formControl]="procedureChangedSelector" [(ngModel)]="defaultChange">
+
+          <option *ngFor="let option of procedureChangeOptions | optionsFromEnum" [value]="option.value">
+            {{option.label}}
+          </option>
+        </select>
+      </ng-template>
+    </tm-table-column>
+    <tm-table-column name="Total No of Test Cases" field="noOfCycles"></tm-table-column>
+    <tm-table-column name="Description" field="description"></tm-table-column>
+  </tm-table>
+
+</div>

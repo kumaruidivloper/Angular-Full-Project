@@ -1,0 +1,19 @@
+@import '../../../variables';
+
+.container {
+  .form-control {
+    margin:0 0 10px 0;
+  }
+
+  .ng-valid[required], .ng-valid.required{
+    border-left:5px solid $form-feedback-valid-color;
+  }
+  .ng-invalid:not(form).ng-dirty{
+    border-left:5px solid $form-feedback-invalid-color;
+  }
+}
+.loginForm{
+  width: 400px;
+  padding-top: 100px;
+  margin-left: 163px
+}

@@ -1,0 +1,134 @@
+<form class="container-fluid" [formGroup]="procedureForm">
+  <div class="row">
+    <div class="card-block col-xs-6  col-sm-5 col-md-6 col-lg-12 ">
+      <div class=" d-flex justify-content-end">
+        <span class="required"><label></label>Required Fields</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-sm-3 col-lg-1">
+      <label for="id">ID</label>
+      <input type="text"
+             id="id"
+             class="form-control"
+             formControlName="id"
+             readonly />
+    </div>
+
+    <div class="col-sm-6 col-lg-5">
+      <div class="form-group required">
+        <label for="procedureName">Name</label>
+        <input type="text"
+               id="procedureName"
+               class="form-control"
+               required
+               formControlName="name" required
+               maxlength="50" />
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+             class="alert alert-danger">Name is required!</div>
+      </div>
+    </div>
+
+    <div class="col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category"
+                class="form-control"
+                name="category"
+                formControlName="category">
+          <option *ngFor="let option of procedureCategories | optionsFromEnum"
+                  [value]="option.value">{{option.label}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="private">Private</label>
+        <select id="private"
+                class="form-control"
+                name="category">
+
+          <option>YES</option>
+          <option>NO</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-sm-3 col-lg-2">
+      <label for="changed">Changed</label>
+      <input type="text"
+             id="changed"
+             class="form-control"
+             [value]="procedure?.changed | booleanToYesNo"
+             readonly />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3 col-lg-2">
+      <div class="form-group">
+        <label for="basedOn">Based on</label>
+        <input type="text"
+               id="basedOn"
+               class="form-control"
+               formControlName="basedOn"
+               [value]="procedure?.basedOn?.name"
+               readonly />
+      </div>
+      <div class="form-group">
+        <label for="noOfTestCases">Total No of Test Cases</label>
+        <input type="text"
+               id="noOfTestCases"
+               class="form-control"
+               readonly /></div>
+    </div>
+    <div class="col-lg-10">
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control"
+                  id="description"
+                  rows="6"
+                  maxlength="1000"></textarea>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <div class="card">
+        <div class="card-header">
+          <tm-add-sequence-button (addSequence)="onAddSequence($event)"></tm-add-sequence-button>
+          <tm-add-routine-button (addRoutine)="onAddRoutine($event)"></tm-add-routine-button>
+          <button class="btn btn-primary">Add Test Case</button>
+          <button class="btn btn-primary">Add Test Step</button>
+        </div>
+
+        <div class="card-body">
+          <div class="d-flex flex-row justify-content-center mt-3"
+               *ngIf="procedure?.lines?.length">
+            <div class="btn-group btn-group-toggle">
+              <button class="btn btn-primary" [class.active]="view === Views.Tree" (click)="view = Views.Tree">
+                <i class="fa fa-sitemap"></i> Tree
+              </button>
+              <button class="btn btn-primary" [class.active]="view === Views.List" (click)="view = Views.List">
+                <i class="fa fa-list"></i> List
+              </button>
+            </div>
+          </div>
+          <tm-procedure-tree *ngIf="view === Views.Tree" [procedure]="procedure"></tm-procedure-tree>
+          <tm-procedure-list *ngIf="view === Views.List" [procedure]="procedure"></tm-procedure-list>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <tm-routine-lists></tm-routine-lists>
+        </div>
+      </div>
+    </div>
+  </div>

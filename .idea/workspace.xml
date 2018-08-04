@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/app/features/routine/routine-overview/routine-overview.reducer.ts" description="import { PaginationParameters } from '../../../cor..." line="11" />
+    <bookmark url="file://$PROJECT_DIR$/src/app/features/test-case-step/test-case-detail/test-case-detail.component.ts" description="import {userSelector} from '../../../core/services..." line="38" />
+    <bookmark url="file://$PROJECT_DIR$/src/app/features/test-progress/test-progress-details/test-progress-details.component.html" description="&lt;tm-main-menu&gt;&lt;/tm-main-menu&gt;" line="0" />
+    <bookmark url="file://$PROJECT_DIR$/src/app/features/test-case-step/test-case-detail/test-case-detail-action-menu/test-case-detail-action-menu.component.scss" description=".card-header {&#10;  margin-bottom: 30px;&#10;}" line="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/app/shared/variant/variant.component.ts" description="      { item_id: 6, item_text: 'B123' }," line="54" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="65af5af9-4098-4837-b7fe-a36c88548350" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/variant/variant.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/variant/variant.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/variant/variant.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/variant/variant.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/variant/variant.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/variant/variant.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/variant/variant.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/variant/variant.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.ts" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/dist/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/tm_web$test_step_detail_component_spec_ts.dat" NAME="test-step-detail.component.spec.ts Coverage Results" MODIFIED="1531896382746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tm_web$Test_Step_Detail_Effects.dat" NAME="Test Step Detail Effects Coverage Results" MODIFIED="1531999556444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tm_web$TestStepDetailsReducer_Get_Result_Type_Test_Step_action.dat" NAME="TestStepDetailsReducer.Get Result Type Test Step action Coverage Results" MODIFIED="1531979349183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tm_web$test_step_detail_effects_spec_ts.dat" NAME="test-step-detail.effects.spec.ts Coverage Results" MODIFIED="1531997543033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tm_web$test_details_reducer_spec_ts.dat" NAME="test-details.reducer.spec.ts Coverage Results" MODIFIED="1531902249508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tm_web$Test_Step_Detail_Effects_Create_TestStep.dat" NAME="Test Step Detail Effects.Create TestStep Coverage Results" MODIFIED="1532060906427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tm_web$test_details_component_spec_ts.dat" NAME="test-details.component.spec.ts Coverage Results" MODIFIED="1531908069200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tm_web$test_details_effects_spec_ts.dat" NAME="test-details.effects.spec.ts Coverage Results" MODIFIED="1531997812324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tm_web$Test_Step_Detail_Effects_Copy_TestStep.dat" NAME="Test Step Detail Effects.Copy TestStep Coverage Results" MODIFIED="1532060616912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tm_web$test_step_detail_reduce_spec_ts.dat" NAME="test-step-detail.reduce.spec.ts Coverage Results" MODIFIED="1531913433758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tm_web$test_step_detail_reducer_spec_ts.dat" NAME="test-step-detail.reducer.spec.ts Coverage Results" MODIFIED="1531985594620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/tm_web$test_step_detail_service_spec_ts.dat" NAME="test-step-detail.service.spec.ts Coverage Results" MODIFIED="1531976803873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="KarmaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-2009163643">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="Angular2LanguageService" value="1" />
+          <entry key="TsLintLanguageService" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="LICENSE" value="1" />
+          <entry key="css" value="1" />
+          <entry key="html" value="13" />
+          <entry key="js" value="4" />
+          <entry key="json" value="20" />
+          <entry key="rnc" value="1" />
+          <entry key="scss" value="8" />
+          <entry key="ts" value="116" />
+          <entry key="xml" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="1" />
+          <entry key="HTML" value="13" />
+          <entry key="JSON" value="20" />
+          <entry key="JavaScript" value="4" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="RNG Compact" value="1" />
+          <entry key="SCSS" value="8" />
+          <entry key="TypeScript" value="116" />
+          <entry key="XML" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="387" />
+          <entry key="json" value="80" />
+          <entry key="scss" value="19" />
+          <entry key="ts" value="1950" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="387" />
+          <entry key="JSON" value="80" />
+          <entry key="SCSS" value="19" />
+          <entry key="TypeScript" value="1950" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="tm-web" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.angular-cli.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-147">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/karma.conf.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/_variables.scss">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/authorise.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getItem</find>
+      <find>session</find>
+      <find>public payload</find>
+      <find>type: boolean</find>
+      <find>type: string</find>
+      <find>Variant</find>
+      <find>patchValue</find>
+      <find>fileInput</find>
+      <find>myDateRange</find>
+      <find>state</find>
+      <find>testObjectId</find>
+      <find>copy</find>
+      <find>tm-client/authorise.html</find>
+      <find>level:</find>
+      <find>level</find>
+      <find>ngx-bootstrap</find>
+      <find>ngx</find>
+      <find>TestCaseStepOverviewActionMenuComponent</find>
+      <find>ReportsActionMenuComponent</find>
+      <find>ngx-treeview</find>
+      <find>pipe</find>
+      <find>merge</find>
+      <find>Observable</find>
+      <find>map</find>
+      <find>typeaheadChange</find>
+      <find>fixedHighligth</find>
+      <find>push</find>
+      <find>trackDirectionOptions</find>
+      <find>trackDirection</find>
+      <find>_var</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>routineActivity</replace>
+      <replace>RoutineActivity</replace>
+      <replace>routine-details.service</replace>
+      <replace>RoutineDetailsService</replace>
+      <replace>testCaseDetails$</replace>
+      <replace>testCaseDetailsSelector</replace>
+      <replace>getTestCaseDetails</replace>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>private</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\routine-details</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\routine-overview</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\test-step-detail</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\test-case-step-overview</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\mock-api-server</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\test-progress\test-progress-overview</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\routine\routine-details</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\test\test-details</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\routine\routine-overview</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\test-progress\reports</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\test-case-step</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\test</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\sequence\sequence-details\add-sequence-preconditions\test-case-step</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\test-case-step\test-case-detail</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\test-case-step\test-step-detail</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\sequence\sequence-details</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app</dir>
+      <dir>C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\shared\add-routine-button</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/app/shared/variant/variant-action-menu/variant-action-menu.component.html" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/variant-action-menu/variant-action-menu.component.scss" />
+        <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/src/app/features/test-progress/message-board/message-board.actions.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-progress/message-board/message-board.reducer.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-progress/message-board/message-board.component.html" />
+        <option value="$PROJECT_DIR$/src/app/features/test-progress/message-board/message-board.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-progress/message-board/message-board.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-step-detail/test-step-detail.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-step-detail/test-step-detail.service.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-step-detail/test-step-detail.effect.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-step-detail/test-step-detail.component.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-step-detail/test-step-detail.reduce.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test/test-details/test-details.reducer.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-step-detail/test-step-detail-actions.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-step-detail/test-step-detail.reducer.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test/test-details/test-details.effects.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-step-detail/test-step-detail.effects.spec.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/login/login.component.ts" />
+        <option value="$PROJECT_DIR$/src/authorise.html" />
+        <option value="$PROJECT_DIR$/src/environments/environment.dev.ts" />
+        <option value="$PROJECT_DIR$/src/app/app-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-case-detail/test-case-detail.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-case-detail/test-case-detail.model.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-case-detail/test-case-detail.component.html" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-step-detail/test-step-detail.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-progress/test-progress-overview/test-progress-overview.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/list/custom-template-list.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/list/http-list.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/list/index.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/list/static-list.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-case-step-overview/test-case-step-overview-action-menu/test-case-step-overview-action-menu.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-progress/reports/reports.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/typeahead-focus.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/typeahead-basic.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-case-step/test-case-step-overview/test-case-step-overview.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/test-progress/reports/reports-action-menu/reports-action-menu.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/app/features/test/test-details/test-details.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/sequence/sequence-details/sequence-details.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/typeahead.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/features/sequence/sequence-details/sequence-details.model.ts" />
+        <option value="$PROJECT_DIR$/.angular-cli.json" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/autocomplete.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/variant.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/variant.component.scss" />
+        <option value="$PROJECT_DIR$/src/environments/environment.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/variant.component.html" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/variant.model.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/variant/variant.component.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/mock-api-server/package.json" />
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="width" value="1612" />
+    <option name="height" value="867" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <autoscrollToSource ProjectPane="true" />
+      <autoscrollFromSource ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="tm-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tm-web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tm-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tm-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tm-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tm-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tm-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tm-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="features" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="ToolWindowFavorites.ShowToolbar" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.karma.karma_node_package_dir" value="$PROJECT_DIR$/node_modules/karma" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\node_modules\tslint" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\core\services\user" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\test-progress\reports\report-action-menu" />
+      <recent name="C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\features\procedure\procedure-details\procedure-details-action-menu" />
+      <recent name="C:\Users\a263625\git\TM DEV\Test_Manager\7_implementation\tm\tm-web\src\app\shared\variant\variant-action-menu" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Karma.Test Step Detail Effects.Create TestStep">
+    <configuration name="Test Step Detail Effects" type="JavaScriptTestRunnerKarma" factoryName="Karma" temporary="true" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <node-interpreter value="project" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-names>
+        <test-name value="Test Step Detail Effects" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Test Step Detail Effects.Copy TestStep" type="JavaScriptTestRunnerKarma" factoryName="Karma" temporary="true" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <node-interpreter value="project" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-names>
+        <test-name value="Test Step Detail Effects" />
+        <test-name value="Copy TestStep" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Test Step Detail Effects.Create TestStep" type="JavaScriptTestRunnerKarma" factoryName="Karma" temporary="true" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <node-interpreter value="project" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-names>
+        <test-name value="Test Step Detail Effects" />
+        <test-name value="Create TestStep" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="karma.conf.js" type="JavaScriptTestRunnerKarma" factoryName="Karma" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test-details.effects.spec.ts" type="JavaScriptTestRunnerKarma" factoryName="Karma" temporary="true" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <node-interpreter value="project" />
+      <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file-path value="$PROJECT_DIR$/src/app/features/test/test-details/test-details.effects.spec.ts" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test-step-detail.effects.spec.ts" type="JavaScriptTestRunnerKarma" factoryName="Karma" temporary="true" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <node-interpreter value="project" />
+      <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file-path value="$PROJECT_DIR$/src/app/features/test-case-step/test-step-detail/test-step-detail.effects.spec.ts" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Karma.karma.conf.js" />
+      <item itemvalue="Karma.test-step-detail.effects.spec.ts" />
+      <item itemvalue="Karma.test-details.effects.spec.ts" />
+      <item itemvalue="Karma.Test Step Detail Effects.Create TestStep" />
+      <item itemvalue="Karma.Test Step Detail Effects" />
+      <item itemvalue="Karma.Test Step Detail Effects.Copy TestStep" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Karma.Test Step Detail Effects.Create TestStep" />
+        <item itemvalue="Karma.Test Step Detail Effects.Copy TestStep" />
+        <item itemvalue="Karma.Test Step Detail Effects" />
+        <item itemvalue="Karma.test-details.effects.spec.ts" />
+        <item itemvalue="Karma.test-step-detail.effects.spec.ts" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_MODE" value="false" />
+    <option name="ACTIVE_ACTIONS" value=",SHOW_FIELDS,ALPHA_COMPARATOR,HIDE_INHERITED_FROM_OBJECT" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65af5af9-4098-4837-b7fe-a36c88548350" name="Default" comment="" />
+      <created>1518070167124</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1518070167124</updated>
+      <workItem from="1518070168296" duration="2331000" />
+      <workItem from="1518072529310" duration="13953000" />
+      <workItem from="1518151322262" duration="12927000" />
+      <workItem from="1518178434603" duration="259000" />
+      <workItem from="1518238198780" duration="1908000" />
+      <workItem from="1518241866313" duration="8067000" />
+      <workItem from="1518413318156" duration="6235000" />
+      <workItem from="1518424155166" duration="215000" />
+      <workItem from="1518424434165" duration="5573000" />
+      <workItem from="1518430043755" duration="25577000" />
+      <workItem from="1518582769119" duration="6443000" />
+      <workItem from="1518589439769" duration="89852000" />
+      <workItem from="1519297463262" duration="15336000" />
+      <workItem from="1519633323213" duration="62450000" />
+      <workItem from="1520310445026" duration="157450000" />
+      <workItem from="1521542066138" duration="91231000" />
+      <workItem from="1522211661139" duration="42192000" />
+      <workItem from="1522734698570" duration="67609000" />
+      <workItem from="1523346672355" duration="45011000" />
+      <workItem from="1523535743736" duration="108222000" />
+      <workItem from="1524217610092" duration="2782000" />
+      <workItem from="1524472107933" duration="81212000" />
+      <workItem from="1525238618043" duration="32581000" />
+      <workItem from="1525412435179" duration="18911000" />
+      <workItem from="1525678207066" duration="144144000" />
+      <workItem from="1526550922512" duration="33806000" />
+      <workItem from="1526806604376" duration="2631000" />
+      <workItem from="1526813799060" duration="29690000" />
+      <workItem from="1526966054357" duration="3077000" />
+      <workItem from="1526970367922" duration="54000" />
+      <workItem from="1526970469934" duration="6452000" />
+      <workItem from="1526980042535" duration="4346000" />
+      <workItem from="1526985654337" duration="3551000" />
+      <workItem from="1526989253403" duration="24487000" />
+      <workItem from="1527133413268" duration="60000" />
+      <workItem from="1527133605566" duration="7416000" />
+      <workItem from="1527142990209" duration="28966000" />
+      <workItem from="1527245581028" duration="23000" />
+      <workItem from="1527245695811" duration="77147000" />
+      <workItem from="1527736725964" duration="19188000" />
+      <workItem from="1527760904126" duration="3585000" />
+      <workItem from="1527764535062" duration="3209000" />
+      <workItem from="1527779723740" duration="11911000" />
+      <workItem from="1527841649668" duration="14000" />
+      <workItem from="1527841699703" duration="55000" />
+      <workItem from="1527841843708" duration="3727000" />
+      <workItem from="1527846377997" duration="238515000" />
+      <workItem from="1529404402920" duration="71000" />
+      <workItem from="1529404528388" duration="1006000" />
+      <workItem from="1529405562571" duration="7714000" />
+      <workItem from="1529472164737" duration="19528000" />
+      <workItem from="1529495272002" duration="28299000" />
+      <workItem from="1529644232837" duration="85879000" />
+      <workItem from="1530181719868" duration="252000" />
+      <workItem from="1530182550533" duration="5604000" />
+      <workItem from="1530247366814" duration="12645000" />
+      <workItem from="1530362189803" duration="128538000" />
+      <workItem from="1531234443530" duration="78216000" />
+      <workItem from="1531472356746" duration="103598000" />
+      <workItem from="1531993967241" duration="10151000" />
+      <workItem from="1532071476428" duration="9984000" />
+      <workItem from="1532318920697" duration="2843000" />
+      <workItem from="1532408153620" duration="328000" />
+      <workItem from="1532408508925" duration="1428000" />
+      <workItem from="1533012545208" duration="79888000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="test-step-detail_reducer_spec_ts - 2018.07.19 at 12h 58m 19s.xml">
+      <configuration name="test-step-detail.reducer.spec.ts" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="test-step-detail_reducer_spec_ts - 2018.07.19 at 13h 03m 26s.xml">
+      <configuration name="test-step-detail.reducer.spec.ts" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="test-step-detail_effects_spec_ts - 2018.07.19 at 16h 22m 38s.xml">
+      <configuration name="test-step-detail.effects.spec.ts" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="test-details_effects_spec_ts - 2018.07.19 at 16h 27m 03s.xml">
+      <configuration name="test-details.effects.spec.ts" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="Test_Step_Detail_Effects_Create_TestStep - 2018.07.19 at 16h 34m 10s.xml">
+      <configuration name="Test Step Detail Effects.Create TestStep" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="Test_Step_Detail_Effects - 2018.07.19 at 16h 53m 10s.xml">
+      <configuration name="Test Step Detail Effects" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="Test_Step_Detail_Effects - 2018.07.19 at 16h 56m 11s.xml">
+      <configuration name="Test Step Detail Effects" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="Test_Step_Detail_Effects_Copy_TestStep - 2018.07.20 at 09h 40m 19s.xml">
+      <configuration name="Test Step Detail Effects.Copy TestStep" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="Test_Step_Detail_Effects_Copy_TestStep - 2018.07.20 at 09h 53m 46s.xml">
+      <configuration name="Test Step Detail Effects.Copy TestStep" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="Test_Step_Detail_Effects_Create_TestStep - 2018.07.20 at 09h 58m 42s.xml">
+      <configuration name="Test Step Detail Effects.Create TestStep" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2120353000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4945946" visible="true" weight="0.20975919" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24968314" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" sideWeight="0.5054054" side_tool="true" weight="0.24714829" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32896462" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6300813" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.57567567" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32896462" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.48918918" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3292683" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.8875339" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="3" side_tool="true" weight="0.19987147" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/node_modules/ngx-bootstrap/typeahead/typeahead-match.class.d.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ngx-bootstrap/typeahead/typeahead-container.component.metadata.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ngx-bootstrap/typeahead/typeahead-container.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ngx-bootstrap/typeahead/typeahead-options.class.d.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ngx-bootstrap/typeahead/typeahead.module.d.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ngx-bootstrap/typeahead/typeahead-container.component.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="850" column="4" selection-start-line="850" selection-start-column="4" selection-end-line="850" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/rxjs/src/operator/mergeMap.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-228">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/features/test/test-details/test-details.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="141" column="7" selection-start-line="141" selection-start-column="7" selection-end-line="141" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/features/sequence/sequence-details/sequence-details.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/variant/typeahead.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-532">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#218#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/features/test-case-step/test-case-detail/test-case-detail.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="143" column="32" selection-start-line="143" selection-start-column="6" selection-end-line="143" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/features/test-case-step/test-case-detail/test-case-detail.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/features/sequence/sequence-details/sequence-details.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="82" column="41" selection-start-line="82" selection-start-column="27" selection-end-line="82" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/features/sequence/sequence-details/sequence-details.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/features/sequence/sequence-details/sequence-details.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1022">
+          <caret line="235" column="3" selection-start-line="235" selection-start-column="3" selection-end-line="235" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#188#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/features/sequence/sequence-details/sequence-details.service.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/features/sequence/sequence-details/sequence-details.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/features/test-case-step/test-case-step-overview/test-case-step-overview.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="49" column="10" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ngx-select-dropdown/dist/assets/style.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ngx-select-dropdown/dist/components/ngx-select-dropdown-component/ngx-select-dropdown.component.metadata.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7429" selection-start-column="7429" selection-end-column="7429" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/variant/autocomplete.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/variant/variant.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/environments/environment.test.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/environments/environment.prod.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/environments/environment.dev.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ng-multiselect-dropdown/multiselect.component.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/variant/variant.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ng-multiselect-dropdown/ng-multiselect-dropdown.metadata.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="466" selection-start-column="466" selection-end-column="466" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/core-scripting.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="211" column="14" selection-start-line="211" selection-start-column="14" selection-end-line="211" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/variant/variant.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/environments/environment.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="34" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="34" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/variant/variant.actions.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/variant/variant.effects.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/variant/variant.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/variant/variant.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/variant/variant.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/variant/variant.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="823">
+          <caret line="58" column="6" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="58" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/scss/bootstrap.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/font-awesome/scss/font-awesome.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-147">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/karma.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.angular-cli.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/authorise.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>

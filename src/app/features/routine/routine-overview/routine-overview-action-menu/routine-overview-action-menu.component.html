@@ -1,0 +1,7 @@
+<!--[disabled]=disableCreateRoutine-->
+<div>
+  <button class="btn btn-primary" [routerLink] ="['details', data]" [disabled]="disableUpdateRoutine">Open</button>
+  <button class="btn btn-primary" routerLink="create" (click)="getSelectedRoutine()" [disabled]="disableCreateRoutine">Create New</button>
+  <button class="btn btn-primary" (click)="clearFilters()">Clear Filters</button>
+</div>
+

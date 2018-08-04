@@ -1,0 +1,12 @@
+<div class="card-header d-flex justify-content-between flex-column flex-md-row">
+  <div>
+    <button class="btn btn-primary"  [disabled]="disableSave" (click)="onSave()">Save</button>
+    <button class="btn btn-primary" *ngIf="!isCreate && !isCopy" (click)="onCreateCopy()">Create Copy</button>
+    <button class="btn btn-primary" (click)="onDelete()" *ngIf="!isCreate && !isCopy">Delete</button>
+  </div>
+  <div *ngIf="!isCreate && sequenceInfo" class="testInformation">
+    <div><strong>Created : </strong>{{sequenceInfo.created  | date:'yyyy-MM-dd'}}</div>
+    <div><strong>Last Updated : </strong>{{sequenceInfo.lastChanged  | date:'yyyy-MM-dd'}}</div>
+    <div><strong>Updated By : </strong>{{sequenceInfo.changedByFirstName}} {{ sequenceInfo.changedByLastName}}</div>
+  </div>
+</div>

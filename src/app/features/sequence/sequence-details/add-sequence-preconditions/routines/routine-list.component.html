@@ -1,0 +1,71 @@
+<div class="form-group">
+  <button type="button" class="btn btn-primary mr-2" [disabled]="isDisableRoutine" (click)="open(addRoutineTemplate)">Add Routine</button>
+</div>
+
+<ng-template #addRoutineTemplate let-dismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Routine</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <tm-table *ngIf="routine$ | async as routine; else loading"
+              [data]="routine"
+              [paginationParameters]="paginationParameters$ | async"
+              [filters]="filters$ | async"
+              (filterChange)="onFilterChange($event)"
+              (paginationChange)="onPaginationChange($event)"
+              [itemsPerPage]="itemsPerPage">
+      <tm-table-column>
+        <ng-template tmTableCellTemplate let-routine>
+          <input type="checkbox"
+                 name="routine"
+                 [value]="routine"
+                 (change)="onRoutineChange(routine, $event)">
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Name" field="name" [searchable]="true">
+        <ng-template tmTableCellTemplate let-data>
+          {{data.objectCurrentRoutineVersion.name}}
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Category" field="category" [searchable]="false">
+        <ng-template tmTableFilterTemplate>
+          <select class="form-control"
+                  (change)="filterSelect($event.target.value, 'category')"
+                  [(ngModel)]="defaultSelectionCategory">
+
+            <option *ngFor="let val of categorySelection" [value]="val">{{val}}</option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{data.objectCurrentRoutineVersion.category}}
+        </ng-template>
+      </tm-table-column>
+      <tm-table-column name="Private" field="privateRoutine" [searchable]="false">
+        <ng-template tmTableFilterTemplate>
+          <select  class="form-control"
+                   (change)="filterSelect($event.target.value, 'privateRoutine')"
+                   [(ngModel)]="defaultSelectionPrivate">
+            <option *ngFor="let val of privateSelector" [value]="val.value">{{val.id}}</option>
+          </select>
+        </ng-template>
+        <ng-template tmTableCellTemplate let-data>
+          {{data.objectCurrentRoutineVersion.privateRoutine}}
+        </ng-template>
+      </tm-table-column>
+    </tm-table>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-end ">
+        <button class="btn btn-primary mr-2"
+                [disabled]="(selectedRoutine$ | async).length === 0"
+                (click)="addRoutineToSequence();dismiss()"
+                >Add</button>
+        <button class="btn btn-primary mr-2" (click)="dismiss()">Cancel</button>
+        <button class="btn btn-primary mr-2" (click)="onClearFilterDropDown($event)">Clear Filters</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

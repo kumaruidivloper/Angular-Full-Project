@@ -1,0 +1,19 @@
+<html>
+<head>
+  <script type="text/javascript">
+function hasValidToken() {
+  var token_raw = window.location.hash || "";
+  if (token_raw !== '') {
+    var access_token = token_raw.split("=")[1].split("&")[0];
+    console.log(access_token);
+    if (access_token !== '') {
+      sessionStorage.setItem("Login:Token", access_token);
+      window.location.href = 'https://securedata-qa.volvo.com/tm-client/';
+    }
+  }
+}
+window.onload = hasValidToken();
+  </script>
+</head>
+<body></body>
+</html>

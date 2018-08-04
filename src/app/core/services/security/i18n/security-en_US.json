@@ -1,0 +1,4 @@
+{
+  "SECURITY.USER_LOGGED_IN_MESSAGE": "{{user.sub}} successfully logged in",
+  "SECURITY.USER_LOGGED_IN_TITLE": "Ping Auth"
+}

@@ -1,0 +1,21 @@
+<div class="card-header d-flex justify-content-between flex-column flex-md-row">
+  <div>
+    <button type="button"
+            (click)="onSave()"
+            [disabled]="disableSave"
+            class="btn btn-primary">
+      Save
+    </button>
+    <button type="button" class="btn btn-primary" *ngIf="!isCreate" (click)="onDelete()" [disabled]="enableDelete">
+    Delete
+  </button>
+  </div>
+  <div class="test-information d-flex justify-content-between flex-column flex-md-row">
+    <button type="button" class="btn btn-primary" (click)="onCreateProtocol()">Create Test Protocol</button>
+    <div *ngIf="!isCreate" class=" ml-3">
+        <div><strong>Created : </strong>{{testInfo.created  | date:'yyyy-MM-dd'}}</div>
+        <div><strong>Last Updated : </strong> {{testInfo.lastChanged  | date:'yyyy-MM-dd'}}</div>
+        <div><strong>Updated By : </strong> {{testInfo.changedByFirstName}} {{ testInfo.changedByLastName}}</div>
+    </div>
+  </div>
+</div>

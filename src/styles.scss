@@ -1,0 +1,113 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap.scss';
+@import 'variables';
+@import "~font-awesome/scss/font-awesome";
+
+.application {
+  margin-top: 20px;
+}
+
+.form-control.numberOfPage{
+  padding: 0.5em;
+  max-width:60px;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+  label {
+    font-weight: 500;
+  }
+  .form-control{
+    border: 1px solid darkgray;
+  }
+}
+.required {
+  label::before {
+    color: #e32;
+    content: ' *';
+    display:inline;
+   padding: 0 0.3em 0 0
+  }
+}
+
+.alert-danger {
+  font-size: 0.9rem;
+  padding: 0.7rem;
+}
+.file-upload{
+  .form-group{
+    width: 100%;
+  }
+  .form-control{ font-size: 0.8em;}
+  .fileUploadBtn{    border: 0; }
+}
+.modal-sm {
+  max-width: 630px;
+}
+.modal-body {
+  .table th{
+    border-top:0;
+  }
+}
+.tableRow{
+  display: table-row;}
+
+upload.fa-check:before {
+  color: mediumseagreen;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+/* need to find better option to apply style*/
+.messageList{
+  .table-component {
+    overflow: visible!important;
+    .table {
+      td {
+        div {
+          overflow: hidden!important;
+          max-width: 50em!important;
+          width: auto;
+          word-wrap: break-word!important;
+          white-space: normal!important;
+        }
+        div.arrow {
+          overflow: visible!important;
+        }
+      }
+    }
+  }
+}
+.sequenceGroup .modal-dialog {
+  width: 1250px;
+  max-width: 1250px;
+  .table-component{
+    min-height:250px;
+    height:250px;
+    max-height:250px;
+    overflow-y: scroll;
+  }
+}
+.testCaseStepModal .modal-dialog {
+  width: 1150px;
+  max-width: 1150px;
+  .table th{ font-size: 0.839em;
+
+    .form-control{
+      min-width: 100px;
+    }
+  }
+
+}
+.loginPage{
+  background: url("./assets/img/truck.jpg") no-repeat 67% 58%;
+ min-height:600px;
+  max-width:100%
+}
+.popover-header{
+  color: #000000;
+}
+
+.dateRange{
+  .mydrp{
+    width: auto!important;
+  }
+}

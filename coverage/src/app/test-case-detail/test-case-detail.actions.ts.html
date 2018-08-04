@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/test-case-detail/test-case-detail.actions.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/app/test-case-detail</a> test-case-detail.actions.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>64/91</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">77.78% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>21/27</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">61.43% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>43/70</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Action } from '@ngrx/store';
+import {ResultType, TestCaseDetails, TruckFunction, TruckFunctionArea} from './test-case-detail.model';
+&nbsp;
+export const testCaseDetailsActionTypes = {
+  GET_TEST_CASE: '[TestCaseDetails] Get Test Case by id ',
+  GET_TEST_CASE_SUCCESS: '[TestCaseDetails] Get Test Case by id  Success',
+  GET_TEST_CASE_FAILURE: '[TestCaseDetails] Get Test Case by id  Failure',
+  CREATE_TEST_CASE: '[TestCaseDetails] Create new Test Case',
+  CREATE_TEST_CASE_SUCCESS: '[TestCaseDetails] Create new Test Case Success',
+  CREATE_TEST_CASE_FAILURE: '[TestCaseDetails] Create new Test Case Failure',
+  UPDATE_TEST_CASE: '[TestCaseDetails] Update Test Case',
+  UPDATE_TEST_CASE_SUCCESS: '[TestCaseDetails] Update Test Case Success',
+  UPDATE_TEST_CASE_FAILURE: '[TestCaseDetails] Update Test Case Failure',
+  DELETE_TEST_CASE: '[TestCaseDetails] Delete Test Case',
+  DELETE_TEST_CASE_SUCCESS: '[TestCaseDetails] Delete Test Case Success',
+  DELETE_TEST_CASE_FAILURE: '[TestCaseDetails] Delete Test Case Failure',
+  GET_RESULT_TYPE_TEST_CASE: '[TestCaseDetails] Get Result Type',
+  GET_RESULT_TYPE_TEST_CASE_SUCCESS: '[TestCaseDetails] Get Result Type Success',
+  GET_RESULT_TYPE_TEST_CASE_FAILURE: '[TestCaseDetails] Get Result Type Failure',
+  GET_TRUCK_FUNCTION_AREA: '[TestCaseDetails] Get Truck Function Area',
+  GET_TRUCK_FUNCTION_AREA_SUCCESS: '[TestCaseDetails] Get Truck Function Area Success',
+  GET_TRUCK_FUNCTION_AREA_FAILURE: '[TestCaseDetails] Get Truck Function Area Failure',
+  GET_TRUCK_FUNCTION: '[TestCaseDetails] Get Truck Function',
+  GET_TRUCK_FUNCTION_SUCCESS: '[TestCaseDetails] Get Truck Function Success',
+  GET_TRUCK_FUNCTION_FAILURE: '[TestCaseDetails] Get Truck Function Failure'
+};
+&nbsp;
+export class GetTestCaseDetails implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.GET_TEST_CASE;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>id: number)</span> {}
+}
+export class GetTestCaseDetailsSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.GET_TEST_CASE_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>testCaseDetails: TestCaseDetails)</span> {}
+}
+export class GetTestCaseDetailsFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.GET_TEST_CASE_FAILURE;</span>
+}
+export class CreateTestCase implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.CREATE_TEST_CASE;</span>
+}
+export class CreateTestCaseSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.CREATE_TEST_CASE_SUCCESS;</span>
+}
+export class CreateTestCaseFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.CREATE_TEST_CASE_FAILURE;</span>
+}
+export class UpdateTestCase implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.UPDATE_TEST_CASE;</span>
+}
+export class UpdateTestCaseSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.UPDATE_TEST_CASE_SUCCESS;</span>
+}
+export class UpdateTestCaseFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.UPDATE_TEST_CASE_FAILURE;</span>
+}
+export class DeleteTestCase implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.DELETE_TEST_CASE;</span>
+}
+export class DeleteTestCaseSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.DELETE_TEST_CASE_SUCCESS;</span>
+}
+export class DeleteTestCaseFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.DELETE_TEST_CASE_FAILURE;</span>
+}
+export class GetResultTypeTestCase implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.GET_RESULT_TYPE_TEST_CASE;</span>
+}
+export class GetResultTypeTestCaseSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.GET_RESULT_TYPE_TEST_CASE_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>resultType: ResultType)</span> {}
+}
+export class GetResultTypTestCaseFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.GET_RESULT_TYPE_TEST_CASE_FAILURE;</span>
+}
+export class GetTruckFunctionArea implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.GET_TRUCK_FUNCTION_AREA;</span>
+}
+export class GetTruckFunctionAreaSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.GET_TRUCK_FUNCTION_AREA_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor (public <span class="cstat-no" title="statement not covered" ></span>truckFunctionArea: TruckFunctionArea)</span> {}
+}
+export class GetTruckFunctionAreaFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.GET_TRUCK_FUNCTION_AREA_FAILURE;</span>
+}
+export class GetTruckFunction implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.GET_TRUCK_FUNCTION;</span>
+<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" ></span>id: string)</span> {}
+}
+export class GetTruckFunctionSuccess implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.GET_TRUCK_FUNCTION_SUCCESS;</span>
+<span class="fstat-no" title="function not covered" >  constructor( public <span class="cstat-no" title="statement not covered" ></span>truckFunction: TruckFunction)</span> {}
+}
+export class GetTruckFunctionFailure implements Action {
+  readonly <span class="cstat-no" title="statement not covered" >type: string = testCaseDetailsActionTypes.GET_TRUCK_FUNCTION_FAILURE;</span>
+}
+&nbsp;
+export type TestCaseDetailsActions = GetTestCaseDetails | GetTestCaseDetailsSuccess | GetTestCaseDetailsFailure
+                                | CreateTestCase | CreateTestCaseSuccess | CreateTestCaseFailure
+                                | UpdateTestCase | UpdateTestCaseSuccess | UpdateTestCaseFailure
+                                | DeleteTestCase | DeleteTestCaseSuccess | DeleteTestCaseFailure
+                                | GetResultTypeTestCase | GetResultTypeTestCaseSuccess | GetResultTypTestCaseFailure
+                                | GetTruckFunctionArea | GetTruckFunctionAreaSuccess | GetTruckFunctionAreaFailure
+                                | GetTruckFunction | GetTruckFunctionSuccess | GetTruckFunctionFailure;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 12 2018 10:45:07 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

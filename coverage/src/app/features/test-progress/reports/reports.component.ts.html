@@ -1,0 +1,1634 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/features/test-progress/reports/reports.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/features/test-progress/reports</a> reports.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">19.51% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>64/328</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">16.98% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>18/106</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.56% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/64</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20.06% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>62/309</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
+import { ComponentCanDeactivate } from '../../../core/guards/prevent-unsaved-changes-guard';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+import {INgxMyDpOptions} from 'ngx-mydatepicker';
+import {ActivatedRoute} from '@angular/router';
+import {
+  CreateNewComments, CreateReports, DeleteComment, GetReports, UpdateComments, UpdateReport,
+  UpdateReportsFilters
+} from './reports.actions';
+import {EnergyType, ReportCommentsModel, ReportMessageModel} from './reports.model';
+import {loaderSelector, reportSelector, ReportsState} from './reports.reducer';
+import {Store} from '@ngrx/store';
+import {User} from '../../../core/services/user/user.model';
+import {userSelector} from '../../../core/services/user/user.reducer';
+import {testDetailsSelector} from '../../test/test-details/test-details.reducer';
+import {TestDetails} from '../../test/test-details/test-details.model';
+import {GetTestDetails} from '../../test/test-details/test-details.actions';
+import {
+  tcTruckFunctionAreaSelector,
+  testCaseDetailsSelector
+} from '../../test-case-step/test-case-detail/test-case-detail.reducer';
+import {routineDetailsSelector} from '../../routine/routine-details/routine-details.reducer';
+import {testStepDetailsSelector} from '../../test-case-step/test-step-detail/test-step-detail.reducer';
+import {RoutineDetails} from '../../routine/routine-details/routine-details.model';
+import {TestCaseStepDetails, TruckFunctionArea} from '../../test-case-step/test-case-detail/test-case-detail.model';
+import {GetTestCaseDetails, GetTruckFunctionArea} from '../../test-case-step/test-case-detail/test-case-detail.actions';
+import {GetTestStepDetails} from '../../test-case-step/test-step-detail/test-step-detail-actions';
+import {GetRoutineDetails} from '../../routine/routine-details/routine-details.action';
+import {map, pick, filter} from 'lodash';
+import {SessionStorageService} from '../../../core/storage/session-storage.service';
+import { FileUploadService } from '../../../core/services/file-upload/file-upload.service';
+import {IMyCalendarViewChanged, IMyDateRangeModel, IMyDrpOptions} from 'mydaterangepicker';
+&nbsp;
+@Component({
+  selector: 'tm-reports',
+  templateUrl: './reports.component.html',
+  styleUrls: ['./reports.component.scss']
+})
+export class ReportsComponent implements OnInit, ComponentCanDeactivate, AfterViewInit {
+  @ViewChild('fileInput') fileInput;
+  @ViewChild('fileNew') fileNew;
+  @ViewChild('fileUpdate') fileUpdate;
+  public <span class="cstat-no" title="statement not covered" >baseApiUrl = window.location.href;</span>
+  public baseUrl: string;
+  public reportForm: FormGroup;
+  public <span class="cstat-no" title="statement not covered" >isCreate: boolean = true;</span>
+  public <span class="cstat-no" title="statement not covered" >isCopy: boolean = false;</span>
+  public <span class="cstat-no" title="statement not covered" >hasComments: any = [];</span>
+  public <span class="cstat-no" title="statement not covered" >newReportHidden: boolean = true;</span>
+  public <span class="cstat-no" title="statement not covered" >hideNewReportBtn: boolean = false;</span>
+  public reportLists$: Observable&lt;ReportMessageModel[]&gt; ;
+  public user$: Observable&lt;User&gt;;
+  public testDetails$: Observable&lt;TestDetails&gt;;
+  public <span class="cstat-no" title="statement not covered" >reportTypeList = ['ACTIVITY' , 'BUG', 'FAULT', 'FUEL', 'OFD'];</span>
+  public <span class="cstat-no" title="statement not covered" >reportItemType = ['TEST_CASE' , 'TEST_STEP', 'ROUTINE'];</span>
+  public versionData: any;
+  public selectedTestSite: string;
+  public selectedTestGroup: string;
+  public testStepDetails$: Observable&lt;TestCaseStepDetails&gt;;
+  public testCaseDetails$: Observable&lt;TestCaseStepDetails&gt;;
+  public routineDetails$: Observable&lt;RoutineDetails&gt;;
+  private reportForTestId: number;
+  private getFilters: object;
+  private getItemType: string;
+  public itemIdNotFound: boolean;
+  public showGear: boolean;
+  public <span class="cstat-no" title="statement not covered" >newComment: any = [];</span>
+  public <span class="cstat-no" title="statement not covered" >showEditTextArea: any = [];</span>
+  private <span class="cstat-no" title="statement not covered" >currentTime = new Date();</span>
+  private getUserId: string;
+  public <span class="cstat-no" title="statement not covered" >userCommentsText: string = '';</span>
+  public <span class="cstat-no" title="statement not covered" >pageType: string = 'report';</span>
+  private <span class="cstat-no" title="statement not covered" >uploadData = [];</span>
+  public selectedFile: File;
+  public <span class="cstat-no" title="statement not covered" >fileDetailsObj = [];</span>
+  public <span class="cstat-no" title="statement not covered" >newFileDetailsObj = [];</span>
+  public <span class="cstat-no" title="statement not covered" >updateFileDetailsObj = [];</span>
+  public <span class="cstat-no" title="statement not covered" >uploadSuccess: boolean = false;</span>
+  public <span class="cstat-no" title="statement not covered" >hasAttachment: boolean = false;</span>
+  public <span class="cstat-no" title="statement not covered" >showEnergyVolume: boolean = false;</span>
+  public <span class="cstat-no" title="statement not covered" >emptyTableForEnergy: boolean = false;</span>
+  public uploadedFileName: string;
+  public <span class="cstat-no" title="statement not covered" >energyTypeOptions: string[] = ['DIESEL', 'ADBLUE', 'LNG'];</span>
+  public <span class="cstat-no" title="statement not covered" >energyType: string = this.energyTypeOptions[0];</span>
+  public <span class="cstat-no" title="statement not covered" >volume: number = 1;</span>
+  public <span class="cstat-no" title="statement not covered" >unitOptions: string[] = ['ltr', 'kg', 'gal', 'lb'];</span>
+  public <span class="cstat-no" title="statement not covered" >unit: string = this.unitOptions[0];</span>
+  public <span class="cstat-no" title="statement not covered" >energyVolumeArray = new Array();</span>
+  public truckFunctionAreaList$: Observable&lt;TruckFunctionArea[]&gt;;
+  public <span class="cstat-no" title="statement not covered" >truckFunctionList = [];</span>
+  public <span class="cstat-no" title="statement not covered" >selectedTruckArea: string = '0';</span>
+  public <span class="cstat-no" title="statement not covered" >selectedTruckFunction: string = '';</span>
+  public <span class="cstat-no" title="statement not covered" >selectedReportType: string = '';</span>
+  public <span class="cstat-no" title="statement not covered" >selectedReportName: string = '';</span>
+  public userName: object;
+  public <span class="cstat-no" title="statement not covered" >myDateRangePickerOptions: IMyDrpOptions = {</span>
+    dateFormat: 'yyyy-mm-dd',
+    showClearDateRangeBtn: true
+  };
+  public loading$: Observable&lt;boolean&gt;;
+  public <span class="cstat-no" title="statement not covered" >dateModel: any = {};</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  constructor(private <span class="cstat-no" title="statement not covered" ></span>route: ActivatedRoute<span class="branch-1 cbranch-no" title="branch not covered" >,</span></span>
+              private <span class="cstat-no" title="statement not covered" >store: Store<span class="branch-2 cbranch-no" title="branch not covered" >&lt;ReportsState&gt;,</span></span>
+              private <span class="cstat-no" title="statement not covered" >formBuilder: FormBuilder<span class="branch-2 cbranch-no" title="branch not covered" >,</span></span>
+              private <span class="cstat-no" title="statement not covered" >fileUploadService: FileUploadService<span class="branch-2 cbranch-no" title="branch not covered" >,</span></span>
+              private <span class="cstat-no" title="statement not covered" >sessionStorageService: SessionStorageService<span class="branch-2 cbranch-no" title="branch not covered" >)</span> { }</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  canDeactivate(): Observable&lt;boolean&gt; | boolean {</span>
+<span class="cstat-no" title="statement not covered" >    return this.reportForm.pristine;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  buildReportForm(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.reportForm = this.formBuilder.group({</span>
+      id: 0,
+      sequenceName: ['', Validators.required],
+      testItemType: ['', Validators.required],
+      testItemId: [{value: '', disabled: true}, Validators.required],
+      testItemVersion: [{value: '', disabled: true}, Validators.required],
+      truckFunctionArea: '',
+      truckFunction: '',
+      name: '',
+      reportType: ['FAULT', Validators.required],
+      fuelEnergyType: [[]],
+      odometer: '',
+      unHandled: true,
+      forEditor: true,
+      reportSite: '',
+      reportUserGroup: '',
+      changeInfo: {},
+      reportComments: new FormArray([
+        this.formBuilder.group({
+          id: 0,
+          comment: ['', Validators.required],
+          commentCreated: this.currentTime.getTime(),
+          commentUploadFile: [],
+          commentCreator: {}
+        })
+      ])
+    });
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  ngOnInit() {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.loading$ = this.store.select(loaderSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.sessionStorageService.getItem('Login:UserId').subscribe( <span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      this.getUserId = (res) ? res.toString() : '';</span>
+    });
+<span class="cstat-no" title="statement not covered" >    this.reportLists$ = this.store.select(reportSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.user$ = this.store.select(userSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.testDetails$ = this.store.select(testDetailsSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.routineDetails$ = this.store.select(routineDetailsSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.testCaseDetails$ = this.store.select(testCaseDetailsSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.testStepDetails$ = this.store.select(testStepDetailsSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.truckFunctionAreaList$ = this.store.select(tcTruckFunctionAreaSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.buildReportForm();</span>
+<span class="cstat-no" title="statement not covered" >    this.route.params</span>
+      .map(<span class="fstat-no" title="function not covered" >params =&gt; <span class="cstat-no" title="statement not covered" >params.testId)</span></span>
+      .filter(<span class="fstat-no" title="function not covered" >id =&gt; <span class="cstat-no" title="statement not covered" >!!id)</span></span>
+      .subscribe(<span class="fstat-no" title="function not covered" >id =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        this.reportForTestId = id;</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new GetTestDetails(id));</span>
+<span class="cstat-no" title="statement not covered" >        this.getFilters = {testId: id};</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new UpdateReportsFilters(this.getFilters));</span>
+      });
+<span class="cstat-no" title="statement not covered" >    this.reportForm.controls['testItemId'].disable();</span>
+<span class="cstat-no" title="statement not covered" >    this.reportForm.controls['testItemVersion'].disable();</span>
+<span class="cstat-no" title="statement not covered" >    this.itemIdNotFound = this.showGear  = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new GetTruckFunctionArea());</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  ngAfterViewInit() {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.baseUrl = 'http://' + this.baseApiUrl.split('/')[2];</span>
+<span class="cstat-no" title="statement not covered" >    this.user$.subscribe( <span class="fstat-no" title="function not covered" >user =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >     if (user) {</span>
+<span class="cstat-no" title="statement not covered" >       this.userName = { firstName: user.firstName, lastName: user.lastName};</span>
+     }
+    });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onCloseNewReport() {</span>
+<span class="cstat-no" title="statement not covered" >    this.newReportHidden = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.hideNewReportBtn = false;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onOpenNewReport() {</span>
+<span class="cstat-no" title="statement not covered" >    this.newReportHidden = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.hideNewReportBtn = true;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onTestTeamGroup(</span>value): void {
+<span class="cstat-no" title="statement not covered" >    this.selectedTestGroup = value;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onTestTeamSite(</span>value): void {
+<span class="cstat-no" title="statement not covered" >    this.selectedTestSite = value;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  onSaveReport( ) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (this.reportForm.valid) {</span>
+<span class="cstat-no" title="statement not covered" >      this.reportForm.markAsPristine();</span>
+<span class="cstat-no" title="statement not covered" >      this.user$.subscribe( <span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        this.reportForm.controls['changeInfo'].setValue({</span>
+          changedByFirstName: res.firstName || null,
+          changedByLastName: res.lastName || null,
+          changedByUserId: this.getUserId,
+          created: this.currentTime.getTime(),
+          lastChanged: this.currentTime.getTime()
+        });
+<span class="cstat-no" title="statement not covered" >        this.reportComments.at(0).patchValue({</span>
+          commentCreator: {firstName: res.firstName, lastName: res.lastName},
+          commentUploadFile: this.fileDetailsObj
+        });
+      });
+<span class="cstat-no" title="statement not covered" >      this.testDetails$.subscribe( <span class="fstat-no" title="function not covered" >testDetails =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        this.reportForm.controls['reportSite'].setValue(testDetails.testSite);</span>
+<span class="cstat-no" title="statement not covered" >        this.reportForm.controls['reportUserGroup'].setValue(testDetails.testUserGroup);</span>
+      });
+<span class="cstat-no" title="statement not covered" >      if (this.showEnergyVolume) {</span>
+<span class="cstat-no" title="statement not covered" >        this.emptyTableForEnergy = this.energyVolumeArray.length === 0;</span>
+<span class="cstat-no" title="statement not covered" >        this.reportForm.controls['fuelEnergyType'].setValue(this.energyVolumeArray);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.energyVolumeArray = [];</span>
+<span class="cstat-no" title="statement not covered" >        this.emptyTableForEnergy =  false;</span>
+<span class="cstat-no" title="statement not covered" >        this.reportForm.controls['fuelEnergyType'].setValue([]);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (this.showEnergyVolume &amp;&amp; !this.emptyTableForEnergy) {</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new CreateReports(this.reportForTestId, this.reportForm.value));</span>
+<span class="cstat-no" title="statement not covered" >        this.onResetFormFields();</span>
+      } else <span class="cstat-no" title="statement not covered" >if (!this.showEnergyVolume &amp;&amp; this.emptyTableForEnergy === false) {</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new CreateReports(this.reportForTestId, this.reportForm.value));</span>
+<span class="cstat-no" title="statement not covered" >        this.onResetFormFields();</span>
+      }
+    } else {
+<span class="cstat-no" title="statement not covered" >      Object.keys(this.reportForm.controls).forEach(<span class="fstat-no" title="function not covered" >field =&gt; {</span></span>
+        const control = <span class="cstat-no" title="statement not covered" >this.reportForm.get(field);</span>
+<span class="cstat-no" title="statement not covered" >        control.markAsTouched({ onlySelf: true });</span>
+      });
+      const reportComments = <span class="cstat-no" title="statement not covered" >this.reportForm.get('reportComments') as FormArray;</span>
+<span class="cstat-no" title="statement not covered" >      Object.keys(reportComments.controls).forEach( <span class="fstat-no" title="function not covered" >field =&gt; {</span></span>
+        const controlArray = <span class="cstat-no" title="statement not covered" >reportComments.get(field);</span>
+<span class="cstat-no" title="statement not covered" >        controlArray.markAsTouched({ onlySelf: true });</span>
+      });
+<span class="cstat-no" title="statement not covered" >      if (this.showEnergyVolume) {</span>
+<span class="cstat-no" title="statement not covered" >        this.emptyTableForEnergy = this.energyVolumeArray.length === 0;</span>
+      }
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onChangeItemType(</span>event): void {
+<span class="cstat-no" title="statement not covered" >    this.getItemType = event.target.value;</span>
+<span class="cstat-no" title="statement not covered" >    if (this.getItemType !== '') {</span>
+<span class="cstat-no" title="statement not covered" >      this.reportForm.controls['testItemId'].enable();</span>
+<span class="cstat-no" title="statement not covered" >      this.reportForm.patchValue({'name': ''});</span>
+<span class="cstat-no" title="statement not covered" >      if (this.reportForm.controls['testItemId'].value !== '') {</span>
+<span class="cstat-no" title="statement not covered" >        this.onItemIdInput();</span>
+      }
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.reportForm.controls['testItemId'].disable();</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onChangeReportType(): void {</span>
+    const reportTypeValue =  <span class="cstat-no" title="statement not covered" >this.reportForm.controls['reportType'].value;</span>
+<span class="cstat-no" title="statement not covered" >    this.showEnergyVolume = reportTypeValue === 'FUEL';</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  itemIdDataHandler(</span>asyncData): void {
+<span class="cstat-no" title="statement not covered" >    this.showGear = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.itemIdNotFound = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.reportForm.controls['testItemVersion'].enable();</span>
+<span class="cstat-no" title="statement not covered" >    this.versionData = asyncData.testCaseStepVersion || asyncData.objectRoutineVersion || [];</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  onItemIdInput(): void  {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.showGear = true;</span>
+    const itemId = <span class="cstat-no" title="statement not covered" >this.reportForm.controls['testItemId'].value;</span>
+<span class="cstat-no" title="statement not covered" >      if (this.getItemType === 'TEST_CASE' &amp;&amp; itemId !== '') {</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new GetTestCaseDetails(itemId));</span>
+<span class="cstat-no" title="statement not covered" >        this.testCaseDetails$</span>
+          .debounceTime(500)
+          .subscribe(<span class="fstat-no" title="function not covered" >details =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >           if (details.hasOwnProperty('id')) {</span>
+<span class="cstat-no" title="statement not covered" >             this.itemIdDataHandler(details);</span>
+           } else {
+<span class="cstat-no" title="statement not covered" >             this.itemIdNotFound = true;</span>
+<span class="cstat-no" title="statement not covered" >             this.showGear = false;</span>
+           }
+          });
+      } else <span class="cstat-no" title="statement not covered" >if (this.getItemType === 'TEST_STEP' &amp;&amp; itemId !== '') {</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch( new GetTestStepDetails(itemId));</span>
+<span class="cstat-no" title="statement not covered" >        this.testStepDetails$</span>
+          .debounceTime(500)
+          .subscribe(<span class="fstat-no" title="function not covered" >details =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            if (details.hasOwnProperty('id')) {</span>
+<span class="cstat-no" title="statement not covered" >              this.itemIdDataHandler(details);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >              this.itemIdNotFound = true;</span>
+<span class="cstat-no" title="statement not covered" >              this.showGear = false;</span>
+            }
+          });
+      } else <span class="cstat-no" title="statement not covered" >if (this.getItemType === 'ROUTINE' &amp;&amp; itemId !== '') {</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch( new GetRoutineDetails(itemId));</span>
+<span class="cstat-no" title="statement not covered" >        this.routineDetails$</span>
+          .debounceTime(500)
+          .subscribe(<span class="fstat-no" title="function not covered" >details =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            if (details.hasOwnProperty('id')) {</span>
+<span class="cstat-no" title="statement not covered" >              this.itemIdDataHandler(details);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >              this.itemIdNotFound = true;</span>
+<span class="cstat-no" title="statement not covered" >              this.showGear = false;</span>
+            }
+          });
+      }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  onVersionNoChange(): void  {</span></span>
+   const versionNum = <span class="cstat-no" title="statement not covered" >this.reportForm.controls['testItemVersion'].value;</span>
+<span class="cstat-no" title="statement not covered" >    this.versionData.filter( <span class="fstat-no" title="function not covered" >item =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      if ( item.versionNo === versionNum) {</span>
+<span class="cstat-no" title="statement not covered" >        this.reportForm.patchValue({name: item.name});</span>
+<span class="cstat-no" title="statement not covered" >        if (item.hasOwnProperty('testCaseStepTruckFunction') &amp;&amp; item.testCaseStepTruckFunction) {</span>
+<span class="cstat-no" title="statement not covered" >          this.reportForm.controls['truckFunction'].setValue(item.testCaseStepTruckFunction.name);</span>
+<span class="cstat-no" title="statement not covered" >          this.reportForm.controls['truckFunctionArea'].setValue(item.testCaseStepTruckFunction.testCaseStepTruckFunctionArea.name);</span>
+        }
+      }
+    });
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  onSaveUserComment(</span>getReportId, rowIndex): void  {</span>
+    const fileBrowser  = <span class="cstat-no" title="statement not covered" >this.fileNew.nativeElement;</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedFile = fileBrowser.files[0];</span>
+<span class="cstat-no" title="statement not covered" >    if (fileBrowser.files &amp;&amp; fileBrowser.files[0]) {</span>
+      const formData = <span class="cstat-no" title="statement not covered" >new FormData();</span>
+<span class="cstat-no" title="statement not covered" >      formData.append('uploadedFile', this.selectedFile, this.selectedFile.name);</span>
+<span class="cstat-no" title="statement not covered" >      this.fileUploadService.upload(formData, this.pageType).subscribe(<span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        this.newFileDetailsObj.push(res);</span>
+<span class="cstat-no" title="statement not covered" >        setTimeout( <span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (res.hasOwnProperty('fileName')) {</span>
+<span class="cstat-no" title="statement not covered" >            this.uploadSuccess = this.hasAttachment  = true;</span>
+<span class="cstat-no" title="statement not covered" >            this.uploadedFileName = res['fileName'];</span>
+<span class="cstat-no" title="statement not covered" >            this.uploadData.push(res);</span>
+          }
+        }, 100);
+      });
+    }
+    const commentPayload = <span class="cstat-no" title="statement not covered" >{</span>
+      id: 0,
+      comment: this.userCommentsText,
+      commentCreated: this.currentTime.getTime(),
+      commentUploadFile: this.newFileDetailsObj
+    };
+<span class="cstat-no" title="statement not covered" >    this.user$.subscribe( <span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      commentPayload['commentCreator'] = {firstName: res.firstName, lastName: res.lastName};</span>
+    });
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new CreateNewComments(getReportId, commentPayload));</span>
+<span class="cstat-no" title="statement not covered" >    this.userCommentsText = '';</span>
+<span class="cstat-no" title="statement not covered" >    this.reportLists$.subscribe( <span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      if ( res.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        this.newComment[rowIndex] = false;</span>
+      }
+    });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onDeleteComment(</span>commentId: number) {
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch( new DeleteComment(commentId));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onRemoveFileAttachment(</span>value) {
+<span class="cstat-no" title="statement not covered" >    event.preventDefault();</span>
+    const index = <span class="cstat-no" title="statement not covered" >this.fileDetailsObj.indexOf(value, 0);</span>
+<span class="cstat-no" title="statement not covered" >    if (index &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >      this.fileDetailsObj.splice(index, 1);</span>
+    }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  fileToUpload(</span>value) {</span>
+    const fileBrowser  = <span class="cstat-no" title="statement not covered" >this.fileInput.nativeElement;</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedFile = fileBrowser.files[0];</span>
+<span class="cstat-no" title="statement not covered" >    if (fileBrowser.files &amp;&amp; fileBrowser.files[0]) {</span>
+      const formData = <span class="cstat-no" title="statement not covered" >new FormData();</span>
+<span class="cstat-no" title="statement not covered" >      formData.append('uploadedFile', this.selectedFile, this.selectedFile.name);</span>
+<span class="cstat-no" title="statement not covered" >      this.fileUploadService.upload(formData, this.pageType).subscribe(<span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        this.fileDetailsObj.push(res);</span>
+<span class="cstat-no" title="statement not covered" >        setTimeout( <span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (res.hasOwnProperty('fileName')) {</span>
+<span class="cstat-no" title="statement not covered" >            this.uploadSuccess = this.hasAttachment  = true;</span>
+<span class="cstat-no" title="statement not covered" >            this.uploadedFileName = res['fileName'];</span>
+<span class="cstat-no" title="statement not covered" >            this.uploadData.push(res);</span>
+          }
+        }, 100);
+      });
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onEditComments(</span>commentsStr: string, rowIndex: number): void {
+<span class="cstat-no" title="statement not covered" >    this.hasComments[rowIndex] = !this.hasComments[rowIndex];</span>
+<span class="cstat-no" title="statement not covered" >    this.showEditTextArea[rowIndex] =  !this.showEditTextArea[rowIndex];</span>
+<span class="cstat-no" title="statement not covered" >    this.userCommentsText = commentsStr;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  onUpdateComments(</span>comments: ReportCommentsModel, rowIndex: number): void {</span>
+    const fileBrowser  = <span class="cstat-no" title="statement not covered" >this.fileUpdate.nativeElement;</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedFile = fileBrowser.files[0];</span>
+<span class="cstat-no" title="statement not covered" >    if (fileBrowser.files &amp;&amp; fileBrowser.files[0]) {</span>
+      const formData = <span class="cstat-no" title="statement not covered" >new FormData();</span>
+<span class="cstat-no" title="statement not covered" >      formData.append('uploadedFile', this.selectedFile, this.selectedFile.name);</span>
+<span class="cstat-no" title="statement not covered" >      this.fileUploadService.upload(formData, this.pageType).subscribe(<span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        this.updateFileDetailsObj.push(res);</span>
+<span class="cstat-no" title="statement not covered" >        setTimeout( <span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (res.hasOwnProperty('fileName')) {</span>
+<span class="cstat-no" title="statement not covered" >            this.uploadSuccess = this.hasAttachment  = true;</span>
+<span class="cstat-no" title="statement not covered" >            this.uploadedFileName = res['fileName'];</span>
+<span class="cstat-no" title="statement not covered" >            this.uploadData.push(res);</span>
+          }
+        }, 100);
+      });
+    }
+    const upDateComments =  <span class="cstat-no" title="statement not covered" >comments;</span>
+    const upDateFile = <span class="cstat-no" title="statement not covered" >this.updateFileDetailsObj;</span>
+<span class="cstat-no" title="statement not covered" >    upDateComments.comment = this.userCommentsText;</span>
+<span class="cstat-no" title="statement not covered" >    upDateComments['commentUploadFile'] = upDateFile;</span>
+<span class="cstat-no" title="statement not covered" >    console.log(upDateComments);</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateComments(upDateComments));</span>
+<span class="cstat-no" title="statement not covered" >    this.showEditTextArea[rowIndex] =  !this.showEditTextArea[rowIndex];</span>
+<span class="cstat-no" title="statement not covered" >    this.userCommentsText = '';</span>
+<span class="cstat-no" title="statement not covered" >    this.hasComments[rowIndex] = !this.hasComments[rowIndex];</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onAddEnergyVolume(): void {</span>
+    const data = <span class="cstat-no" title="statement not covered" >{</span>
+      id: 0,
+      energyType: this.energyType,
+      volume: this.volume,
+      unit: this.unit
+    };
+<span class="cstat-no" title="statement not covered" >    this.energyVolumeArray.push(data);</span>
+<span class="cstat-no" title="statement not covered" >    this.emptyTableForEnergy =  false;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onRemoveEnergyVolume(</span>index): void {
+<span class="cstat-no" title="statement not covered" >    this.energyVolumeArray.splice(index, 1);</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  onSelectTruckFunctionArea(</span>details, event): void {</span>
+<span class="cstat-no" title="statement not covered" >      this.truckFunctionAreaList$.subscribe(<span class="fstat-no" title="function not covered" >truckFunctionArea =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        truckFunctionArea.filter( <span class="fstat-no" title="function not covered" >area =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >          if ( area.id === this.selectedTruckArea) {</span>
+<span class="cstat-no" title="statement not covered" >            this.truckFunctionList = area['truckFunction'];</span>
+<span class="cstat-no" title="statement not covered" >            this.getFilters['truckFunctionArea'] = area.name;</span>
+<span class="cstat-no" title="statement not covered" >            this.store.dispatch(new UpdateReportsFilters(this.getFilters));</span>
+          }
+        });
+      });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onTableFilterChange(</span>filterName: string , filterValue: string): void {
+<span class="cstat-no" title="statement not covered" >    this.getFilters[filterName] = filterValue;</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateReportsFilters(this.getFilters));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onClearFilter(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.getFilters = pick(this.getFilters, ['testId']);</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateReportsFilters(this.getFilters));</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedTruckArea = '0';</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedTruckFunction = '';</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedReportType = '';</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedReportName = '';</span>
+<span class="cstat-no" title="statement not covered" >    this.dateModel = {};</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onDateRangeChanged(</span>event: IMyDateRangeModel) {
+    const startDate =  <span class="cstat-no" title="statement not covered" >new Date(event.beginDate.year, event.beginDate.month - 1, event.beginDate.day);</span>
+    const endDate =  <span class="cstat-no" title="statement not covered" >new Date(event.endDate.year, event.endDate.month - 1, event.endDate.day);</span>
+<span class="cstat-no" title="statement not covered" >    this.getFilters['fromDate'] = startDate.getTime();</span>
+<span class="cstat-no" title="statement not covered" >    this.getFilters['tillDate'] = endDate.getTime();</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onChangeReportHandled(</span>isHandled, reportData): void {
+<span class="cstat-no" title="statement not covered" >    reportData.unHandled = isHandled;</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateReport(reportData));</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onResetFormFields(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.buildReportForm();</span>
+<span class="cstat-no" title="statement not covered" >    this.hasAttachment = this.uploadSuccess = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.fileInput.nativeElement.value = '';</span>
+<span class="cstat-no" title="statement not covered" >    this.reportForm.controls['testItemId'].markAsPristine();</span>
+<span class="cstat-no" title="statement not covered" >    this.reportForm.controls['testItemId'].disable();</span>
+<span class="cstat-no" title="statement not covered" >    this.reportForm.controls['testItemVersion'].disable();</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  numbersOnly(</span>event: any) {
+    const pattern = <span class="cstat-no" title="statement not covered" >/[0-9\-\ ]/;</span>
+    const inputChar = <span class="cstat-no" title="statement not covered" >String.fromCharCode(event.charCode);</span>
+<span class="cstat-no" title="statement not covered" >    if (event.keyCode !== 8 &amp;&amp; !pattern.test(inputChar)) {</span>
+<span class="cstat-no" title="statement not covered" >      event.preventDefault();</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  getField(</span>field: string) {
+<span class="cstat-no" title="statement not covered" >    return this.reportForm.get(field);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onInputFieldChanged(</span>event: IMyCalendarViewChanged) {
+<span class="cstat-no" title="statement not covered" >    if (event['valid']) {</span>
+<span class="cstat-no" title="statement not covered" >      this.store.dispatch( new UpdateReportsFilters( this.getFilters));</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.getFilters['fromDate'] = '';</span>
+<span class="cstat-no" title="statement not covered" >      this.getFilters['tillDate'] = '';</span>
+<span class="cstat-no" title="statement not covered" >      this.store.dispatch( new UpdateReportsFilters( this.getFilters));</span>
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  get sequenceName() { <span class="cstat-no" title="statement not covered" ></span>return this.getField('sequenceName'); </span>}
+<span class="fstat-no" title="function not covered" >  get testItemType() { <span class="cstat-no" title="statement not covered" ></span>return this.getField('testItemType'); </span>}
+<span class="fstat-no" title="function not covered" >  get testItemId() { <span class="cstat-no" title="statement not covered" ></span>return this.getField('testItemId'); </span>}
+<span class="fstat-no" title="function not covered" >  get testItemVersion() { <span class="cstat-no" title="statement not covered" ></span>return this.getField('testItemVersion'); </span>}
+<span class="fstat-no" title="function not covered" >  get odometer() { <span class="cstat-no" title="statement not covered" ></span>return this.getField('odometer'); </span>}
+<span class="fstat-no" title="function not covered" >  get reportType() { <span class="cstat-no" title="statement not covered" ></span>return this.getField('reportType'); </span>}
+<span class="fstat-no" title="function not covered" >  get reportComments() { <span class="cstat-no" title="statement not covered" ></span>return this.reportForm.get('reportComments')as FormArray ; </span>}
+<span class="fstat-no" title="function not covered" >  get comment() { <span class="cstat-no" title="statement not covered" ></span>return this.getField('reportComments.comment'); </span>}
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

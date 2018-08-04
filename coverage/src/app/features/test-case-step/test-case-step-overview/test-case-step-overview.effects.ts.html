@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/features/test-case-step/test-case-step-overview/test-case-step-overview.effects.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/features/test-case-step/test-case-step-overview</a> test-case-step-overview.effects.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">68% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>17/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.59% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>12/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.29% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">65.22% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>15/23</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import { Actions, Effect } from '@ngrx/effects';
+import { Action } from '@ngrx/store';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/catch';
+&nbsp;
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/switchMap';
+import { Observable } from 'rxjs/Rx';
+import { PaginatedResponse } from '../../../core/interfaces/paginated-response.i';
+import {
+  EmptyTestCaseStepFilters,
+  GetTestCaseStepFailure,
+  GetTestCaseSteps,
+  GetTestCaseStepSuccess,
+  testCaseStepActionTypes
+} from './test-case-step-overview.actions';
+&nbsp;
+import { TestCaseStep } from './test-case-step-overview.model';
+&nbsp;
+import { TestCaseStepOverviewService } from './test-case-step-overview.service';
+&nbsp;
+@Injectable()
+export class TestCaseStepOverviewEffects {
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  constructor(</span></span>
+    private <span class="cstat-no" title="statement not covered" >actions$: Actions<span class="branch-1 cbranch-no" title="branch not covered" >,</span></span>
+    public <span class="cstat-no" title="statement not covered" >testCaseStepOverviewService: TestCaseStepOverviewService<span class="branch-2 cbranch-no" title="branch not covered" >)</span> {</span>
+  }
+&nbsp;
+  @Effect() getTestCaseStepList$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(...[
+      testCaseStepActionTypes.LOAD_TEST_CASE_STEP,
+      testCaseStepActionTypes.INITIAL_FILTER_ON_PAGE_LOAD
+    ]).mergeMap(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return this.testCaseStepOverviewService.getTestCaseStepList()</span>
+        .map(<span class="fstat-no" title="function not covered" >(</span>result: PaginatedResponse&lt;TestCaseStep[]&gt;) =&gt; <span class="cstat-no" title="statement not covered" >new GetTestCaseStepSuccess(result))</span>
+        .catch(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>Observable.of(new GetTestCaseStepFailure()))</span>;
+        });
+  @Effect() changeParameters$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(...[
+      testCaseStepActionTypes.PAGINATE_TEST_CASE_STEP,
+      testCaseStepActionTypes.UPDATE_TEST_CASE_STEP_FILTER,
+      testCaseStepActionTypes.CLEAR_TEST_CASE_STEP_TABLE_FILTERS,
+      testCaseStepActionTypes.SORT_TEST_CASE_STEP
+    ])
+    .map(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return new GetTestCaseSteps();</span>
+    });
+&nbsp;
+  @Effect() clearFilter$: Observable<span class="branch-1 cbranch-no" title="branch not covered" >&lt;Action&gt; = this.actions$</span>
+    .ofType(testCaseStepActionTypes.CLEAR_TEST_CASE_STEP_FILTERS)
+    .map(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>new EmptyTestCaseStepFilters())</span>;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<div>
+  <button class="btn btn-primary"
+          [routerLink] ="['details', data]"
+          [disabled]="disableUpdateTest">Open</button>
+  <button class="btn btn-primary" routerLink="create" (click)="onCreate()" [disabled]="disableCreateTest">Create New</button>
+  <button class="btn btn-primary" (click)="clearFilters()">Clear Filters</button>
+</div>

@@ -1,0 +1,5 @@
+<span class="badge"
+      [class.test-case]="type === Types.TESTCASE"
+      [class.test-step]="type === Types.TESTSTEP"
+      [class.routine]="type === Types.ROUTINE"
+      [class.sequence]="type === Types.SEQUENCE">{{ Labels[type] }}</span>

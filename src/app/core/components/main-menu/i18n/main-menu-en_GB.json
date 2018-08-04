@@ -1,0 +1,11 @@
+{
+  "MENU.TITLE": "Test Manager",
+  "MENU.HELP": "Help",
+  "MENU.SIGNOUT": "Sign Out",
+  "MENU.TEST": "Test",
+  "MENU.PROCEDURE": "Procedure",
+  "MENU.SEQUENCE": "Sequence",
+  "MENU.ROUTINE": "Routine",
+  "MENU.TESTCASESTEP": "Test Case-Step",
+  "MENU.TESTPROGRESS": "Test Progress"
+}

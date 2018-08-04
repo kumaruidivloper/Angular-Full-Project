@@ -1,0 +1,221 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+<div class="card" *ngIf="!showVariantTemplate">
+  <tm-test-step-detail-action-menu [isCreate]="isCreate"
+                                   (save)="onSave(testStepForm.value)"
+                                   [testCaseInfo]="testCaseInfo"
+                                   [isCopy]="isCopy"
+                                   (createCopy)="open(confirmCreateCopy)"
+                                   (delete)="open(confirmDelete)"
+                                   [disableSave]="disableSave"></tm-test-step-detail-action-menu>
+  <form [formGroup]="testStepForm" (change)="onFormValueChange()" (keyup)="onFormValueChange()" class="container-fluid" novalidate [tmConnectForm]="testStepDetails$ | async">
+    <div class="row user-team mb-2">
+      <div class="card-block visible-sm-* col-sm-5 col-md-6 col-lg-4">
+        <div *ngIf="!isCreate && !isCopy">
+          <label>Test Team:</label>
+          <span	*ngIf="(testStepDetails$ | async)?.testCaseStepUserGroup">
+          {{(testStepDetails$ |	async).testCaseStepUserGroup.groupName}}
+        </span>
+          <span	*ngIf="(testStepDetails$ | async)?.testCaseStepSite">
+          {{(testStepDetails$ |	async).testCaseStepSite.siteName}}
+        </span>
+        </div>
+        <div class="d-flex justify-content-start" *ngIf="isCreate || isCopy">
+          <label class="pt-2 pr-2">Test Team:</label>
+          <span class="pr-2">
+              <tm-user-group (userGroupChange)="onTestTeamGroup($event)"
+                             [hasAllOption]="false"
+                             [selectedGroup]="selectedUserGroup"></tm-user-group>
+            </span>
+          <span class="pr-2">
+               <tm-user-site (userSiteChange)="onTestTeamSite($event)"
+                             [hasAllOption]="false"
+                             [selectedSite]="selectedUserSite"></tm-user-site>
+            </span>
+        </div>
+      </div>
+      <div class="card-block col-xs-6  col-sm-5 col-md-6 col-lg-8 ">
+        <div class=" d-flex justify-content-end">
+          <span class="required"><label></label>Required Fields</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2 col-md-2 col-lg-1">
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input type="text" id="id" formControlName="id" class="form-control" readonly />
+        </div>
+      </div>
+      <div class="col-sm-2 col-md-2 col-lg-1" formGroupName="currentTestCaseStepVersion">
+        <div class="form-group">
+          <label for="testCaseVersion">Version</label>
+          <input type="text" id="testCaseVersion" formControlName="versionNo" class="form-control"  readonly/>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2 required" formGroupName="currentTestCaseStepVersion" >
+        <div class="form-group required">
+          <label for="testStepName">Name</label>
+          <input type="text" id="testStepName" formControlName="name" class="form-control" required maxlength="50"/>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">Name is required!</div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-2 required" formGroupName="currentTestCaseStepVersion" >
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" formControlName="category" class="form-control">
+            <option *ngFor="let category of categoryOptions" [value]="category">{{category}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm-4 col-md-4 col-lg-3 required" formGroupName="currentTestCaseStepVersion">
+        <span formArrayName="testCaseStepResultTypeTC">
+        <div class="form-group required" *ngFor="let resultType of testCaseStepResultTypeTC.controls; index as i">
+          <label for="testCaseResultTypeTC">Result Type</label>
+          <select id="testCaseResultTypeTC" [formControlName]="i"
+                  class="form-control"
+                  [compareWith]="compare">
+            <option *ngFor="let type of resultType$ | async" [ngValue]="type">{{type.name}}</option>
+          </select>
+        </div>
+        </span>
+      </div>
+
+      <div class="col-sm-4 col-md-8 col-lg-3 required" formGroupName="currentTestCaseStepVersion">
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status" formControlName="status" class="form-control">
+            <option *ngFor="let status of testCaseStatus" [value]="status">{{status}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-md-4 col-lg-2 required" formGroupName="currentTestCaseStepVersion">
+        <div class="form-group">
+          <label for="privateTestCase">Private</label>
+          <select id="privateTestCase" formControlName="privateTestCaseStep" class="form-control">
+            <option *ngFor="let data of testCasePrivateOptions" [value]="data.value">{{data.id}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-2" formGroupName="currentTestCaseStepVersion">
+        <div class="form-group" formGroupName="speed"><label>Speed</label>
+          <input type="text" formControlName="speedValue" class="form-control"  />
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-2" formGroupName="currentTestCaseStepVersion" >
+        <span formGroupName="speed">
+          <div class="form-group" ><label>&nbsp;</label>
+            <select formControlName="speedUnit" class="form-control">
+              <option *ngFor="let unit of speedUnits" [value]="unit">{{unit}}</option>
+            </select>
+          </div>
+        </span>
+      </div>
+      <div class="col-sm-6 col-md-12 col-lg-6 file-upload" formGroupName="currentTestCaseStepVersion" >
+        <div class="row form-group ml-1 mr-1 mb-0">
+          <label for="image">Attachment</label>
+          <input type="file" id="image"
+                 class=" form-control" #fileInput (change)="fileToUpload()" [ngClass]="uploadSuccess ? 'col-lg-11' : ''"/>
+          <span *ngIf="uploadSuccess" class="col-lg-1"><i class="fa upload fa-check"></i> </span>
+        </div>
+        <ul class="list-unstyled" *ngIf="isCreate || isCopy">
+          <li *ngFor="let file of fileDetailsObj" class="ml-2 mt-1 mb-1">
+            <a href="{{baseUrl}}/tm-uiservice/api/v1/file/download/{{pageType}}/{{file.fileName}}" *ngIf="hasAttachment"><i class="fa fa-paperclip mr-1"></i>{{file.fileName}}</a>
+            <a href (click)="removeFileAttachment(file)"><i class="fa fa-trash-o ml-3"></i></a>
+          </li>
+        </ul>
+        <ul class="list-unstyled" *ngIf="!isCreate && !isCopy">
+          <li *ngFor="let file of fileDetailsObj" class="ml-2 mt-1 mb-1">
+            <a href="{{baseUrl}}/tm-uiservice/api/v1/file/download/{{pageType}}/{{file.fileName}}" *ngIf="hasAttachment"><i class="fa fa-paperclip mr-1"></i>{{file.fileName}}</a>
+            <a href (click)="removeFileAttachment(file)"><i class="fa fa-trash-o ml-3"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6" formGroupName="currentTestCaseStepVersion">
+        <div class="form-group ">
+          <label for="description">Description:</label>
+          <textarea class="form-control" id="description" formControlName="description" rows="3" maxlength="1000"></textarea>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-6 col-lg-6" formGroupName="currentTestCaseStepVersion">
+        <div class="form-group ">
+          <label for="notes">Notes:</label>
+          <textarea class="form-control" id="notes" formControlName="notes" rows="3" maxlength="1000"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row pb-2">
+      <!--<div class="col-xs-4 col-sm-4 col-md-6 col-lg-5 pb-2">-->
+        <!--<tm-add-variant-modal></tm-add-variant-modal>-->
+      <!--</div>-->
+      <div class="col-xs-4 col-sm-4 col-md-6 col-lg-5 pb-2">
+        <div class="form-group">
+          <button type="button" class="btn btn-primary" (click)="showVariant()">Add Variant Filter</button>
+        </div>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3 pb-2 mr-3">
+        <tm-add-tool-modal [data]="pageType" (click)="onFormValueChange()" (addedTool)="onToolAdded($event)"></tm-add-tool-modal>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3 pb-2">
+        <tm-add-tag-modal [data]="pageType" (click)="onFormValueChange()" (addedTag)="onTagAdded($event)"></tm-add-tag-modal>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="showVariantTemplate" class="variantTemplate">
+  <tm-add-variant-modal
+    (closeVariantTemplate)="closeVariantTemplate()" [data]="pageType"></tm-add-variant-modal>
+</div>
+
+<ng-template #confirmDelete let-confirmDeleteClose="close"
+             let-confirmDeleteDismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" *ngIf="testStepVersion > 1">Are you sure you want to delete current version of Test Step?</h4>
+    <h4 class="modal-title" *ngIf="testStepVersion === 1 || testStepVersion === 0">Are you sure you want to delete Test Step?</h4>
+    <button type="button" class="close" aria-label="Close"
+            (click)="confirmDeleteDismiss('Cross click')">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary"
+                (click)="deleteTestStep();confirmDeleteClose('Close click')">Yes</button>
+        <button class="btn btn-primary"
+                (click)="confirmDeleteClose('Close click')">No</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+<ng-template #confirmCreateCopy let-confirmCreateCopyClose="close"
+             let-confirmCreateCopyDismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Are you sure you want to create a copy</h4>
+    <button type="button" class="close" aria-label="Close"
+            (click)="confirmCreateCopyDismiss('Cross click')">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary"
+                (click)="onCreateCopyTestCase();confirmCreateCopyClose('Close click')">Yes</button>
+        <button class="btn btn-primary"
+                (click)="confirmCreateCopyClose('Close click')">No</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+<ngx-loading [show]="loading$ | async" [config]="{ backdropBorderRadius: '0' }"></ngx-loading>

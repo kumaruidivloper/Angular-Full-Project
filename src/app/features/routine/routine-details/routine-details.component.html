@@ -1,0 +1,253 @@
+<tm-main-menu></tm-main-menu>
+<tm-breadcrumbs></tm-breadcrumbs>
+<div class="card">
+  <tm-routine-details-action-menu
+    (save)="onSave()"
+    (delete)="open(confirmDelete)"
+    (createCopy)="open(confirmCreateCopy)"
+    [isCreate]="isCreate"
+    [isCopy]="isCopy"
+    [routineInfo]="routineInfo"
+    [enableDelete]="!enableDeleteRoutine"
+    [disableCreateCopy]="disableCreateCopy"
+    [disableSave]="disableSave"></tm-routine-details-action-menu>
+  <form class="container-fluid" [formGroup]="routineForm" novalidate [tmConnectForm]="routineDetails$ | async">
+    <div class="row">
+      <div class="card-block visible-sm-* col-sm-5 col-md-6 col-lg-4">
+          <div *ngIf="!isCreate && !isCopy">
+            <label>Test Team:</label>
+            <span *ngIf="(routineDetails$ | async)?.routineUserGroup">{{(routineDetails$ | async).routineUserGroup.groupName}}</span>
+            <span *ngIf="(routineDetails$ | async)?.routineSite">{{(routineDetails$ | async).routineSite.siteName}}</span>
+          </div>
+          <div *ngIf="isCreate || isCopy" class="d-flex justify-content-start">
+            <label class="pt-2 pr-2">Test Team:</label>
+            <span class="pr-2">
+              <tm-user-group (userGroupChange)="onUserGroupChange($event)"
+                             [hasAllOption]="false"
+                             [selectedGroup]="selectedRoutineGroup"></tm-user-group>
+            </span>
+            <span class="pr-2">
+               <tm-user-site (userSiteChange)="onUserSiteChange($event)"
+                             [hasAllOption]="false"
+                             [selectedSite]="selectedRoutineSite"></tm-user-site>
+            </span>
+          </div>
+      </div>
+
+      <div class="card-block col-xs-6  col-sm-5 col-md-6 col-lg-8 ">
+        <div class=" d-flex justify-content-end">
+          <span class="required"><label></label>Required Fields</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-sm-3 col-lg-2">
+        <label for="id">ID</label>
+        <input type="text"
+               id="id"
+               class="form-control"
+               formControlName="id"
+               readonly/>
+      </div>
+
+
+      <div class="col-sm-3 col-lg-2" formGroupName="objectCurrentRoutineVersion">
+        <label for="versionNo">Version</label>
+        <input type="text"
+               id="versionNo"
+               class="form-control"
+               formControlName="versionNo"
+               readonly/>
+      </div>
+
+
+      <div class="col-sm-5 col-lg-4" formGroupName="objectCurrentRoutineVersion">
+        <div class="form-group required">
+        <label for="routineName">Name</label>
+        <input type="text"
+               id="routineName"
+               formControlName="name"
+               class="form-control"
+               required maxlength="50"/>
+
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+               class="alert alert-danger">Name is required!</div>
+        </div>
+      </div>
+
+
+      <div class="col-sm-6 col-lg-2" formGroupName="objectCurrentRoutineVersion">
+        <div class="form-group required">
+          <label for="category">Category</label>
+          <select id="category"
+                  class="form-control"
+                  formControlName="category"
+                  name="category" required>
+            <option *ngFor="let option of routineCategoryOptions | optionsFromEnum"
+            [value]="option.value">{{option.label}}</option>
+          </select>
+
+          <div *ngIf="category.invalid && (category.dirty || category.touched)"
+               class="alert alert-danger">Category is required!</div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-2" formGroupName="objectCurrentRoutineVersion">
+        <div class="form-group required">
+          <label for="status">Status</label>
+          <select id="status" class="form-control"
+            formControlName="status" required>
+            <option *ngFor="let option of routineStatusOptions | optionsFromEnum"
+                    [value]="option.value">{{option.label}}</option>
+          </select>
+
+          <div *ngIf="status.invalid && (status.dirty || status.touched)"
+               class="alert alert-danger">Status is required!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" formGroupName="objectCurrentRoutineVersion">
+      <div class="col-sm-6 col-lg-2">
+        <div class="form-group required">
+          <label for="attachment">Attachment Is Required</label>
+          <select id="attachment" class="form-control" formControlName="attachmentRequired">
+            <option *ngFor="let option of routineAttachmentOptions | optionsFromEnum"
+                    [value]="option.value">{{option.label}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm-3 col-lg-6">
+        <label for="AttachmentFile"> Attachment </label>
+        <div class="row form-group ml-1 mr-1 mb-0">
+          <input type="file" class="form-control" #fileInput [ngClass]="uploadSuccess ? 'col-lg-11' : ''"
+                 fromGroupName="routineUploadFile" (change)="fileToUpload($event)" id="AttachmentFile"/>
+          <span *ngIf="uploadSuccess" class="col-lg-1"><i class="fa fa-check"></i> </span>
+        </div>
+        <ul class="list-unstyled" *ngIf="isCreate || isCopy">
+          <li *ngFor="let file of fileDetailsObj" class="ml-2 mt-1 mb-1">
+            <a href="{{baseUrl}}/tm-uiservice/api/v1/file/download/{{pageType}}/{{file.fileName}}" *ngIf="hasAttachment"><i class="fa fa-paperclip mr-1"></i>{{file.fileName}}</a>
+            <a href (click)="removeFileAttachment(file)"><i class="fa fa-trash-o ml-3"></i></a>
+          </li>
+        </ul>
+        <ul class="list-unstyled" *ngIf="!isCreate && !isCopy">
+          <li *ngFor="let file of fileDetailsObj" class="ml-2 mt-1 mb-1">
+            <a href="{{baseUrl}}/tm-uiservice/api/v1/file/download/{{pageType}}/{{file.fileName}}" *ngIf="hasAttachment"><i class="fa fa-paperclip mr-1"></i>{{file.fileName}}</a>
+            <a href (click)="removeFileAttachment(file)"><i class="fa fa-trash-o ml-3"></i></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-lg-2" formArrayName="routineResultTypeRoutine">
+        <div class="form-group required" *ngFor="let resultType of routineResultTypeRoutine.controls; index as i">
+          <label for="routineResultTypeRoutine">Result Type</label>
+          <select
+            id="routineResultTypeRoutine" class="form-control"
+            [formControlName]="i" [compareWith]="compare" required>
+            <option *ngFor="let option of getResultType$ | async"
+            [ngValue]="option">{{option.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-2">
+        <div class="form-group required">
+          <label for="privateRoutine">Private</label>
+          <select id="privateRoutine" class="form-control" formControlName="privateRoutine" required>
+            <option *ngFor="let option of routinePrivateOptions | optionsFromEnum"
+                    [value]="option.value">{{option.label}}</option>
+          </select>
+
+          <div *ngIf="privateRoutine.invalid && (privateRoutine.dirty || privateRoutine.touched)"
+               class="alert alert-danger">Private is required!</div>
+        </div>
+      </div>
+      <!--<input type="hidden" formControlName="routineActivity">-->
+    </div>
+
+    <div class="row" formGroupName="objectCurrentRoutineVersion">
+        <div class="col-lg-8">
+          <div class="form-group">
+            <label for="routineDescription">Description:</label>
+            <textarea class="form-control"
+                      id="routineDescription"
+                      rows="5"
+                      formControlName="description" maxlength="1000">
+
+            </textarea>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label class="d-block">Protocol Activities</label>
+            <input class="form-control col-lg-10 col-sm-10 d-inline mb-2" maxlength="50"
+                   #activitiesList (keyup)="enableAdd(activitiesList.value)">
+            <button class="btn btn-primary d-inline" (click)="activitiesListAdd(activitiesList.value); activitiesList.value = ''" [disabled]="addDisabled">Add</button>
+            <tm-table *ngIf="activitiesListArray as activitiesList"
+                      [data]="activitiesList"
+                      [headerHiddenForActivitiesList]="hiddenTableHeader">
+              <tm-table-column>
+                <ng-template tmTableCellTemplate let-List>
+                  <span>{{List.name}}</span>
+                </ng-template>
+              </tm-table-column>
+              <tm-table-column>
+                <ng-template tmTableCellTemplate let-List>
+                  <button class="btn btn-danger float-right" (click)="deleteActivitiesList(List)">Delete</button>
+                </ng-template>
+              </tm-table-column>
+            </tm-table>
+          </div>
+        </div>
+    </div>
+  </form>
+</div>
+
+
+
+<ng-template #confirmDelete let-confirmDeleteClose="close"
+             let-confirmDeleteDismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" *ngIf="routineVersion > 1">Are you sure you want to delete current version of Routine?</h4>
+    <h4 class="modal-title" *ngIf="routineVersion === 1 || routineVersion === 0">Are you sure you want to delete Routine?</h4>
+    <button type="button" class="close" aria-label="Close"
+            (click)="confirmDeleteDismiss('Cross click')">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary"
+                (click)="deleteRoutine(); confirmDeleteClose('Close click')">Yes</button>
+        <button class="btn btn-primary"
+                (click)="confirmDeleteClose('Close click')">No</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+<ng-template #confirmCreateCopy let-confirmCreateCopyClose="close"
+             let-confirmCreateCopyDismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Are you sure you want to create a copy</h4>
+    <button type="button" class="close" aria-label="Close"
+            (click)="confirmCreateCopyDismiss('Cross click')">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary"
+                (click)="onCreateCopyRoutine();confirmCreateCopyClose('Close click')">Yes</button>
+        <button class="btn btn-primary"
+                (click)="confirmCreateCopyClose('Close click')">No</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+<ngx-loading [show]="loading$ | async" [config]="{ backdropBorderRadius: '0' }"></ngx-loading>

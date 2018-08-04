@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>tm</artifactId>
+    <groupId>com.volvo.tm</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+
+  <artifactId>tm-web</artifactId>
+  <name>tm-web</name>
+  <description>tm-web</description>
+  <packaging>war</packaging>
+
+  <properties>
+    <jstl.version>1.2</jstl.version>
+    
+    <sonar.skip>true</sonar.skip>
+  </properties>
+
+  <dependencies>
+
+    <!-- JVS Runtime dependencies -->
+    <dependency>
+      <groupId>com.volvo.jvs</groupId>
+      <artifactId>jvs-runtime-spring</artifactId>
+      <version>${jvs.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.volvo.jvs</groupId>
+      <artifactId>jvs-runtime-integration</artifactId>
+      <version>${jvs.version}</version>
+    </dependency>
+    <!-- End JVS Runtime dependencies -->
+
+    <!-- Logging dependencies START -->
+    <!-- Use SLF4J with LogBack for all application logging -->
+    <dependency>
+      <groupId>com.volvo.jvs</groupId>
+      <artifactId>jvs-support-maven-bom-slf4j-logback</artifactId>
+      <version>${jvs.version}</version>
+      <type>pom</type>
+    </dependency>
+    <!-- Use SLF4J with Log4j2 for all application logging -->
+    <!--dependency> <groupId>com.volvo.jvs</groupId> <artifactId>jvs-support-maven-bom-slf4j-log4j2</artifactId> <version>${jvs.version}</version> <type>pom</type> 
+      </dependency -->
+    <!-- Logging dependencies END -->
+
+
+    <!-- JPA runtime dependencies START -->
+    <!-- Comment out either openjpa or hibernate based on choice of implementation -->
+    <!-- JPA runtime dependencies START -->
+    <dependency>
+      <groupId>com.volvo.jvs</groupId>
+      <artifactId>jvs-support-maven-bom-hibernate</artifactId>
+      <version>${jvs.version}</version>
+      <type>pom</type>
+    </dependency>
+    <!-- <dependency> <groupId>com.volvo.jvs</groupId> <artifactId>jvs-support-maven-bom-openjpa</artifactId> <version>${jvs.version}</version> <type>pom</type> 
+      <scope>provided</scope> </dependency> -->
+    <!-- End JPA runtime dependencies -->
+
+    <!-- Web dependencies START -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>${jstl.version}</version>
+    </dependency>
+    <!-- Web dependencies END -->
+
+    <!-- javamelody-core, light-weight component to get runtime information. -->
+    <!-- For more info: https://confluence.it.volvo.net:9443/display/JVS/Runtime+information+using+JavaMelody <dependency> <groupId>net.bull.javamelody</groupId> 
+      <artifactId>javamelody-core</artifactId> <version>${javamelody.version}</version> </dependency> -->
+
+    <!-- jolokia-core -->
+    <!-- For more info: https://confluence.it.volvo.net:9443/display/JVS/Runtime+information+using+Jolokia <dependency> <groupId>org.jolokia</groupId> <artifactId>jolokia-core</artifactId> 
+      <version>${jolokia.version}</version> </dependency> -->
+
+  </dependencies>
+
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <!-- <finalName>ROOT</finalName> -->
+  </build>
+
+  <profiles>
+
+    <!-- Plugin to execute command "npm install" and "npm run build" inside /angular directory -->
+    <profile>
+      <id>build-ui</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>install node and npm</id>
+                <goals>
+                  <goal>install-node-and-npm</goal>
+                </goals>
+                <configuration>
+                  <nodeVersion>v6.10.3</nodeVersion>
+                  <npmVersion>4.5.0</npmVersion>
+
+                  <!-- optional: where to download node and npm from. Defaults to https://nodejs.org/dist/ -->
+                  <downloadRoot>http://java.it.volvo.net/nodejs/</downloadRoot>
+                </configuration>
+              </execution>
+
+              <execution>
+                <id>npm config proxy</id>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+                <configuration>
+                  <arguments>config set proxy http://cs-ws-s-volvoproxy:-KKa9GM8fa77gdI@pxgot5.srv.volvo.com:8080</arguments>
+                </configuration>
+              </execution>
+
+              <execution>
+                <id>npm config https-proxy</id>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+                <configuration>
+                  <arguments>config set https-proxy http://cs-ws-s-volvoproxy:-KKa9GM8fa77gdI@pxgot5.srv.volvo.com:8080</arguments>
+                </configuration>
+              </execution>
+
+              <execution>
+                <id>npm install</id>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+                <configuration>
+                  <arguments>install</arguments>
+                </configuration>
+              </execution>
+
+              <execution>
+                <id>npm build</id>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+                <configuration>
+                  <arguments>run build:prod</arguments>
+                </configuration>
+              </execution>
+
+              <execution>
+                <id>npm lint</id>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+                <configuration>
+                  <arguments>run lint</arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>2.4.2</version>
+            <executions>
+              <execution>
+                <id>default-copy-resources</id>
+                <phase>process-resources</phase>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <overwrite>true</overwrite>
+                  <outputDirectory>${project.build.directory}/${project.artifactId}/</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>${project.basedir}/dist</directory>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+              <archiveClasses>false</archiveClasses>
+              <packagingExcludes>
+                WEB-INF/lib/*.jar,
+              </packagingExcludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>

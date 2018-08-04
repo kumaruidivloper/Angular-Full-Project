@@ -1,0 +1,1301 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/features/test-case-step/test-step-detail/test-step-detail.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\..\index.html">All files</a> / <a href="index.html">src/app/features/test-case-step/test-step-detail</a> test-step-detail.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">19.42% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>40/206</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>22/100</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.27% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/44</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">19.39% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>38/196</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  DoCheck,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { isEqual } from 'lodash';
+import { Store } from '@ngrx/store';
+&nbsp;
+import {
+  ClearTestStepDetails,
+  CreateTestStep,
+  CreateTestStepCopy,
+  DeleteTestStep,
+  GetResultTypeTestStep,
+  GetTestStepDetails,
+  UpdateTestStep,
+  UpdateTestStepDetailsForm,
+  UpdateUserGroup,
+  UpdateUserSite
+} from './test-step-detail-actions';
+&nbsp;
+import {
+  loaderSelector,
+  testStepDetailsSelector,
+  TestStepDetailsState,
+  testStepResultTypeSelector,
+  updateUserGroupSelector,
+  updateUserSiteSelector
+} from './test-step-detail.reducer';
+&nbsp;
+import { userSelector } from '../../../core/services/user/user.reducer';
+import { User } from '../../../core/services/user/user.model';
+import { SessionStorageService } from '../../../core/storage/session-storage.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ComponentCanDeactivate } from '../../../core/guards/prevent-unsaved-changes-guard';
+import { TestCaseStepDetails, ResultType} from '../test-case-detail/test-case-detail.model';
+import { FileUploadService } from '../../../core/services/file-upload/file-upload.service';
+&nbsp;
+&nbsp;
+@Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'tm-test-step-detail',
+  templateUrl: './test-step-detail.component.html',
+  styleUrls: ['./test-step-detail.component.scss']
+})
+export class TestStepDetailComponent implements OnInit, ComponentCanDeactivate, DoCheck, AfterViewInit, OnDestroy {
+  @ViewChild('fileInput') fileInput;
+  public <span class="cstat-no" title="statement not covered" >baseApiUrl = window.location.href;</span>
+  public baseUrl: string;
+  public testStepForm: FormGroup;
+  public <span class="cstat-no" title="statement not covered" >isCreate: boolean = true;</span>
+  public <span class="cstat-no" title="statement not covered" >isCopy: boolean = false;</span>
+  public <span class="cstat-no" title="statement not covered" >showVariantTemplate: boolean = false;</span>
+  public testStepDetails$: Observable&lt;TestCaseStepDetails&gt;;
+  public <span class="cstat-no" title="statement not covered" >testCaseStatus = ['ACTIVE', 'INACTIVE'];</span>
+  public <span class="cstat-no" title="statement not covered" >categoryOptions = ['STANDARD', 'DEVELOPMENT'];</span>
+  public <span class="cstat-no" title="statement not covered" >testCasePrivateOptions = [{ id: 'YES', value: true}, {id: 'NO', value: false}];</span>
+  public <span class="cstat-no" title="statement not covered" >speedUnits = ['km/h', 'mi/h'];</span>
+  public user$: Observable&lt;User&gt;;
+  public site$: Observable&lt;string&gt;;
+  public group$: Observable&lt;string&gt;;
+  public selectedUserSite: any;
+  public selectedUserGroup: any;
+  public resultType$: Observable&lt;ResultType[]&gt;;
+  private getUserId: string;
+  public <span class="cstat-no" title="statement not covered" >currentDate = new Date();</span>
+  public <span class="cstat-no" title="statement not covered" >testCaseInfo = {};</span>
+  public loading$: Observable&lt;boolean&gt;;
+  public selectedFile: File;
+  public <span class="cstat-no" title="statement not covered" >uploadSuccess: boolean = false;</span>
+  public <span class="cstat-no" title="statement not covered" >hasAttachment: boolean = false;</span>
+  public uploadedFileName: string;
+  public <span class="cstat-no" title="statement not covered" >pageType: string = 'testStep';</span>
+  public testStepVersion: any;
+  public privateTestCase: any;
+  public <span class="cstat-no" title="statement not covered" >disableSave: boolean = false;</span>
+  public tagAdded: boolean;
+  public toolAdded: boolean;
+  public <span class="cstat-no" title="statement not covered" >fileDetailsObj = [];</span>
+<span class="fstat-no" title="function not covered" >  constructor(</span>
+    private <span class="cstat-no" title="statement not covered" >route: ActivatedRoute<span class="branch-1 cbranch-no" title="branch not covered" >,</span></span>
+    private <span class="cstat-no" title="statement not covered" >store: Store<span class="branch-2 cbranch-no" title="branch not covered" >&lt;TestStepDetailsState&gt;,</span></span>
+    private <span class="cstat-no" title="statement not covered" >formBuilder: FormBuilder<span class="branch-2 cbranch-no" title="branch not covered" >,</span></span>
+    private <span class="cstat-no" title="statement not covered" >sessionStorageService: SessionStorageService<span class="branch-2 cbranch-no" title="branch not covered" >,</span></span>
+    private <span class="cstat-no" title="statement not covered" >ngModal: NgbModal<span class="branch-2 cbranch-no" title="branch not covered" >,</span></span>
+    private <span class="cstat-no" title="statement not covered" >fileUploadService: FileUploadService<span class="branch-2 cbranch-no" title="branch not covered" >)</span> { }</span>
+&nbsp;
+  @HostListener('window:beforeunload')
+<span class="fstat-no" title="function not covered" >  canDeactivate(): Observable&lt;boolean&gt; | boolean {</span>
+<span class="cstat-no" title="statement not covered" >    return this.testStepForm.untouched;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onTestTeamGroup(</span>value) {
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateUserGroup(value));</span>
+<span class="cstat-no" title="statement not covered" >    if ( this.isCreate || this.isCopy) {</span>
+<span class="cstat-no" title="statement not covered" >      this.disableSave = false;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this.sessionStorageService.setItem('userGroup', value);</span>
+  }
+<span class="fstat-no" title="function not covered" >  onTestTeamSite(</span>value) {
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateUserSite(value));</span>
+<span class="cstat-no" title="statement not covered" >    if ( this.isCreate || this.isCopy) {</span>
+<span class="cstat-no" title="statement not covered" >      this.disableSave = false;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this.sessionStorageService.setItem('userSite', value);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  onTagAdded(</span>value) {
+<span class="cstat-no" title="statement not covered" >    if (value) {</span>
+<span class="cstat-no" title="statement not covered" >      this.testStepForm.markAsTouched();</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this.tagAdded = value;</span>
+  }
+<span class="fstat-no" title="function not covered" >  onToolAdded(</span>value) {
+<span class="cstat-no" title="statement not covered" >    if (value) {</span>
+<span class="cstat-no" title="statement not covered" >      this.testStepForm.markAsTouched();</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this.toolAdded = value;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  buildTestCaseForm() {</span>
+<span class="cstat-no" title="statement not covered" >    this.testStepForm = this.formBuilder.group({</span>
+      id: '',
+      testCaseStepType: 'TEST_STEP',
+      level: '',
+      testCaseStepSite: '',
+      testCaseStepUserGroup: '',
+      testCaseStepVersion: [],
+      currentTestCaseStepVersion: this.formBuilder.group({
+        category: ['STANDARD', Validators.required],
+        changeInfo: {},
+        description: '',
+        expectedResult: '',
+        id: 0,
+        testCaseStepUploadFile: [],
+        name: '',
+        notes: '',
+        privateTestCaseStep: [true, Validators.required],
+        reqId: '',
+        reqVersion: '',
+        speed: this.formBuilder.group({
+          speedValue: '',
+          speedUnit: [],
+        }),
+        status: ['ACTIVE', Validators.required],
+        testCaseStepProductClassFilter: [[]],
+        testCaseStepResultTypeTC: new FormArray([
+          new FormControl({name: 'OK/NOK'})
+        ]),
+        versionNo: 1,
+        testCaseStepTags: [],
+        testCaseStepTools: [],
+        testCaseStepTruckFunction: {}
+      })
+    });
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  ngOnInit() {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.testStepDetails$ = this.store.select(testStepDetailsSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.user$ = this.store.select(userSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.site$ = this.store.select(updateUserSiteSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.group$ = this.store.select(updateUserGroupSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.resultType$ = this.store.select(testStepResultTypeSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.loading$ = this.store.select(loaderSelector);</span>
+<span class="cstat-no" title="statement not covered" >    this.sessionStorageService.getItem('Login:UserId').subscribe( <span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >      this.getUserId = (res) ? res.toString() : '';</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this.isCreate) {</span>
+<span class="cstat-no" title="statement not covered" >      this.testStepDetails$</span>
+        .take(2)
+        .subscribe(<span class="fstat-no" title="function not covered" >(</span>details: TestCaseStepDetails) =&gt; {
+<span class="cstat-no" title="statement not covered" >          if (details.hasOwnProperty('currentTestCaseStepVersion')) {</span>
+<span class="cstat-no" title="statement not covered" >            if (details.currentTestCaseStepVersion.speed.speedValue === '') {</span>
+<span class="cstat-no" title="statement not covered" >              details.currentTestCaseStepVersion.speed.speedUnit = '';</span>
+            }
+          }
+        });
+<span class="cstat-no" title="statement not covered" >      this.sessionStorageService.getItem('userGroup').subscribe( <span class="fstat-no" title="function not covered" >userGroup =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        this.selectedUserGroup = userGroup;</span>
+      });
+<span class="cstat-no" title="statement not covered" >      this.sessionStorageService.getItem('userSite').subscribe( <span class="fstat-no" title="function not covered" >userSite =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        this.selectedUserSite = userSite;</span>
+      });
+    }
+<span class="cstat-no" title="statement not covered" >    this.buildTestCaseForm();</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new GetResultTypeTestStep());</span>
+<span class="cstat-no" title="statement not covered" >    this.route.params</span>
+      .map(<span class="fstat-no" title="function not covered" >params =&gt; <span class="cstat-no" title="statement not covered" >params.id)</span></span>
+      .filter(<span class="fstat-no" title="function not covered" >id =&gt; <span class="cstat-no" title="statement not covered" >!!id)</span></span>
+      .subscribe(<span class="fstat-no" title="function not covered" >id =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        this.isCreate = false;</span>
+<span class="cstat-no" title="statement not covered" >        this.disableSave = true;</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new GetTestStepDetails(id));</span>
+      });
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new UpdateTestStepDetailsForm(this.testStepForm.value));</span>
+<span class="cstat-no" title="statement not covered" >    this.testStepDetails$</span>
+      .take(2)
+      .subscribe(<span class="fstat-no" title="function not covered" >(</span>details: TestCaseStepDetails) =&gt; {
+<span class="cstat-no" title="statement not covered" >        if (details.hasOwnProperty('currentTestCaseStepVersion')) {</span>
+<span class="cstat-no" title="statement not covered" >          this.testStepVersion = details.currentTestCaseStepVersion['versionNo'];</span>
+<span class="cstat-no" title="statement not covered" >          this.privateTestCase = details.currentTestCaseStepVersion['privateTestCaseStep'];</span>
+<span class="cstat-no" title="statement not covered" >          this.hasAttachment =  true;</span>
+<span class="cstat-no" title="statement not covered" >          if (this.privateTestCase) {</span>
+<span class="cstat-no" title="statement not covered" >            this.testStepForm.get('currentTestCaseStepVersion.privateTestCaseStep').enable();</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            this.testStepForm.get('currentTestCaseStepVersion.privateTestCaseStep').disable();</span>
+          }
+        }
+      });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ngDoCheck() {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.testStepForm &amp;&amp; this.testStepForm.dirty || this.tagAdded || this.toolAdded) {</span>
+<span class="cstat-no" title="statement not covered" >      this.disableSave = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.tagAdded = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.toolAdded = false;</span>
+    }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  ngAfterViewInit() {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.testStepDetails$</span>
+      .take(2)
+      .subscribe(<span class="fstat-no" title="function not covered" >(</span>details: TestCaseStepDetails) =&gt; {
+<span class="cstat-no" title="statement not covered" >        if (details.hasOwnProperty('currentTestCaseStepVersion')) {</span>
+<span class="cstat-no" title="statement not covered" >          this.testCaseInfo = details.currentTestCaseStepVersion['changeInfo'];</span>
+<span class="cstat-no" title="statement not covered" >          details.currentTestCaseStepVersion['speed'] = details.currentTestCaseStepVersion['speed'] || {};</span>
+<span class="cstat-no" title="statement not covered" >          if (details.currentTestCaseStepVersion.testCaseStepUploadFile &amp;&amp;</span>
+            details.currentTestCaseStepVersion.testCaseStepUploadFile.length &gt; 0) {
+<span class="cstat-no" title="statement not covered" >            this.hasAttachment =  true;</span>
+<span class="cstat-no" title="statement not covered" >            this.uploadedFileName = details.currentTestCaseStepVersion.testCaseStepUploadFile[0].fileName || '';</span>
+<span class="cstat-no" title="statement not covered" >            this.fileDetailsObj = details.currentTestCaseStepVersion.testCaseStepUploadFile;</span>
+          }
+        }
+<span class="cstat-no" title="statement not covered" >        this.testStepForm.patchValue(details);</span>
+<span class="cstat-no" title="statement not covered" >        if (!this.isCreate) {</span>
+<span class="cstat-no" title="statement not covered" >          this.testCaseInfo = details.currentTestCaseStepVersion ? details.currentTestCaseStepVersion['changeInfo'] : {};</span>
+        }
+      });
+<span class="cstat-no" title="statement not covered" >    this.testStepForm.valueChanges</span>
+      .subscribe(<span class="fstat-no" title="function not covered" >testStepDetails =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new UpdateTestStepDetailsForm(testStepDetails));</span>
+<span class="cstat-no" title="statement not covered" >        if (testStepDetails.hasOwnProperty('currentTestCaseStepVersion')) {</span>
+<span class="cstat-no" title="statement not covered" >          this.testStepVersion = testStepDetails.currentTestCaseStepVersion.versionNo;</span>
+        }
+      });
+<span class="cstat-no" title="statement not covered" >    this.baseUrl = 'http://' + this.baseApiUrl.split('/')[2];</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  formGotChanged(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.testStepForm.markAsTouched();</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  onSave(</span>value): void {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.testStepForm.valid) {</span>
+      let changeInfo;
+<span class="cstat-no" title="statement not covered" >      this.testStepForm.markAsPristine();</span>
+<span class="cstat-no" title="statement not covered" >      this.testStepForm.markAsUntouched();</span>
+<span class="cstat-no" title="statement not covered" >      this.user$.subscribe( <span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        changeInfo = {</span>
+          changedByFirstName: res.firstName || null,
+          changedByLastName: res.lastName || null,
+          changedByUserId: this.getUserId,
+          created: this.isCreate ? this.currentDate.getTime() : this.testCaseInfo['created'],
+          lastChanged: this.currentDate.getTime()
+        };
+      });
+<span class="cstat-no" title="statement not covered" >      this.testStepForm.patchValue({currentTestCaseStepVersion: {changeInfo: changeInfo}});</span>
+<span class="cstat-no" title="statement not covered" >      this.testStepForm.patchValue({'currentTestCaseStepVersion': { 'testCaseStepUploadFile': this.fileDetailsObj}});</span>
+<span class="cstat-no" title="statement not covered" >      this.testStepForm.controls['testCaseStepVersion'].setValue([this.testStepForm.controls['currentTestCaseStepVersion'].value]);</span>
+<span class="cstat-no" title="statement not covered" >      this.disableSave = true;</span>
+<span class="cstat-no" title="statement not covered" >      if (this.isCreate) {</span>
+<span class="cstat-no" title="statement not covered" >        this.testStepForm.controls['id'].setValue(0);</span>
+        // this.testStepForm.controls['testCaseStepUserGroup'].setValue({
+        //   groupId: this.selectedUserGroup,
+        //   groupName: this.selectedUserGroup
+        // });
+        // this.testStepForm.controls['testCaseStepSite'].setValue({
+        //   siteId: this.selectedUserSite,
+        //   siteName: this.selectedUserSite
+        // });
+<span class="cstat-no" title="statement not covered" >        this.sessionStorageService.getItem('userGroup').subscribe( <span class="fstat-no" title="function not covered" >testGroup =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >          this.testStepForm.controls['testCaseStepUserGroup'].setValue({</span>
+            groupId: testGroup,
+            groupName: testGroup
+          });
+        });
+<span class="cstat-no" title="statement not covered" >        this.sessionStorageService.getItem('userSite').subscribe( <span class="fstat-no" title="function not covered" >testSite =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >          this.testStepForm.controls['testCaseStepSite'].setValue({</span>
+            siteId: testSite,
+            siteName: testSite
+          });
+        });
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new CreateTestStep());</span>
+      } else  <span class="cstat-no" title="statement not covered" >if (this.isCopy) {</span>
+<span class="cstat-no" title="statement not covered" >        this.testStepForm.patchValue({'currentTestCaseStepVersion': { 'testCaseStepUploadFile': this.fileDetailsObj}});</span>
+<span class="cstat-no" title="statement not covered" >        this.isCopy = false;</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new CreateTestStepCopy());</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.testStepForm.patchValue({'currentTestCaseStepVersion': { 'testCaseStepUploadFile': this.fileDetailsObj}});</span>
+<span class="cstat-no" title="statement not covered" >        this.store.dispatch(new UpdateTestStep());</span>
+      }
+    } else {
+      const formControlList = <span class="cstat-no" title="statement not covered" >this.testStepForm.controls['currentTestCaseStepVersion'] as FormGroup;</span>
+<span class="cstat-no" title="statement not covered" >      Object.keys( formControlList.controls).forEach(<span class="fstat-no" title="function not covered" >key =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        formControlList.controls[key].markAsTouched({ onlySelf: true });</span>
+      });
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.testStepDetails$</span>
+      .take(2)
+      .subscribe(<span class="fstat-no" title="function not covered" >(</span>details: TestCaseStepDetails) =&gt; {
+<span class="cstat-no" title="statement not covered" >        if (details.hasOwnProperty('currentTestCaseStepVersion')) {</span>
+<span class="cstat-no" title="statement not covered" >          this.privateTestCase = details.currentTestCaseStepVersion['privateTestCaseStep'];</span>
+<span class="cstat-no" title="statement not covered" >          if (this.privateTestCase === true) {</span>
+<span class="cstat-no" title="statement not covered" >            this.testStepForm.get('currentTestCaseStepVersion.privateTestCaseStep').enable();</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            this.testStepForm.get('currentTestCaseStepVersion.privateTestCaseStep').disable();</span>
+          }
+        }
+      });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  deleteTestStep() {</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new DeleteTestStep(this.testStepForm.value));</span>
+  }
+<span class="fstat-no" title="function not covered" >  showVariant() {</span>
+<span class="cstat-no" title="statement not covered" >    this.showVariantTemplate = true;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  closeVariantTemplate() {</span>
+<span class="cstat-no" title="statement not covered" >    this.showVariantTemplate = false;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  onCreateCopyTestCase() {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.testStepForm.controls['id'].setValue(0);</span>
+<span class="cstat-no" title="statement not covered" >    this.testStepForm.patchValue({currentTestCaseStepVersion: {id: 0, versionNo: 1}});</span>
+<span class="cstat-no" title="statement not covered" >    this.isCopy = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.isCreate = false;</span>
+<span class="cstat-no" title="statement not covered" >    Observable.combineLatest(this.group$,  this.site$,</span>
+<span class="fstat-no" title="function not covered" >      (</span>userSite, userGroup) =&gt; {
+<span class="cstat-no" title="statement not covered" >        return {userSite, userGroup};</span>
+      }).subscribe(<span class="fstat-no" title="function not covered" >(</span>{<span class="cstat-no" title="statement not covered" >userSite,</span> <span class="cstat-no" title="statement not covered" >userGroup}</span>) =&gt; {
+<span class="cstat-no" title="statement not covered" >      this.testStepForm.controls['testCaseStepUserGroup'].setValue({</span>
+        groupId: userGroup,
+        groupName: userGroup
+      });
+<span class="cstat-no" title="statement not covered" >      this.testStepForm.controls['testCaseStepSite'].setValue({</span>
+        siteId: userSite,
+        siteName: userSite
+      });
+    });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  getField(</span>field: string) {
+<span class="cstat-no" title="statement not covered" >    return this.testStepForm.get(field);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  compare(</span>option: any, value: any) {
+<span class="cstat-no" title="statement not covered" >    return isEqual(option, value);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  get name() { <span class="cstat-no" title="statement not covered" ></span>return this.getField('currentTestCaseStepVersion.name'); </span>}
+<span class="fstat-no" title="function not covered" >  get testCaseStepResultTypeTC() { <span class="cstat-no" title="statement not covered" ></span>return this.testStepForm.get('currentTestCaseStepVersion.testCaseStepResultTypeTC') as FormArray; </span>}
+&nbsp;
+<span class="fstat-no" title="function not covered" >  open(</span>template) {
+<span class="cstat-no" title="statement not covered" >    this.ngModal.open(template, {</span>
+      size: 'lg',
+    });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  removeFileAttachment(</span>value) {
+<span class="cstat-no" title="statement not covered" >    event.preventDefault();</span>
+    const index = <span class="cstat-no" title="statement not covered" >this.fileDetailsObj.indexOf(value, 0);</span>
+<span class="cstat-no" title="statement not covered" >    if (index &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >      this.fileDetailsObj.splice(index, 1);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this.disableSave = false;</span>
+  }
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  fileToUpload(</span>value) {</span>
+<span class="cstat-no" title="statement not covered" >    this.disableSave = false;</span>
+    const fileBrowser  = <span class="cstat-no" title="statement not covered" >this.fileInput.nativeElement;</span>
+<span class="cstat-no" title="statement not covered" >    this.selectedFile = fileBrowser.files[0];</span>
+<span class="cstat-no" title="statement not covered" >    if (fileBrowser.files &amp;&amp; fileBrowser.files[0]) {</span>
+      const formData = <span class="cstat-no" title="statement not covered" >new FormData();</span>
+<span class="cstat-no" title="statement not covered" >      formData.append('uploadedFile', this.selectedFile, this.selectedFile.name);</span>
+<span class="cstat-no" title="statement not covered" >      this.fileUploadService.upload(formData, this.pageType).subscribe(<span class="fstat-no" title="function not covered" >res =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >        this.fileDetailsObj.push(res);</span>
+<span class="cstat-no" title="statement not covered" >        setTimeout( <span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (res.hasOwnProperty('fileName')) {</span>
+<span class="cstat-no" title="statement not covered" >            this.uploadSuccess = this.hasAttachment  = true;</span>
+<span class="cstat-no" title="statement not covered" >            this.testStepForm.patchValue({'currentTestCaseStepVersion': { 'testCaseStepUploadFile': [res] || []}});</span>
+<span class="cstat-no" title="statement not covered" >            this.uploadedFileName = res['fileName'];</span>
+          }
+        }, 100);
+      });
+    }
+  }
+<span class="fstat-no" title="function not covered" >  ngOnDestroy() {</span>
+<span class="cstat-no" title="statement not covered" >    this.store.dispatch(new ClearTestStepDetails());</span>
+<span class="cstat-no" title="statement not covered" >    this.buildTestCaseForm();</span>
+  }
+&nbsp;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 20 2018 09:58:40 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\..\sorter.js"></script>
+</body>
+</html>

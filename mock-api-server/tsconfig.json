@@ -1,0 +1,36 @@
+{
+  "include":  [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "target",
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "target": "ES5",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noResolve": true,
+    "outDir": "target/compile",
+    "moduleResolution": "node",
+    "typeRoots": ["node_modules/@types"],
+    "types": [
+      "body-parser",
+      "debug",
+      "es6-shim",
+      "express",
+      "express-serve-static-core",
+      "faker",
+      "lodash",
+      "mime",
+      "node",
+      "serve-static",
+      "md5"
+    ]
+  }
+}

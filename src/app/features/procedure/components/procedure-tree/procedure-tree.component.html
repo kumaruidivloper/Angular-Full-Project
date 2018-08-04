@@ -1,0 +1,58 @@
+
+      <ngx-treeview [config]="config"
+                    [items]="procedure?.lines | createProcedureTreeView"
+                    [itemTemplate]="itemTemplate"
+                    [headerTemplate]="headerTemplate"></ngx-treeview>
+
+
+<ng-template #headerTemplate let-item="item" let-onCollapseExpand="onCollapseExpand">
+  <div class="row" *ngIf="procedure?.lines?.length">
+    <div class="col-12">
+      <button class="btn btn-link" (click)="onCollapseExpand()">
+        Collapse / Expand All
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #itemTemplate
+             let-item="item"
+             let-onCollapseExpand="onCollapseExpand"
+             let-onCheckedChange="onCheckedChange">
+
+  <div class="d-flex flex-row align-items-start"
+       [class.checked]="item.checked">
+
+    <span class="expander pl-1">
+      <i *ngIf="item.value.type === 'SEQUENCE'"
+         aria-hidden="true"
+         class="fa"
+         [class.fa-caret-right]="item.collapsed"
+         [class.fa-caret-down]="!item.collapsed"
+         (click)="onCollapseExpand()"></i>
+    </span>
+
+    <span class="d-flex flex-row align-items-start"
+          (click)="item.checked = !item.checked; onCheckedChange()">
+
+      <span class="line-number">{{ item.value.lineNo }}</span>
+
+      <tm-entity-type-badge [type]="item.value.type"></tm-entity-type-badge>
+
+      <label class="form-check-label">
+        {{ item.text }}
+
+        <div class="line-details" *ngIf="item.checked">
+          <div *ngIf="item.value.category">
+            <strong>Category: </strong> {{ item.value.category }}
+          </div>
+
+          <div *ngIf="item.value.level">
+            <strong>Level: </strong> {{ item.value.level }}
+          </div>
+        </div>
+
+      </label>
+    </span>
+  </div>
+</ng-template>
